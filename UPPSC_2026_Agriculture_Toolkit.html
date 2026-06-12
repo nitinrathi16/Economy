@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPPSC 2026 — कृषि एवं ग्रामीण अर्थव्यवस्था Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F1; --card:#FFFFFF; --ink:#21301F;
+  --green:#2D6A3F; --green-d:#1E4A2B; --green-l:#E7F1E8;
+  --gold:#C8920F; --gold-l:#FBF1D8; --gold-d:#8A6508;
+  --soil:#8C5A2B; --soil-l:#F4E9DC;
+  --red:#B23A2F; --red-l:#FBE7E4;
+  --blue:#1F5F8B; --blue-l:#E3EFF7;
+  --line:#E4DCC9; --muted:#6B7263;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:'Mukta',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:16.5px}
+h1,h2,h3,h4{font-family:'Baloo 2',cursive;line-height:1.25}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(160deg,var(--green-d) 0%,var(--green) 70%);color:#fff;padding:46px 20px 80px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:46px;background:var(--paper);clip-path:polygon(0 100%,100% 100%,100% 0,0 70%)}
+.hero-in{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.hero .tag{display:inline-block;background:var(--gold);color:#2c2102;font-weight:700;padding:4px 16px;border-radius:30px;font-size:.85rem;letter-spacing:.06em}
+.hero h1{font-size:clamp(1.9rem,4.5vw,3.1rem);margin:14px 0 6px}
+.hero p.sub{font-size:1.08rem;opacity:.92;max-width:760px}
+.hero .wheat{position:absolute;right:-20px;top:-10px;opacity:.16;width:300px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero-chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:5px 14px;border-radius:20px;font-size:.88rem}
+
+/* ===== NAV ===== */
+nav{position:sticky;top:0;background:rgba(251,248,241,.96);backdrop-filter:blur(6px);border-bottom:2px solid var(--line);z-index:50;overflow-x:auto;white-space:nowrap;padding:0 12px}
+nav .nav-in{max-width:1080px;margin:0 auto;display:flex;gap:4px}
+nav a{display:inline-block;padding:13px 13px;color:var(--green-d);text-decoration:none;font-weight:600;font-size:.9rem;border-bottom:3px solid transparent}
+nav a:hover{border-bottom-color:var(--gold);color:var(--gold-d)}
+
+/* ===== LAYOUT ===== */
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 70px}
+section{margin-bottom:54px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.sec-head .ico{font-size:2rem;background:var(--green-l);border:2px solid var(--green);width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-head h2{font-size:1.7rem;color:var(--green-d)}
+.sec-head .eng{font-size:.86rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.sec-rule{height:4px;background:repeating-linear-gradient(90deg,var(--gold) 0 22px,transparent 22px 30px);border-radius:3px;margin:10px 0 22px}
+
+/* ===== CARDS / BOXES ===== */
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(60,50,20,.05)}
+.card h3{color:var(--green);font-size:1.18rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+ul.tick{list-style:none;padding-left:0}
+ul.tick li{padding-left:26px;position:relative;margin-bottom:7px}
+ul.tick li::before{content:"🌱";position:absolute;left:0;font-size:.85rem}
+ul.dot li{margin-left:20px;margin-bottom:6px}
+.kbox{border-left:5px solid var(--gold);background:var(--gold-l);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.kbox b{color:var(--gold-d)}
+.upbox{border-left:5px solid var(--soil);background:var(--soil-l);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.upbox .uphead{font-weight:800;color:var(--soil);font-family:'Baloo 2';font-size:1.05rem;margin-bottom:4px}
+.newdata{border-left:5px solid var(--blue);background:var(--blue-l);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.newdata .nh{font-weight:800;color:var(--blue);font-family:'Baloo 2';margin-bottom:4px}
+.pill{display:inline-block;background:var(--green-l);color:var(--green-d);border:1px solid var(--green);border-radius:20px;padding:2px 12px;font-size:.82rem;font-weight:700;margin:2px 3px 2px 0}
+.pill.g{background:var(--gold-l);color:var(--gold-d);border-color:var(--gold)}
+.pill.r{background:var(--red-l);color:var(--red);border-color:var(--red)}
+
+/* ===== STATS DASH ===== */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:-46px;position:relative;z-index:5}
+.stat{background:var(--card);border:2px solid var(--line);border-top:5px solid var(--gold);border-radius:14px;padding:16px;text-align:center;box-shadow:0 4px 12px rgba(60,50,20,.08)}
+.stat .n{font-family:'Baloo 2';font-size:1.55rem;font-weight:800;color:var(--green-d)}
+.stat .l{font-size:.84rem;color:var(--muted);font-weight:600}
+.stat .e{font-size:1.5rem}
+
+/* ===== TABLES (Mandi board) ===== */
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:2px solid var(--green);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;min-width:560px}
+caption{font-family:'Baloo 2';font-weight:800;background:var(--green-d);color:#fff;padding:10px;font-size:1.02rem;caption-side:top}
+th{background:var(--green);color:#fff;padding:9px 12px;text-align:left;font-size:.9rem}
+td{padding:8px 12px;border-bottom:1px solid var(--line);font-size:.93rem}
+tr:nth-child(even) td{background:#F6F3E9}
+td.num{font-weight:700;color:var(--green-d);font-variant-numeric:tabular-nums}
+td .up{color:var(--green);font-weight:700;font-size:.83rem}
+.rank1 td:first-child::before{content:"🥇 "}
+.rank-tbl td:first-child{font-weight:700}
+
+/* ===== TIMELINE ===== */
+.tline{border-left:3px solid var(--green);margin-left:10px;padding-left:24px}
+.tline .ev{position:relative;margin-bottom:14px}
+.tline .ev::before{content:"";position:absolute;left:-31px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--gold);border:3px solid var(--green)}
+.tline .yr{font-family:'Baloo 2';font-weight:800;color:var(--green-d)}
+
+/* ===== SCHEME TEMPLATE ===== */
+.scheme{border:2px solid var(--green);border-radius:16px;overflow:hidden;margin-bottom:26px;background:#fff}
+.scheme-h{background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.scheme-h .se{font-size:2rem}
+.scheme-h h3{font-size:1.4rem}
+.scheme-h .meta{font-size:.85rem;opacity:.9}
+.scheme-b{padding:18px 22px}
+.sstep{display:flex;gap:12px;margin-bottom:13px}
+.sstep .sn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#2c2102;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.sstep h4{color:var(--green-d);font-size:1.02rem}
+.sstep p, .sstep ul{font-size:.95rem}
+
+/* ===== MCQ ===== */
+.mcq{background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:18px}
+.mcq .qn{font-family:'Baloo 2';font-weight:800;color:#fff;background:var(--green);border-radius:8px;padding:2px 12px;font-size:.85rem;display:inline-block;margin-bottom:8px}
+.mcq .q{font-weight:700;margin-bottom:10px}
+.opt{display:block;width:100%;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:9px 14px;margin-bottom:8px;font-family:'Mukta';font-size:.95rem;cursor:pointer;transition:.15s}
+.opt:hover{border-color:var(--gold);background:var(--gold-l)}
+.opt.correct{background:var(--green-l);border-color:var(--green);font-weight:700}
+.opt.wrong{background:var(--red-l);border-color:var(--red)}
+.expl{display:none;border-left:4px solid var(--green);background:var(--green-l);padding:10px 14px;border-radius:0 10px 10px 0;font-size:.92rem;margin-top:8px}
+.expl.show{display:block}
+.score-bar{background:var(--green-d);color:#fff;border-radius:14px;padding:16px 22px;text-align:center;font-family:'Baloo 2';font-size:1.15rem;margin-top:10px}
+
+footer{background:var(--green-d);color:#fff;text-align:center;padding:26px 16px;font-size:.9rem}
+footer b{color:var(--gold)}
+.src{font-size:.78rem;color:var(--muted);margin-top:6px;font-style:italic}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.flow .fb{background:var(--green-l);border:1.5px solid var(--green);border-radius:10px;padding:6px 13px;font-weight:600;font-size:.88rem}
+.flow .ar{color:var(--gold-d);font-weight:800}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <svg class="wheat" viewBox="0 0 100 200" fill="#fff"><path d="M50 200V40"/><g stroke="#fff" stroke-width="3" fill="none"><path d="M50 180 V30"/><path d="M50 50 q-22-8-26-30 q22 4 26 30z" fill="#fff"/><path d="M50 50 q22-8 26-30 q-22 4-26 30z" fill="#fff"/><path d="M50 85 q-22-8-26-30 q22 4 26 30z" fill="#fff"/><path d="M50 85 q22-8 26-30 q-22 4-26 30z" fill="#fff"/><path d="M50 120 q-22-8-26-30 q22 4 26 30z" fill="#fff"/><path d="M50 120 q22-8 26-30 q-22 4-26 30z" fill="#fff"/></g></svg>
+  <div class="hero-in">
+    <span class="tag">🎯 UPPSC 2026 • SDM TOP-10 TARGET</span>
+    <h1>🌾 कृषि एवं ग्रामीण अर्थव्यवस्था — Master Toolkit</h1>
+    <p class="sub">Indian Agriculture with UP Special Focus • Latest MSP (Rabi 2026-27 + Kharif 2025-26) • Budget 2026-27 updates • योजनाओं का Complete Analysis • 20 UPPSC-pattern MCQs</p>
+    <div class="hero-chips">
+      <span>📜 GS-III (Mains Paper-5)</span><span>🗺️ GS-VI: UP विशेष (Paper-8)</span><span>📅 Data updated: June 2026</span><span>🔎 Source: PIB / CACP / UP Govt</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<nav><div class="nav-in">
+  <a href="#structure">🏗️ संरचना</a>
+  <a href="#green">🟢 हरित क्रांति</a>
+  <a href="#land">📜 भूमि सुधार</a>
+  <a href="#irrigation">💧 सिंचाई</a>
+  <a href="#msp">💰 MSP</a>
+  <a href="#marketing">🏪 विपणन</a>
+  <a href="#pmfby">☂️ PMFBY</a>
+  <a href="#rural">🏡 ग्रामीण योजनाएँ</a>
+  <a href="#credit">🏦 कृषि साख</a>
+  <a href="#up">🗺️ UP कृषि</a>
+  <a href="#mcq">✍️ 20 MCQs</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ================= STATS DASH ================= -->
+<div class="stats">
+  <div class="stat"><div class="e">🌾</div><div class="n">₹2,585/qtl</div><div class="l">गेहूँ MSP — RMS 2026-27 (+₹160)</div></div>
+  <div class="stat"><div class="e">🍚</div><div class="n">₹2,369/qtl</div><div class="l">धान (Common) MSP — KMS 2025-26</div></div>
+  <div class="stat"><div class="e">🎋</div><div class="n">₹400/qtl</div><div class="l">UP SAP (अगेती गन्ना) 2025-26</div></div>
+  <div class="stat"><div class="e">👨‍🌾</div><div class="n">22वीं किस्त</div><div class="l">PM-KISAN — 13 मार्च 2026 (गुवाहाटी)</div></div>
+  <div class="stat"><div class="e">🆕</div><div class="n">₹95,692 cr</div><div class="l">VB-G RAM G — Budget 2026-27</div></div>
+</div>
+
+<!-- ================= 1. STRUCTURE ================= -->
+<section id="structure">
+  <div class="sec-head"><div class="ico">🏗️</div><div><div class="eng">Topic 01 · Structure</div><h2>भारतीय कृषि की संरचना — विशेषताएँ, समस्याएँ, सुधार</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>📌 Key Facts — मूल विशेषताएँ</h3>
+      <ul class="tick">
+        <li><b>आजीविका का आधार:</b> ~46% कार्यबल कृषि व सम्बद्ध क्षेत्र में; GVA में हिस्सा ~18% (असंतुलन = प्रच्छन्न बेरोजगारी)।</li>
+        <li><b>लघु एवं सीमांत प्रधान:</b> Agriculture Census 2015-16 — कुल जोतों का ~86% लघु-सीमांत (&lt;2 ha); औसत जोत आकार ≈ <b>1.08 ha</b>।</li>
+        <li><b>मानसून पर निर्भरता:</b> शुद्ध बोया क्षेत्र का लगभग आधा भाग आज भी वर्षा-आधारित (rainfed)।</li>
+        <li><b>निम्न उत्पादकता:</b> विश्व औसत से कम yield (चावल, दलहन, तिलहन में स्पष्ट अंतर)।</li>
+        <li><b>निर्वाह से व्यावसायिक की ओर:</b> खाद्यान्न-प्रधान से बागवानी, पशुपालन, मत्स्य की ओर विविधीकरण — बागवानी उत्पादन अब खाद्यान्न से अधिक।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>⚠️ प्रमुख समस्याएँ</h3>
+      <ul class="tick">
+        <li><b>जोतों का विखंडन (fragmentation)</b> — उत्तराधिकार नियमों से जोतें घटती जा रही हैं।</li>
+        <li><b>साख व बिचौलिए:</b> छोटे किसानों की संस्थागत ऋण तक सीमित पहुँच।</li>
+        <li><b>आगत लागत ↑, आय अनिश्चित:</b> उर्वरक-डीज़ल लागत बनाम मूल्य जोखिम।</li>
+        <li><b>मृदा क्षरण, गिरता भूजल</b> (विशेषकर हरित क्रांति क्षेत्र)।</li>
+        <li><b>विपणन अकुशलता</b> — भंडारण/कोल्ड चेन की कमी, post-harvest losses।</li>
+        <li><b>आय असमानता:</b> NSS SAS 2019 — कृषक परिवार की औसत मासिक आय ≈ ₹10,218 (फसल से &lt;40%)।</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔧 सुधार की दिशा (Reform Agenda)</h3>
+    <div class="flow">
+      <span class="fb">संस्थागत सुधार (भूमि)</span><span class="ar">→</span>
+      <span class="fb">तकनीकी सुधार (HYV, सिंचाई)</span><span class="ar">→</span>
+      <span class="fb">मूल्य नीति (MSP/PDS)</span><span class="ar">→</span>
+      <span class="fb">बाज़ार सुधार (e-NAM, FPO)</span><span class="ar">→</span>
+      <span class="fb">आय समर्थन (PM-KISAN) + जोखिम (PMFBY)</span>
+    </div>
+    <ul class="dot">
+      <li><b>10,000 FPO योजना (2020):</b> सामूहिक सौदेबाजी शक्ति हेतु; SFAC/NABARD/NCDC कार्यान्वयन एजेंसियाँ।</li>
+      <li><b>Agriculture Infrastructure Fund (2020):</b> ₹1 लाख करोड़ — फार्म-गेट अवसंरचना।</li>
+      <li><b>Digital Agriculture Mission (2024):</b> AgriStack, किसान ID, डिजिटल फसल सर्वेक्षण।</li>
+      <li><b>PM धन-धान्य कृषि योजना (Budget 2025-26):</b> 100 निम्न-उत्पादकता जिलों के लिए (UP के कई जिले शामिल)।</li>
+      <li><b>National Mission on Natural Farming, खाद्य तेल मिशन (तिलहन), दलहन आत्मनिर्भरता मिशन (Budget 2025-26, 6-वर्षीय)।</b></li>
+    </ul>
+  </div>
+
+  <div class="upbox"><div class="uphead">🗺️ UP Status</div>
+    UP = भारत का सबसे बड़ा <b>खाद्यान्न उत्पादक राज्य</b>; राज्य की अर्थव्यवस्था (GSVA) में कृषि का योगदान ~25% और ~59% कार्यबल कृषि-आधारित। औसत जोत ~0.73 ha (राष्ट्रीय औसत से छोटी) → विखंडन सबसे बड़ी संरचनात्मक चुनौती। UP सरकार का लक्ष्य: One Trillion Dollar Economy में कृषि क्षेत्र की प्रमुख भूमिका।</div>
+</section>
+
+<!-- ================= 2. GREEN REVOLUTION ================= -->
+<section id="green">
+  <div class="sec-head"><div class="ico">🟢</div><div><div class="eng">Topic 02 · Green Revolution</div><h2>हरित क्रांति — प्रभाव, सीमाएँ, द्वितीय हरित क्रांति</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>📌 Key Facts</h3>
+      <ul class="tick">
+        <li><b>आरंभ:</b> 1966-67 (HYVP); खरीफ 1966 में मेक्सिको से गेहूँ की बौनी किस्में।</li>
+        <li><b>जनक:</b> Norman Borlaug (विश्व); <b>M.S. Swaminathan</b> (भारत — 'Father of Indian Green Revolution'); तत्कालीन कृषि मंत्री <b>C. Subramaniam</b>।</li>
+        <li><b>घटक (Package):</b> HYV बीज + रासायनिक उर्वरक + सुनिश्चित सिंचाई + कीटनाशक + साख + MSP-खरीद (1965: कृषि मूल्य आयोग व FCI)।</li>
+        <li><b>क्षेत्र:</b> पंजाब, हरियाणा, पश्चिमी UP — मुख्यतः गेहूँ; बाद में चावल।</li>
+        <li><b>परिणाम:</b> खाद्यान्न आत्मनिर्भरता — 1950-51 के ~51 MT से बढ़कर 2024-25 में रिकॉर्ड <b>~353-354 मिलियन टन</b> (तृतीय अग्रिम अनुमान)।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>⚠️ सीमाएँ / आलोचना</h3>
+      <ul class="tick">
+        <li><b>फसल पूर्वाग्रह:</b> गेहूँ-चावल केंद्रित; दलहन-तिलहन-मोटे अनाज उपेक्षित।</li>
+        <li><b>क्षेत्रीय असमानता:</b> NW भारत बनाम पूर्वी भारत।</li>
+        <li><b>वर्गीय असमानता:</b> लाभ बड़े किसानों को अधिक (पूंजी-गहन पैकेज)।</li>
+        <li><b>पारिस्थितिक लागत:</b> भूजल दोहन (dark zones), मृदा लवणता, उर्वरक असंतुलन (NPK आदर्श 4:2:1 से विचलन), पराली समस्या।</li>
+        <li><b>जैव विविधता ह्रास</b> — देसी किस्मों का लोप।</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🌈 द्वितीय हरित क्रांति / Evergreen Revolution</h3>
+    <p><b>Evergreen Revolution</b> (शब्द: M.S. Swaminathan) = 'productivity in perpetuity without ecological harm' — उत्पादकता वृद्धि + पारिस्थितिक स्थिरता।</p>
+    <ul class="dot">
+      <li><b>लक्ष्य क्षेत्र:</b> पूर्वी भारत — योजना <b>BGREI</b> (Bringing Green Revolution to Eastern India, 2010-11): असम, बिहार, छत्तीसगढ़, झारखंड, ओडिशा, पूर्वी UP, WB (+प. बंगाल)।</li>
+      <li><b>उपकरण:</b> जैव प्रौद्योगिकी, सूक्ष्म सिंचाई, सटीक खेती (precision farming), प्राकृतिक खेती, जलवायु-समुत्थानशील किस्में, मिलेट्स (श्री अन्न — IYM 2023)।</li>
+      <li><b>संबंधित क्रांतियाँ:</b> श्वेत (दुग्ध–कुरियन), पीली (तिलहन), नीली (मत्स्य), स्वर्ण (बागवानी/शहद), गुलाबी (प्याज/झींगा), इंद्रधनुष क्रांति (NAP 2000 — समग्र)।</li>
+    </ul>
+  </div>
+
+  <div class="upbox"><div class="uphead">🗺️ UP Status</div>
+    हरित क्रांति का प्रत्यक्ष लाभ <b>पश्चिमी UP</b> (मेरठ, मुज़फ्फरनगर, सहारनपुर बेल्ट) को मिला — गेहूँ-गन्ना प्रणाली। पूर्वी UP BGREI में शामिल; भूजल संकट वाले विकासखंड पश्चिमी UP में केंद्रित → Atal Bhujal Yojana UP के बुंदेलखंड/पश्चिमी जिलों में लागू।</div>
+</section>
+
+<!-- ================= 3. LAND REFORMS ================= -->
+<section id="land">
+  <div class="sec-head"><div class="ico">📜</div><div><div class="eng">Topic 03 · Land Reforms</div><h2>भारत में भूमि सुधार</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="card">
+    <h3>🧭 चार स्तंभ (Components)</h3>
+    <div class="flow">
+      <span class="fb">1️⃣ मध्यस्थों (ज़मींदारी) का उन्मूलन</span>
+      <span class="fb">2️⃣ काश्तकारी सुधार (लगान नियमन, सुरक्षा, स्वामित्व)</span>
+      <span class="fb">3️⃣ भू-धारण सीमा (Ceiling)</span>
+      <span class="fb">4️⃣ चकबंदी (Consolidation) + सहकारी खेती</span>
+    </div>
+    <ul class="dot">
+      <li><b>ज़मींदारी उन्मूलन:</b> सर्वाधिक सफल घटक; प्रथम संविधान संशोधन (1951) — 9वीं अनुसूची द्वारा संरक्षण; भूमि = <b>राज्य सूची</b> विषय।</li>
+      <li><b>सीलिंग:</b> 1972 राष्ट्रीय दिशानिर्देश के बाद कठोर; क्रियान्वयन कमजोर — बेनामी हस्तांतरण।</li>
+      <li><b>चकबंदी:</b> पंजाब, हरियाणा, <b>पश्चिमी UP</b> में सर्वाधिक सफल।</li>
+      <li><b>भूदान-ग्रामदान:</b> विनोबा भावे, 1951 (पोचमपल्ली, तेलंगाना से आरंभ)।</li>
+      <li><b>आधुनिक चरण:</b> Forest Rights Act 2006, Model Land Leasing Act (NITI, 2016), <b>SVAMITVA (2020)</b> — ड्रोन से आबादी भूमि का सर्वे व प्रॉपर्टी कार्ड, Digital India Land Records Modernization Programme (DILRMP) — <b>भू-आधार/ULPIN</b> (14-अंकीय)।</li>
+    </ul>
+  </div>
+
+  <div class="upbox"><div class="uphead">🗺️ UP Status (GS-VI में सीधा topic: "भूमि सुधार और UP में प्रभाव")</div>
+    <ul class="dot">
+      <li><b>UP Zamindari Abolition & Land Reforms Act, 1950</b> (लागू 1952) — G.B. Pant सरकार; देश के अग्रणी कानूनों में।</li>
+      <li><b>UP Imposition of Ceiling on Land Holdings Act, 1960</b> (संशोधन 1972)।</li>
+      <li><b>चकबंदी:</b> UP Consolidation of Holdings Act, <b>1953</b> — UP चकबंदी में अग्रणी राज्य।</li>
+      <li><b>UP Revenue Code, 2006</b> (लागू 2016) — सभी पुराने भू-राजस्व कानूनों का एकीकरण।</li>
+      <li>डिजिटल पहल: भूलेख पोर्टल, खसरा-खतौनी ऑनलाइन, घरौनी (SVAMITVA प्रॉपर्टी कार्ड — UP वितरण में अग्रणी), Anti-Bhu Mafia Task Force।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 4. IRRIGATION ================= -->
+<section id="irrigation">
+  <div class="sec-head"><div class="ico">💧</div><div><div class="eng">Topic 04 · Irrigation</div><h2>सिंचाई — प्रकार, प्रमुख परियोजनाएँ, जल प्रबंधन</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>📌 Key Facts</h3>
+      <ul class="tick">
+        <li><b>स्रोत-वार हिस्सेदारी (भारत):</b> नलकूप/कूप ~62% &gt; नहरें ~24% &gt; तालाब ~3% &gt; अन्य।</li>
+        <li><b>सिंचाई दक्षता:</b> सतही ~35-40%, ड्रिप ~90% → 'Per Drop More Crop'।</li>
+        <li>कृषि देश के मीठे जल का <b>~80-85%</b> उपयोग करती है; धान-गन्ना सर्वाधिक जल-गहन।</li>
+        <li><b>वर्गीकरण:</b> वृहद (&gt;10,000 ha CCA), मध्यम (2,000–10,000 ha), लघु (&lt;2,000 ha)।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🏗️ प्रमुख योजनाएँ / परियोजनाएँ</h3>
+      <ul class="tick">
+        <li><b>PMKSY (2015):</b> 'हर खेत को पानी' — घटक: AIBP, हर खेत को पानी, Per Drop More Crop, Watershed Development।</li>
+        <li><b>Atal Bhujal Yojana (2019):</b> 7 राज्यों (UP सहित) में सामुदायिक भूजल प्रबंधन — World Bank सहायता।</li>
+        <li><b>नदी-जोड़ो:</b> <b>केन-बेतवा लिंक</b> — प्रथम परियोजना; शिलान्यास 25 दिसंबर 2024 (खजुराहो, MP) — बुंदेलखंड (MP+UP) को लाभ; दौधन बाँध।</li>
+        <li><b>राष्ट्रीय प्रमुख:</b> भाखड़ा-नांगल (सतलज), सरदार सरोवर (नर्मदा), हीराकुंड (महानदी — सबसे लंबा बाँध), टिहरी (भागीरथी — सबसे ऊँचा), नागार्जुन सागर (कृष्णा)।</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="upbox"><div class="uphead">🗺️ UP Status — सिंचाई (GS-VI hot zone)</div>
+    <ul class="dot">
+      <li>UP का <b>शुद्ध सिंचित क्षेत्र देश में सर्वाधिक</b>; सिंचाई तीव्रता ~80%+; प्रमुख स्रोत: <b>नलकूप (~75-80%)</b>, फिर नहरें।</li>
+      <li><b>सरयू नहर राष्ट्रीय परियोजना:</b> उद्घाटन दिसंबर 2021 (बलरामपुर) — ~6,200 km नहरें, पूर्वी UP के 9 जिले, 5 नदियाँ (घाघरा, सरयू, राप्ती, बाणगंगा, रोहिणी) जुड़ीं।</li>
+      <li><b>बाणसागर परियोजना</b> (सोन नदी; MP-UP-बिहार; उद्घाटन 2018 — मिर्जापुर/प्रयागराज को लाभ), <b>अर्जुन सहायक</b> (2021, बुंदेलखंड — महोबा/हमीरपुर/बांदा)।</li>
+      <li>ऐतिहासिक नहरें: <b>ऊपरी गंगा नहर (1854, हरिद्वार से)</b>, निचली गंगा नहर, शारदा नहर (UP की सबसे लंबी प्रणालियों में), आगरा नहर, बेतवा नहर; <b>शारदा सहायक</b> व <b>गंडक</b> परियोजनाएँ पूर्वी-मध्य UP।</li>
+      <li><b>केन-बेतवा लिंक:</b> UP के झाँसी, ललितपुर, महोबा, बांदा को सिंचाई+पेयजल।</li>
+      <li>UP Atal Bhujal Yojana: 10 जिलों (बुंदेलखंड + पश्चिमी UP) के चिन्हित ब्लॉकों में।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 5. MSP ================= -->
+<section id="msp">
+  <div class="sec-head"><div class="ico">💰</div><div><div class="eng">Topic 05 · MSP — Highest Weightage</div><h2>न्यूनतम समर्थन मूल्य (MSP) — तंत्र + Latest Prices</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="card">
+    <h3>⚙️ Mechanism — कैसे तय होता है?</h3>
+    <div class="flow">
+      <span class="fb">CACP सिफ़ारिश (1965 स्थापित; सांविधिक नहीं)</span><span class="ar">→</span>
+      <span class="fb">राज्यों/मंत्रालयों से परामर्श</span><span class="ar">→</span>
+      <span class="fb">CCEA (PM अध्यक्षता) अनुमोदन</span><span class="ar">→</span>
+      <span class="fb">FCI/NAFED/CCI द्वारा खरीद</span>
+    </div>
+    <ul class="dot">
+      <li><b>कवरेज:</b> CACP <b>22 अधिदेशित फसलों</b> का MSP + गन्ने का <b>FRP</b> सुझाता है = 23। (14 खरीफ + 6 रबी + 2 वाणिज्यिक: जूट, खोपरा)। Toria व de-husked coconut का MSP व्युत्पन्न → कुल घोषित 25।</li>
+      <li><b>लागत संकल्पनाएँ:</b> A2 (नकद व्यय) | A2+FL (+पारिवारिक श्रम) | C2 (समग्र — भूमि का किराया+पूंजी ब्याज सहित)। <b>Budget 2018-19 से MSP ≥ 1.5 × A2+FL</b>। स्वामीनाथन आयोग (NCF 2004-06) की माँग: C2+50%।</li>
+      <li><b>FRP (गन्ना):</b> Sugarcane (Control) Order 1966 के अंतर्गत — <b>एकमात्र सांविधिक मूल्य</b>; राज्य SAP अलग से घोषित कर सकते हैं (UP, हरियाणा, पंजाब, उत्तराखंड)।</li>
+      <li><b>MSP की सीमाएँ:</b> खरीद धान-गेहूँ केंद्रित; Shanta Kumar समिति (2015) — केवल ~6% किसानों को प्रत्यक्ष लाभ; कानूनी गारंटी की माँग (किसान आंदोलन)।</li>
+      <li><b>PM-AASHA (2018):</b> PSS + PDPS (भावांतर) + PPSS; 2024 में एकीकृत व विस्तारित — दलहन/तिलहन की 100% खरीद की अनुमति (तूर, उड़द, मसूर)।</li>
+    </ul>
+  </div>
+
+  <div class="newdata"><div class="nh">🔎 Latest Data (Web-verified, PIB)</div>
+  <b>रबी RMS 2026-27</b> — CCEA अनुमोदन: <b>1 अक्टूबर 2025</b>। RMS 2025-26 में 6 रबी फसलों की कुल खरीद 310 LMT; MSP मूल्य ₹79,267 करोड़। <b>खरीफ KMS 2025-26</b> — अनुमोदन: 28 मई 2025।</div>
+
+  <div class="tbl-wrap">
+  <table>
+    <caption>🌾 रबी MSP — Marketing Season 2026-27 (₹/quintal)</caption>
+    <tr><th>फसल</th><th>MSP 2026-27</th><th>वृद्धि</th><th>लागत पर मार्जिन</th></tr>
+    <tr><td>गेहूँ</td><td class="num">2,585</td><td><span class="up">▲ ₹160</span></td><td><b>109%</b> (सर्वाधिक)</td></tr>
+    <tr><td>जौ (Barley)</td><td class="num">2,150</td><td><span class="up">▲ ₹170</span></td><td>58%</td></tr>
+    <tr><td>चना (Gram)</td><td class="num">5,875</td><td><span class="up">▲ ₹225</span></td><td>59%</td></tr>
+    <tr><td>मसूर (Lentil)</td><td class="num">7,000</td><td><span class="up">▲ ₹300</span></td><td>89%</td></tr>
+    <tr><td>सरसों (Rapeseed-Mustard)</td><td class="num">6,200</td><td><span class="up">▲ ₹250</span></td><td>93%</td></tr>
+    <tr><td>कुसुम (Safflower)</td><td class="num">6,540</td><td><span class="up">▲ ₹600 (सर्वाधिक वृद्धि)</span></td><td>50%</td></tr>
+  </table>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <caption>🍚 प्रमुख खरीफ MSP — Marketing Season 2025-26 (₹/quintal)</caption>
+    <tr><th>फसल</th><th>MSP 2025-26</th><th>वृद्धि</th><th>Exam Point</th></tr>
+    <tr><td>धान (Common / Grade-A)</td><td class="num">2,369 / 2,389</td><td><span class="up">▲ ₹69</span></td><td>मार्जिन 50%</td></tr>
+    <tr><td>ज्वार (Hybrid / Maldandi)</td><td class="num">3,699 / 3,749</td><td><span class="up">▲ ₹328</span></td><td>—</td></tr>
+    <tr><td>बाजरा</td><td class="num">2,775</td><td><span class="up">▲ ₹150</span></td><td><b>सर्वाधिक मार्जिन 63%</b></td></tr>
+    <tr><td>रागी</td><td class="num">4,886</td><td><span class="up">▲ ₹596</span></td><td>श्री अन्न push</td></tr>
+    <tr><td>मक्का</td><td class="num">2,400</td><td><span class="up">▲ ₹175</span></td><td>एथेनॉल माँग</td></tr>
+    <tr><td>तूर/अरहर</td><td class="num">8,000</td><td><span class="up">▲ ₹450</span></td><td>दलहन push</td></tr>
+    <tr><td>मूँग</td><td class="num">8,768</td><td><span class="up">▲ ₹86</span></td><td>खरीफ में सर्वोच्च MSP</td></tr>
+    <tr><td>उड़द</td><td class="num">7,800</td><td><span class="up">▲ ₹400</span></td><td>—</td></tr>
+    <tr><td>कपास (Medium / Long staple)</td><td class="num">7,710 / 8,110</td><td><span class="up">▲ ₹589</span></td><td>—</td></tr>
+    <tr><td>नाइजर सीड (रामतिल)</td><td class="num">—</td><td><span class="up">▲ ₹820 (सर्वाधिक वृद्धि)</span></td><td>तिलहन push</td></tr>
+  </table>
+  </div>
+
+  <div class="grid2">
+    <div class="kbox"><b>🎋 गन्ना FRP:</b> Sugar Season <b>2025-26</b> = <b>₹355/qtl</b> (▲₹15; 10.25% recovery पर; लागत ₹173 पर 105.2% अधिक)। Sugar Season <b>2026-27</b> = <b>₹365/qtl</b> (▲2.81%)। प्रत्येक +0.1% recovery पर प्रीमियम।</div>
+    <div class="upbox"><div class="uphead">🗺️ UP SAP 2025-26 (अक्टूबर 2025 घोषणा — बड़ा करेंट अफेयर)</div>
+      अगेती किस्म <b>₹400</b> | सामान्य <b>₹390</b> | अनुपयुक्त <b>₹355</b> — ▲₹30/qtl (2017 के बाद सबसे बड़ी वृद्धि)। लाभ: ~46 लाख गन्ना किसान, अतिरिक्त आय ~₹3,000 करोड़; गन्ना क्षेत्र 20 → 29.51 लाख ha। Smart Ganna Kisan पोर्टल से पर्ची/भुगतान DBT।</div>
+  </div>
+</section>
+
+<!-- ================= 6. MARKETING ================= -->
+<section id="marketing">
+  <div class="sec-head"><div class="ico">🏪</div><div><div class="eng">Topic 06 · Agricultural Marketing</div><h2>कृषि विपणन — APMC, e-NAM, सुधार</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>🏛️ APMC व्यवस्था</h3>
+      <ul class="tick">
+        <li>कृषि विपणन = <b>राज्य सूची</b>; राज्य APMC Acts के अंतर्गत विनियमित मंडियाँ।</li>
+        <li><b>दोष:</b> बिचौलिए/आढ़ती वर्चस्व, उच्च मंडी शुल्क, बाज़ार विखंडन, cartelization, लाइसेंस राज।</li>
+        <li><b>सुधार के मॉडल:</b> Model APMC Act 2003 → Model APLM Act 2017 (निजी मंडियाँ, direct marketing) → Model Contract Farming Act 2018।</li>
+        <li>2020 के तीन कृषि कानून (FPTC, Price Assurance, EC Amendment) — किसान आंदोलन के बाद <b>नवंबर 2021 में निरस्त</b>।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>💻 e-NAM (राष्ट्रीय कृषि बाज़ार)</h3>
+      <ul class="tick">
+        <li><b>लॉन्च:</b> 14 अप्रैल 2016; नोडल एजेंसी <b>SFAC</b>।</li>
+        <li>पैन-इंडिया इलेक्ट्रॉनिक ट्रेडिंग — APMC मंडियों को जोड़कर 'One Nation One Market'।</li>
+        <li>कवरेज: 1,400+ मंडियाँ, 23+ राज्य/UT; Platform of Platforms (2022) से निजी प्लेटफ़ॉर्म भी जुड़े।</li>
+        <li>शर्तें: एकल लाइसेंस, एकल-बिंदु लेवी, गुणवत्ता assaying, e-payment।</li>
+        <li>पूरक: GrAMs (ग्रामीण हाट उन्नयन), निगोशिएबल वेयरहाउस रसीद (e-NWR + WDRA 2007), ODOP-खाद्य प्रसंस्करण (PMFME)।</li>
+      </ul>
+    </div>
+  </div>
+  <div class="upbox"><div class="uphead">🗺️ UP Status</div>
+    UP में <b>सर्वाधिक e-NAM एकीकृत मंडियाँ</b> (~125+); UP State Agricultural Produce Markets Board (मंडी परिषद) — UP Krishi Utpadan Mandi Adhiniyam, <b>1964</b>। 2020 में UP ने फल-सब्जियों को मंडी शुल्क से बाहर किया व मंडी शुल्क घटाया (2% → 1%)। UP की ताकत: खाद्य प्रसंस्करण नीति + ODOP (जैसे — मलिहाबादी दशहरी आम, कालानमक चावल सिद्धार्थनगर)।</div>
+</section>
+
+<!-- ================= 7. PMFBY — FULL SCHEME TEMPLATE ================= -->
+<section id="pmfby">
+  <div class="sec-head"><div class="ico">☂️</div><div><div class="eng">Topic 07 · Scheme Deep-Dive (8-Point Template)</div><h2>PM फसल बीमा योजना (PMFBY) — Complete Analysis</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="scheme">
+    <div class="scheme-h"><span class="se">☂️</span><div><h3>PMFBY</h3><div class="meta">'One Nation One Scheme' — फसल बीमा</div></div></div>
+    <div class="scheme-b">
+      <div class="sstep"><div class="sn">1</div><div><h4>Background — समस्या</h4><p>पूर्ववर्ती NAIS/MNAIS में उच्च प्रीमियम, capping से कम claim, देरी से भुगतान। मौसम जोखिम से किसान आत्महत्या/ऋणग्रस्तता → सस्ता, तकनीक-आधारित व्यापक बीमा आवश्यक।</p></div></div>
+      <div class="sstep"><div class="sn">2</div><div><h4>Launch + Ministry</h4><p><b>18 फरवरी 2016</b> (सीहोर, MP); क्रियान्वयन खरीफ 2016 से। मंत्रालय: <b>कृषि एवं किसान कल्याण</b>। साथ में RWBCIS (मौसम-सूचकांक बीमा)।</p></div></div>
+      <div class="sstep"><div class="sn">3</div><div><h4>Key Features</h4>
+        <ul class="dot">
+          <li>किसान प्रीमियम: <b>खरीफ 2%</b>, <b>रबी 1.5%</b>, <b>वाणिज्यिक/बागवानी 5%</b> — शेष केंद्र-राज्य साझा (NE राज्यों में 90:10)।</li>
+          <li>Sum insured पर कोई capping नहीं; <b>2020 पुनर्गठन से ऋणी किसानों हेतु भी स्वैच्छिक</b>।</li>
+          <li>कवर: बुवाई-पूर्व से कटाई-उपरांत (post-harvest 14 दिन); स्थानीय आपदाएँ (ओला, जलभराव, भूस्खलन) — व्यक्तिगत खेत स्तर पर आकलन।</li>
+          <li>आधार इकाई: ग्राम/ग्राम पंचायत (प्रमुख फसलें); CCE (Crop Cutting Experiments) से उपज आकलन।</li>
+        </ul></div></div>
+      <div class="sstep"><div class="sn">4</div><div><h4>Budget + Beneficiaries (Latest)</h4><p>Cabinet (जनवरी 2025): PMFBY+RWBCIS <b>2025-26 तक जारी</b>, कुल परिव्यय <b>~₹69,515 करोड़</b> (2021-26) + <b>FIAT</b> (Fund for Innovation & Technology, ~₹824.77 करोड़)। योजना-आरंभ से किसानों को भुगतान claims ₹1.75 लाख करोड़+; किसान आवेदन प्रतिवर्ष ~4 करोड़+। विश्व की शीर्ष-3 फसल बीमा योजनाओं में।</p></div></div>
+      <div class="sstep"><div class="sn">5</div><div><h4>UP में Implementation</h4><p>UP योजना में सम्मिलित प्रमुख राज्य (कुछ राज्यों — पंजाब, बिहार, WB, तेलंगाना, झारखंड, गुजरात — के बाहर जाने के बावजूद; आंध्र 2022 में वापस आया)। UP में प्रति सीज़न लाखों किसान आवेदक; cluster-आधारित बीमा कंपनियाँ जिलावार। बुंदेलखंड (सूखा-प्रवण) में विशेष महत्व।</p></div></div>
+      <div class="sstep"><div class="sn">6</div><div><h4>Challenges + Criticism</h4>
+        <ul class="dot"><li>Claim भुगतान में विलंब (राज्य अंशदान देरी)।</li><li>बीमा कंपनियों का लाभ बनाम किसान असंतोष; कई राज्यों का exit।</li><li>CCE की गुणवत्ता/विवाद; tenant farmers का कम कवरेज; कम जागरूकता।</li></ul></div></div>
+      <div class="sstep"><div class="sn">7</div><div><h4>Recent Changes (Search-verified)</h4>
+        <ul class="dot"><li><b>YES-Tech</b> — Remote sensing से उपज आकलन (न्यूनतम 30% तकनीक भार)।</li><li><b>WINDS</b> — ब्लॉक/पंचायत स्तर स्वचालित मौसम केंद्र नेटवर्क।</li><li><b>DigiClaim</b> (NCIP पर) — स्वचालित, पारदर्शी claim भुगतान; <b>AIDE/सहायक</b> ऐप — डोर-टू-डोर नामांकन।</li><li>'Meri Policy Mere Hath' — पॉलिसी वितरण अभियान।</li></ul></div></div>
+      <div class="sstep"><div class="sn">8</div><div><h4>Impact</h4><p>किसान का ₹1 प्रीमियम बनाम औसतन ~₹5 claim अनुपात (सरकारी दावा); गैर-ऋणी/स्वैच्छिक नामांकन हिस्सेदारी बढ़ी — योजना पर भरोसे का संकेत; तकनीक से claim विवाद घटे।</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. RURAL SCHEMES ================= -->
+<section id="rural">
+  <div class="sec-head"><div class="ico">🏡</div><div><div class="eng">Topic 08 · Rural Development Schemes</div><h2>ग्रामीण विकास योजनाएँ — MGNREGA, PMAY-G, PM-KISAN</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="newdata"><div class="nh">🚨 Budget 2026-27 का सबसे बड़ा बदलाव (UPPSC 2026 के लिए अनिवार्य)</div>
+  <b>VB-G RAM G</b> (Viksit Bharat – Guarantee for Rozgar and Ajeevika Mission, Gramin) Act 2025 — MGNREGA का स्थान लेने हेतु नई योजना। Budget 2026-27: VB-G RAM G को <b>₹95,692 करोड़</b>; MGNREGA को transition हेतु <b>₹30,000 करोड़</b> (2025-26 में ₹86,000 करोड़ था)। नई funding pattern: केंद्र <b>60:40</b> (NE/हिमालयी राज्यों में 90:10) — जबकि MGNREGA में मजदूरी का 100% केंद्र देता था। राज्यों को संक्रमण हेतु 6 माह।</div>
+
+  <div class="scheme">
+    <div class="scheme-h"><span class="se">⛏️</span><div><h3>MGNREGA (2005)</h3><div class="meta">विधिक रोजगार गारंटी • ग्रामीण विकास मंत्रालय</div></div></div>
+    <div class="scheme-b">
+      <ul class="tick">
+        <li><b>कानून:</b> NREGA 2005 — लागू <b>2 फरवरी 2006</b>, <b>अनंतपुर (आंध्र प्रदेश)</b> से (200 जिले); 1 अप्रैल 2008 से पूरे देश में; 2009 में 'महात्मा गांधी' नाम जुड़ा। <i>Trap:</i> शुभारंभ-स्थल UP नहीं है।</li>
+        <li><b>अधिकार:</b> प्रत्येक ग्रामीण परिवार के वयस्कों को वर्ष में <b>100 दिन</b> अकुशल मजदूरी रोजगार की <b>कानूनी गारंटी</b>; 15 दिन में काम न मिलने पर <b>बेरोजगारी भत्ता</b> (राज्य वहन); 5 km से दूर कार्य पर 10% अतिरिक्त मजदूरी।</li>
+        <li><b>विशेष:</b> ⅓ महिला भागीदारी अनिवार्य (वास्तविक ~55-59%); मजदूरी CPI-AL से अनुक्रमित (धारा 6(1)); सोशल ऑडिट (धारा 17) — ग्राम सभा द्वारा; demand-driven योजना।</li>
+        <li><b>आलोचना:</b> बजट को 'demand suppression', मजदूरी भुगतान विलंब, ABPS (Aadhaar Payment) अनिवार्यता से exclusion, फर्जी जॉब कार्ड।</li>
+      </ul>
+      <div class="upbox"><div class="uphead">🗺️ UP</div>UP में सर्वाधिक सक्रिय जॉब कार्डधारी राज्यों में; अमृत सरोवर मिशन (मई 2022 — प्रत्येक जिले में 75 तालाब) में MGNREGA अभिसरण से UP अग्रणी।</div>
+    </div>
+  </div>
+
+  <div class="scheme">
+    <div class="scheme-h"><span class="se">👨‍🌾</span><div><h3>PM-KISAN (2019)</h3><div class="meta">आय समर्थन • कृषि मंत्रालय • Central Sector (100% केंद्र)</div></div></div>
+    <div class="scheme-b">
+      <div class="grid2">
+        <ul class="tick">
+          <li><b>लॉन्च:</b> 24 फरवरी 2019 (गोरखपुर, UP से!); प्रभावी 1 दिसंबर 2018।</li>
+          <li><b>लाभ:</b> ₹6,000/वर्ष — तीन किस्तें ₹2,000 (DBT); अब सभी भू-धारक किसान परिवार (पहले केवल ≤2 ha)।</li>
+          <li><b>अपवर्जन:</b> आयकरदाता, संस्थागत भूमिधारक, संवैधानिक पदधारी, सेवारत/सेवानिवृत्त (₹10,000+ पेंशन) कर्मी, डॉक्टर-वकील-CA आदि।</li>
+          <li>शर्तें: e-KYC + आधार-बैंक सीडिंग + भू-अभिलेख सत्यापन।</li>
+        </ul>
+        <ul class="tick">
+          <li><b>21वीं किस्त:</b> 19 नवंबर 2025, कोयंबटूर से — ~₹18,000 करोड़, ~9 करोड़ किसान।</li>
+          <li><b>22वीं किस्त:</b> 13 मार्च 2026, गुवाहाटी (असम) से।</li>
+          <li><b>संचयी:</b> 21 किस्तों में <b>₹4.09 लाख करोड़+</b>, 11 करोड़+ किसान परिवार — विश्व की सबसे बड़ी DBT योजनाओं में; ~25% लाभ महिला किसानों को।</li>
+          <li>Budget 2026-27 आवंटन ~₹60,000 करोड़ के स्तर पर।</li>
+        </ul>
+      </div>
+      <div class="upbox"><div class="uphead">🗺️ UP</div><b>UP = PM-KISAN का सबसे बड़ा लाभार्थी राज्य</b> (~2.5 करोड़+ किसान परिवार) — गोरखपुर से ही योजना लॉन्च; 20वीं किस्त (2 अगस्त 2025) वाराणसी से जारी हुई थी।</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>🏠 PMAY-Grameen (2016)</h3>
+      <ul class="tick">
+        <li>इंदिरा आवास योजना का पुनर्गठन; लॉन्च <b>20 नवंबर 2016 (आगरा, UP)</b>; लक्ष्य 'Housing for All'।</li>
+        <li>इकाई सहायता: मैदानी ₹1.20 लाख; पहाड़ी/IAP ₹1.30 लाख; + MGNREGA से 90-95 दिन श्रम + SBM/उज्ज्वला अभिसरण; न्यूनतम क्षेत्रफल 25 m²।</li>
+        <li>साझेदारी 60:40 (NE/हिमालयी 90:10); चयन SECC-2011 + आवास+ सूची; <b>विस्तार: 2024-29 में 2 करोड़ अतिरिक्त घर</b> (कुल लक्ष्य ~4.95 करोड़)।</li>
+        <li><b>UP:</b> सर्वाधिक स्वीकृत/पूर्ण आवासों वाले राज्यों में शीर्ष पर।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🧺 अन्य ग्रामीण योजनाएँ (one-liners)</h3>
+      <ul class="tick">
+        <li><b>DAY-NRLM (2011):</b> SHG-आधारित आजीविका; <b>लखपति दीदी</b> लक्ष्य 3 करोड़ (UP में सर्वाधिक SHG सदस्य)।</li>
+        <li><b>PMGSY (2000):</b> ग्रामीण सड़क संपर्क; PMGSY-IV (2024-29) — 25,000 नई बसावटें।</li>
+        <li><b>NSAP, SPMRM (रुर्बन), SAGY</b> (सांसद आदर्श ग्राम), <b>Jal Jeevan Mission (2019)</b> — हर घर नल।</li>
+        <li><b>SVAMITVA (2020):</b> UP पायलट राज्यों में; घरौनी वितरण में अग्रणी।</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 9. CREDIT ================= -->
+<section id="credit">
+  <div class="sec-head"><div class="ico">🏦</div><div><div class="eng">Topic 09 · Agricultural Credit</div><h2>कृषि साख — NABARD, KCC, ब्याज अनुदान</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>🏛️ NABARD (1982)</h3>
+      <ul class="tick">
+        <li>स्थापना <b>12 जुलाई 1982</b> — <b>B. Sivaraman समिति</b> (CRAFICARD) की सिफारिश; मुख्यालय मुंबई; अब <b>100% भारत सरकार स्वामित्व</b>।</li>
+        <li>कार्य: ग्रामीण साख का शीर्ष पुनर्वित्त (refinance) संस्थान; RRB/सहकारी बैंकों का पर्यवेक्षण; <b>RIDF</b> (1995-96) का प्रबंधन; SHG-Bank Linkage (1992) का जनक।</li>
+        <li>निधियाँ: RIDF, माइक्रो इरिगेशन फंड, DIDF (डेयरी), FIDF (मत्स्य), Agri-Infra Fund की निगरानी।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>💳 Kisan Credit Card (1998)</h3>
+      <ul class="tick">
+        <li>आरंभ 1998-99 — <b>R.V. Gupta समिति</b> की सिफारिश; मॉडल: NABARD।</li>
+        <li>फसल + सम्बद्ध (पशुपालन-मत्स्य 2019 से) + उपभोग आवश्यकताओं हेतु revolving cash credit; RuPay KCC।</li>
+        <li><b>MISS (संशोधित ब्याज अनुदान योजना):</b> ₹3 लाख तक 7% पर ऋण (1.5% ब्याज अनुदान बैंक को) + समय पर भुगतान पर 3% PRI = प्रभावी <b>4%</b>।</li>
+        <li><b>Budget 2025-26:</b> KCC ऋण सीमा (MISS हेतु) ₹3 लाख → <b>₹5 लाख</b>; KCC संतृप्ति अभियान (घर-घर KCC)।</li>
+        <li>संस्थागत साख संरचना: वाणिज्यिक बैंक (~75%) &gt; सहकारी &gt; RRB; ग्रामीण सहकारी ढांचा: PACS → DCCB → StCB (PACS कम्प्यूटरीकरण योजना जारी)।</li>
+      </ul>
+    </div>
+  </div>
+  <div class="kbox"><b>📈 Ground Level Credit लक्ष्य:</b> कृषि ऋण लक्ष्य लगातार बढ़ा — 2024-25 में ₹27.5 लाख करोड़ के स्तर पर; प्राथमिकता क्षेत्र (PSL) में कृषि हेतु 18% (SMF हेतु 10% उप-लक्ष्य)। समस्या: क्षेत्रीय असमानता व काश्तकार किसानों (tenant) की पहुँच — समाधान हेतु Bhoomi Heen Kisan/JLG मॉडल।</div>
+  <div class="upbox"><div class="uphead">🗺️ UP</div>UP में सर्वाधिक KCC खातों वाले राज्यों में शीर्ष पर; सहकारी ढांचा — UP Cooperative Bank + जिला सहकारी बैंक + ~7,500 B-PACS/बहुउद्देश्यीय समितियाँ (M-PACS रूपांतरण जारी)।</div>
+</section>
+
+<!-- ================= 10. UP AGRICULTURE ================= -->
+<section id="up">
+  <div class="sec-head"><div class="ico">🗺️</div><div><div class="eng">Topic 10 · UP Special — GS-VI Core</div><h2>उत्तर प्रदेश की कृषि — फसलें, जिले, रैंकिंग</h2></div></div>
+  <div class="sec-rule"></div>
+
+  <div class="tbl-wrap">
+  <table class="rank-tbl">
+    <caption>🏆 भारत में UP की रैंक — Exam-Ready Table</caption>
+    <tr><th>उत्पाद</th><th>UP की रैंक</th><th>स्मरणीय तथ्य / प्रतिस्पर्धी राज्य</th></tr>
+    <tr class="rank1"><td>गेहूँ</td><td class="num">पहला</td><td>देश का ~30%+; उसके बाद MP, पंजाब</td></tr>
+    <tr class="rank1"><td>गन्ना व चीनी</td><td class="num">पहला (गन्ना)</td><td>चीनी में महाराष्ट्र से वर्षवार प्रतिस्पर्धा; देश के गन्ने का ~45-48%; सर्वाधिक मिलें (~120)</td></tr>
+    <tr class="rank1"><td>आलू</td><td class="num">पहला</td><td>~30%; आगरा-फर्रुखाबाद-कन्नौज बेल्ट; फिर WB</td></tr>
+    <tr class="rank1"><td>दुग्ध</td><td class="num">पहला</td><td>~15-16%; फिर राजस्थान</td></tr>
+    <tr class="rank1"><td>आम</td><td class="num">पहला</td><td>दशहरी (मलिहाबाद-GI), चौसा, लंगड़ा (वाराणसी-GI)</td></tr>
+    <tr class="rank1"><td>कुल खाद्यान्न</td><td class="num">पहला</td><td>फिर MP, पंजाब</td></tr>
+    <tr class="rank1"><td>कुल सब्जियाँ</td><td class="num">पहला (हाल के वर्षों में)</td><td>WB से आगे निकला (वर्षवार बदलता है — current affairs देखें)</td></tr>
+    <tr><td>चावल</td><td class="num">दूसरा</td><td>पश्चिम बंगाल प्रथम</td></tr>
+    <tr><td>आँवला</td><td class="num">पहला</td><td>प्रतापगढ़ प्रसिद्ध</td></tr>
+    <tr><td>मटर</td><td class="num">पहला</td><td>जालौन आदि बुंदेलखंड-निकट क्षेत्र</td></tr>
+  </table>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>📍 फसल-जिला Mapping</h3>
+      <ul class="tick">
+        <li><b>गन्ना बेल्ट (पश्चिमी UP):</b> मुज़फ्फरनगर, मेरठ, बिजनौर, सहारनपुर, शामली, बागपत, लखीमपुर खीरी (क्षेत्रफल में अग्रणी)।</li>
+        <li><b>आलू:</b> आगरा, फिरोज़ाबाद, फर्रुखाबाद, कन्नौज, मैनपुरी।</li>
+        <li><b>आम:</b> लखनऊ (मलिहाबाद), सहारनपुर, बुलंदशहर, वाराणसी।</li>
+        <li><b>धान/कालानमक:</b> सिद्धार्थनगर (कालानमक — GI; ODOP), तराई जिले।</li>
+        <li><b>दलहन:</b> बुंदेलखंड (बांदा, हमीरपुर, झाँसी — चना/मसूर/अरहर)।</li>
+        <li><b>अफीम:</b> बाराबंकी-गाज़ीपुर (लाइसेंसी); <b>केसर नहीं</b> — common trap!</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🌿 UP कृषि — विविध तथ्य</h3>
+      <ul class="tick">
+        <li>कृषि-जलवायु क्षेत्र: UP में <b>9 agro-climatic zones</b> (भाबर-तराई से बुंदेलखंड तक)।</li>
+        <li>फसल तीव्रता ~160%+; शुद्ध बोया क्षेत्र देश में सर्वाधिक श्रेणी में।</li>
+        <li><b>GI Tags (कृषि):</b> मलिहाबादी दशहरी, बनारसी लंगड़ा, कालानमक चावल, प्रतापगढ़ी आँवला (ODOP सूची याद रखें)।</li>
+        <li>नीतियाँ: UP कृषि निर्यात नीति 2019, गो-आधारित प्राकृतिक खेती (बुंदेलखंड — गंगा किनारे), मिलेट्स पुनरोद्धार कार्यक्रम, UP Agrees (विश्व बैंक — पूर्वी UP व बुंदेलखंड)।</li>
+        <li>एथेनॉल उत्पादन में UP अग्रणी राज्य (गन्ना आधारित डिस्टिलरीज़)।</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 11. MCQs ================= -->
+<section id="mcq">
+  <div class="sec-head"><div class="ico">✍️</div><div><div class="eng">Practice · UPPSC Pattern</div><h2>20 MCQs — कृषि एवं ग्रामीण अर्थव्यवस्था</h2></div></div>
+  <div class="sec-rule"></div>
+  <p style="margin-bottom:14px">विकल्प पर क्लिक करें — सही उत्तर हरा, गलत लाल; प्रत्येक के साथ व्याख्या। 🎯</p>
+  <div id="quiz"></div>
+  <div class="score-bar" id="scorebar">Score: 0 / 20</div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  🌾 <b>UPPSC 2026 Agriculture Toolkit</b> • Data verified June 2026 (PIB, CACP, UP Govt announcements) • रणनीति: Static concepts + Latest data + UP angle = Top-10 answer<br>
+  <span style="opacity:.75;font-size:.82rem">MSP/किस्त/बजट आँकड़े परीक्षा से पहले एक बार पुनः verify करें — ये वर्षवार बदलते हैं।</span>
+</footer>
+
+<script>
+const QUIZ=[
+{q:"रबी विपणन सीज़न (RMS) 2026-27 हेतु गेहूँ का MSP कितना निर्धारित किया गया है?",o:["₹2,425 प्रति क्विंटल","₹2,585 प्रति क्विंटल","₹2,700 प्रति क्विंटल","₹2,369 प्रति क्विंटल"],a:1,e:"CCEA (1 अक्टूबर 2025) ने गेहूँ MSP ₹2,585/qtl (▲₹160) तय किया — लागत पर 109% मार्जिन (रबी में सर्वाधिक)। ₹2,369 धान (Common) का खरीफ 2025-26 MSP है।"},
+{q:"RMS 2026-27 में किस रबी फसल के MSP में सर्वाधिक निरपेक्ष वृद्धि हुई?",o:["मसूर","सरसों","कुसुम (Safflower)","चना"],a:2,e:"कुसुम में ▲₹600/qtl (₹6,540) — सर्वाधिक; उसके बाद मसूर ▲₹300 (₹7,000)। तिलहन-दलहन को प्राथमिकता = आयात निर्भरता घटाने की रणनीति।"},
+{q:"खरीफ विपणन सीज़न 2025-26 में लागत पर सर्वाधिक मार्जिन किस फसल में है?",o:["धान","बाजरा","मक्का","मूँग"],a:1,e:"बाजरा — 63% मार्जिन (MSP ₹2,775)। धान में 50%। मूँग का MSP (₹8,768) खरीफ फसलों में सर्वोच्च है, पर मार्जिन नहीं।"},
+{q:"गन्ने का FRP किस आदेश/कानून के अंतर्गत घोषित होता है?",o:["Essential Commodities Act, 1955 के Sugarcane (Control) Order, 1966","APMC Act","NFSA, 2013","Sugar Development Fund Act"],a:0,e:"FRP, EC Act 1955 के अंतर्गत Sugarcane (Control) Order 1966 से तय होता है — यह एकमात्र सांविधिक (statutory) कृषि मूल्य है। Sugar Season 2026-27 हेतु FRP ₹365/qtl (10.25% recovery)।"},
+{q:"UP सरकार द्वारा 2025-26 पेराई सत्र हेतु अगेती गन्ना किस्म का SAP कितना है?",o:["₹370 प्रति क्विंटल","₹390 प्रति क्विंटल","₹400 प्रति क्विंटल","₹355 प्रति क्विंटल"],a:2,e:"अक्टूबर 2025 में ▲₹30 की वृद्धि — अगेती ₹400, सामान्य ₹390, अनुपयुक्त ₹355। लाभ ~46 लाख किसानों को ~₹3,000 करोड़ अतिरिक्त।"},
+{q:"MSP को 'उत्पादन लागत का कम-से-कम 1.5 गुना' रखने की घोषणा किस लागत संकल्पना पर आधारित है?",o:["A2","A2+FL","C2","C3"],a:1,e:"Budget 2018-19 से MSP ≥ 1.5×(A2+FL)। स्वामीनाथन आयोग ने C2+50% की सिफारिश की थी — यही किसान संगठनों की माँग व विवाद का केंद्र है।"},
+{q:"CACP के संदर्भ में सही कथन चुनिए: 1. यह एक सांविधिक निकाय है। 2. यह 22 फसलों के MSP व गन्ने के FRP की सिफारिश करता है। 3. MSP का अंतिम निर्णय CCEA करती है।",o:["केवल 1 और 2","केवल 2 और 3","केवल 1 और 3","1, 2 और 3"],a:1,e:"CACP (1965) सांविधिक नहीं — कृषि मंत्रालय का संलग्न कार्यालय है। यह 22+FRP की सिफारिश करता है; अनुमोदन CCEA करती है।"},
+{q:"e-NAM की नोडल कार्यान्वयन एजेंसी कौन है?",o:["NAFED","FCI","SFAC","NABARD"],a:2,e:"Small Farmers' Agribusiness Consortium (SFAC) — e-NAM (लॉन्च 14 अप्रैल 2016) की नोडल एजेंसी; UP में सर्वाधिक एकीकृत मंडियाँ।"},
+{q:"PMFBY में रबी फसलों हेतु किसान द्वारा देय अधिकतम प्रीमियम दर क्या है?",o:["1%","1.5%","2%","5%"],a:1,e:"खरीफ 2%, रबी 1.5%, वाणिज्यिक/बागवानी 5%। 2020 पुनर्गठन से योजना सभी हेतु स्वैच्छिक; YES-Tech, WINDS, DigiClaim नई तकनीकी पहलें।"},
+{q:"PM-KISAN की 22वीं किस्त (13 मार्च 2026) कहाँ से जारी की गई?",o:["वाराणसी","कोयंबटूर","गुवाहाटी","गोरखपुर"],a:2,e:"22वीं किस्त गुवाहाटी (असम) से; 21वीं (19 नवंबर 2025) कोयंबटूर से — ₹18,000 करोड़, ~9 करोड़ किसान। योजना का शुभारंभ 24 फरवरी 2019 को गोरखपुर (UP) से हुआ था।"},
+{q:"Budget 2026-27 में MGNREGA के स्थान पर प्रस्तावित नई योजना कौन-सी है?",o:["PM गरीब कल्याण रोजगार योजना","VB-G RAM G (विकसित भारत – गारंटी फॉर रोज़गार एंड आजीविका मिशन, ग्रामीण)","दीनदयाल अंत्योदय योजना 2.0","श्रमेव जयते मिशन"],a:1,e:"VB-G RAM G Act 2025 — Budget 2026-27 में ₹95,692 करोड़; MGNREGA को transition हेतु ₹30,000 करोड़। नई funding: केंद्र-राज्य 60:40 (NE/हिमालयी 90:10)।"},
+{q:"MGNREGA के अंतर्गत मजदूरी दरें किस सूचकांक से अनुक्रमित (indexed) होती हैं?",o:["CPI-IW","CPI-AL","WPI","CPI-Rural"],a:1,e:"धारा 6(1) के अंतर्गत मजदूरी CPI-AL (Agricultural Labourers) आधार पर अधिसूचित होती है। 100 दिन की कानूनी गारंटी; 15 दिन में काम नहीं तो बेरोजगारी भत्ता (राज्य वहन करता है)।"},
+{q:"NABARD की स्थापना किस समिति की सिफारिश पर हुई?",o:["नरसिम्हम समिति","B. Sivaraman समिति (CRAFICARD)","R.V. Gupta समिति","वैद्यनाथन समिति"],a:1,e:"CRAFICARD/B. Sivaraman समिति → NABARD (12 जुलाई 1982)। R.V. Gupta समिति ने KCC (1998) की सिफारिश की थी — दोनों का जोड़ा बनाकर याद रखें।"},
+{q:"Budget 2025-26 में संशोधित ब्याज अनुदान योजना (MISS) हेतु KCC ऋण सीमा कितनी की गई?",o:["₹3 लाख","₹4 लाख","₹5 लाख","₹10 लाख"],a:2,e:"₹3 लाख → ₹5 लाख। प्रभावी ब्याज दर समय पर भुगतान करने वाले किसान हेतु 4% (7% − 3% PRI)।"},
+{q:"'Evergreen Revolution' की अवधारणा किसने दी?",o:["नॉर्मन बोरलॉग","M.S. स्वामीनाथन","वर्गीज़ कुरियन","C. सुब्रमण्यम"],a:1,e:"M.S. स्वामीनाथन — पारिस्थितिक हानि के बिना सतत उत्पादकता। हरित क्रांति (1966-67) के समय कृषि मंत्री C. सुब्रमण्यम थे।"},
+{q:"BGREI कार्यक्रम के संदर्भ में कौन-सा राज्य/क्षेत्र शामिल नहीं है?",o:["पूर्वी उत्तर प्रदेश","बिहार","ओडिशा","राजस्थान"],a:3,e:"BGREI (2010-11) पूर्वी भारत हेतु — असम, बिहार, छत्तीसगढ़, झारखंड, ओडिशा, पूर्वी UP, पश्चिम बंगाल। राजस्थान शामिल नहीं।"},
+{q:"सरयू नहर राष्ट्रीय परियोजना के संबंध में असत्य कथन चुनिए:",o:["इसका उद्घाटन दिसंबर 2021 में हुआ","यह पूर्वी UP के 9 जिलों को लाभान्वित करती है","यह 5 नदियों को जोड़ती है","यह बुंदेलखंड क्षेत्र की परियोजना है"],a:3,e:"यह पूर्वी UP (बहराइच से महराजगंज पट्टी) की परियोजना है, बुंदेलखंड की नहीं। बुंदेलखंड से जुड़ी: अर्जुन सहायक व केन-बेतवा लिंक (शिलान्यास 25 दिसंबर 2024)।"},
+{q:"चकबंदी (Consolidation of Holdings) हेतु UP में कानून किस वर्ष बना?",o:["1950","1953","1960","2006"],a:1,e:"UP Consolidation of Holdings Act, 1953। ज़मींदारी उन्मूलन — UPZALR Act 1950 (लागू 1952); सीलिंग — 1960; UP Revenue Code — 2006 (लागू 2016)।"},
+{q:"निम्न में से किस फसल के उत्पादन में UP भारत में प्रथम नहीं है?",o:["आलू","गेहूँ","चावल","गन्ना"],a:2,e:"चावल में UP दूसरा — प्रथम पश्चिम बंगाल। गेहूँ, गन्ना, आलू, दुग्ध, आम, कुल खाद्यान्न में UP प्रथम — यह UPPSC का सदाबहार प्रश्न है।"},
+{q:"PM-AASHA के घटकों में शामिल नहीं है:",o:["मूल्य समर्थन योजना (PSS)","मूल्य न्यूनता भुगतान योजना (PDPS)","निजी खरीद एवं स्टॉकिस्ट योजना (PPSS)","मूल्य स्थिरीकरण कोष से सीधा नकद अंतरण"],a:3,e:"PM-AASHA (2018) = PSS + PDPS + PPSS; 2024 में एकीकृत — तूर/उड़द/मसूर की 100% खरीद की अनुमति। 'सीधा नकद अंतरण' इसका घटक नहीं।"}
+];
+const quiz=document.getElementById('quiz');let score=0,answered=0;
+QUIZ.forEach((item,i)=>{
+  const d=document.createElement('div');d.className='mcq';
+  d.innerHTML=`<span class="qn">प्रश्न ${i+1}</span><div class="q">${item.q}</div>`+
+    item.o.map((o,j)=>`<button class="opt" data-q="${i}" data-j="${j}">(${String.fromCharCode(97+j)}) ${o}</button>`).join('')+
+    `<div class="expl" id="ex${i}">💡 <b>व्याख्या:</b> ${item.e}</div>`;
+  quiz.appendChild(d);
+});
+quiz.addEventListener('click',e=>{
+  const b=e.target.closest('.opt');if(!b)return;
+  const qi=+b.dataset.q,j=+b.dataset.j,item=QUIZ[qi];
+  const sibs=b.parentElement.querySelectorAll('.opt');
+  if([...sibs].some(s=>s.disabled))return;
+  sibs.forEach((s,k)=>{s.disabled=true;if(k===item.a)s.classList.add('correct');});
+  if(j!==item.a)b.classList.add('wrong');else score++;
+  answered++;document.getElementById('ex'+qi).classList.add('show');
+  document.getElementById('scorebar').textContent=`Score: ${score} / 20 (attempted ${answered})`+(answered===20?(score>=16?' 🏆 SDM material!':score>=12?' 💪 Good — revise weak areas':' 📖 Revision needed'):'');
+});
+</script>
+</body>
+</html>
