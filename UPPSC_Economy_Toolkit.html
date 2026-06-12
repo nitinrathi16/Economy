@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPPSC 2026 · Indian Economy Basics & Planning Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700;800&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF5; --card:#FFFFFF; --ink:#1E2A24; --soft:#5B6660;
+  --green:#156A45; --green-soft:#E6F2EB; --saffron:#E2701B; --saffron-soft:#FCEEDF;
+  --navy:#1B3B6F; --navy-soft:#E8EEF8; --line:#E7E3D6; --gold:#B8860B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Mukta',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:16.5px}
+h1,h2,h3,h4{font-family:'Spectral',Georgia,serif;line-height:1.25}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#FFFFFF 0%,var(--paper) 100%);border-bottom:1px solid var(--line);padding:46px 0 34px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--saffron) 0 33.3%,#fff 33.3% 66.6%,var(--green) 66.6% 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;color:var(--ink)}
+.hero h1 span{color:var(--saffron)}
+.hero p.sub{margin-top:10px;color:var(--soft);max-width:640px;font-size:1.05rem}
+.chakra{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:280px;height:280px;opacity:.07}
+.ticker{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.tick{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.tick b{display:block;font-size:1.25rem;color:var(--navy);font-family:'Spectral',serif}
+.tick small{color:var(--soft);font-weight:600;font-size:.78rem;letter-spacing:.02em}
+
+/* NAV */
+nav{position:sticky;top:0;background:rgba(251,250,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:10px 20px}
+nav a{flex:0 0 auto;text-decoration:none;color:var(--soft);font-weight:700;font-size:.84rem;padding:7px 13px;border-radius:999px;white-space:nowrap}
+nav a:hover,nav a:focus-visible{background:var(--green-soft);color:var(--green);outline:none}
+
+/* SECTIONS */
+section{padding:44px 0 8px}
+.unit{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--green);padding-bottom:10px;margin-bottom:24px}
+.unit .no{font-family:'Spectral',serif;font-weight:800;font-size:2.2rem;color:var(--saffron)}
+.unit h2{font-size:clamp(1.35rem,3vw,1.8rem);font-weight:700}
+.unit .icon{margin-left:auto;font-size:1.6rem}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:18px;box-shadow:0 1px 2px rgba(30,42,36,.04)}
+.card h3{font-size:1.15rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card h4{font-size:1.02rem;color:var(--green);margin:14px 0 6px}
+.def{border-left:4px solid var(--saffron);background:var(--saffron-soft);border-radius:0 10px 10px 0;padding:12px 16px;margin:10px 0;font-weight:600}
+.data{border-left:4px solid var(--navy);background:var(--navy-soft);border-radius:0 10px 10px 0;padding:12px 16px;margin:12px 0}
+.data b{color:var(--navy)}
+.exam{border:1.5px dashed var(--gold);background:#FFFBEF;border-radius:10px;padding:12px 16px;margin:12px 0}
+.exam b{color:var(--gold)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.93rem;background:var(--card)}
+th{background:var(--green);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#F6F8F4}
+.formula{font-family:'Spectral',serif;font-weight:700;background:var(--green-soft);border:1px solid #CFE5D9;border-radius:10px;padding:10px 16px;margin:8px 0;color:var(--green);display:inline-block}
+ul,ol{margin:8px 0 8px 22px}
+li{margin-bottom:5px}
+.tag{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:.72rem;font-weight:800;letter-spacing:.06em;padding:3px 10px;border-radius:999px;text-transform:uppercase;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}}
+
+/* MCQ */
+.mcq{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.mcq .qno{font-family:'Spectral',serif;font-weight:800;color:var(--saffron);font-size:1.05rem}
+.mcq p.q{font-weight:700;margin:6px 0 10px}
+.opts{list-style:none;margin:0}
+.opts li{padding:7px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:6px;background:#FBFBF8}
+.reveal{margin-top:10px;background:var(--green);color:#fff;border:none;font-family:'Mukta',sans-serif;font-weight:700;font-size:.86rem;padding:8px 16px;border-radius:999px;cursor:pointer}
+.reveal:hover{background:#0F5436}
+.ans{display:none;margin-top:10px;border-left:4px solid var(--green);background:var(--green-soft);border-radius:0 10px 10px 0;padding:10px 14px}
+.ans.open{display:block}
+.ans b{color:var(--green)}
+
+footer{margin-top:50px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--soft);font-size:.88rem;text-align:center}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <svg class="chakra" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#1B3B6F" stroke-width="3"/><g stroke="#1B3B6F" stroke-width="2"><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="17" y1="17" x2="83" y2="83"/><line x1="83" y1="17" x2="17" y2="83"/><line x1="28" y1="9" x2="72" y2="91"/><line x1="72" y1="9" x2="28" y2="91"/><line x1="9" y1="28" x2="91" y2="72"/><line x1="91" y1="28" x2="9" y2="72"/></g><circle cx="50" cy="50" r="7" fill="#1B3B6F"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">📘 UPPSC 2026 · GS Paper-I · Top-10 Rank Series</span>
+    <h1>Indian Economy <span>Basics & Planning</span></h1>
+    <p class="sub">Concept → Simple Explanation → Latest Data (2025-26) → UPPSC Examiner's Angle → 20 Application-based MCQs. Quality over quantity — हर concept SDM-level depth के साथ।</p>
+    <div class="ticker">
+      <div class="tick"><b>7.6%</b><small>Real GDP growth FY 2025-26 (new 2022-23 base)</small></div>
+      <div class="tick"><b>130 / 193</b><small>India's HDI Rank (HDR 2025, value 0.685)</small></div>
+      <div class="tick"><b>5.3%</b><small>Extreme poverty @ $3/day (World Bank, 2022-23)</small></div>
+      <div class="tick"><b>3.40%</b><small>CPI inflation March 2026 (new base 2024=100)</small></div>
+      <div class="tick"><b>₹36 लाख Cr</b><small>UP GSDP projected FY26 (UP Eco Survey)</small></div>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a href="#u1">1 · Basic Concepts</a>
+    <a href="#u2">2 · National Income</a>
+    <a href="#u3">3 · Economic History & LPG</a>
+    <a href="#u4">4 · Five Year Plans</a>
+    <a href="#u5">5 · NITI Aayog</a>
+    <a href="#u6">6 · Poverty</a>
+    <a href="#u7">7 · Inequality & HDI</a>
+    <a href="#u8">8 · Unemployment</a>
+    <a href="#u9">9 · Inflation & RBI</a>
+    <a href="#u10">10 · UP Special</a>
+    <a href="#mcq">🎯 20 MCQs</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= UNIT 1 ================= -->
+<section id="u1">
+  <div class="unit"><span class="no">01</span><h2>Basic Concepts — GDP, GNP, NNP, Per Capita Income</h2><span class="icon">📊</span></div>
+
+  <div class="card">
+    <h3>🔹 GDP (सकल घरेलू उत्पाद)</h3>
+    <div class="def">एक देश की <b>घरेलू सीमा (domestic territory)</b> के अंदर, एक वर्ष में उत्पादित सभी <b>अंतिम (final)</b> वस्तुओं व सेवाओं का बाज़ार मूल्य।</div>
+    <p><b>Indian example:</b> भारत में स्थित Suzuki (जापानी कंपनी) की factory का उत्पादन भारत के GDP में गिना जाएगा — क्योंकि criterion है <i>location</i>, nationality नहीं। "Final goods only" — गेहूँ → आटा → ब्रेड में सिर्फ़ ब्रेड गिनेंगे, वरना <b>double counting</b> होगी।</p>
+    <h4>GNP / NNP / NI — The Family Tree</h4>
+    <span class="formula">GNP = GDP + NFIA (Net Factor Income from Abroad)</span><br>
+    <span class="formula">NNP = GNP − Depreciation (मूल्यह्रास)</span><br>
+    <span class="formula">National Income (NI) = NNP at Factor Cost = NNP<sub>MP</sub> − Net Indirect Taxes</span><br>
+    <span class="formula">Per Capita Income = NNP at current prices ÷ Population</span>
+    <p style="margin-top:8px">⚠️ भारत के लिए NFIA प्रायः <b>negative</b> रहता है (विदेशी कंपनियाँ भारत से ज़्यादा profit बाहर ले जाती हैं) → इसलिए India का <b>GDP &gt; GNP</b>.</p>
+    <h4>Market Price vs Factor Cost</h4>
+    <span class="formula">MP = FC + Indirect Taxes − Subsidies</span>
+    <p>2015 से India का headline measure: <b>GVA at Basic Prices</b> और <b>GDP at Market Prices</b>. GDP = GVA + Product Taxes − Product Subsidies.</p>
+    <div class="data">📡 <b>Latest Data (search-verified):</b> MoSPI ने GDP का <b>base year 2011-12 से बदलकर 2022-23</b> कर दिया है (नई series, 2026)। नई series में <b>FY 2025-26 real GDP growth = 7.6%</b> (पुरानी series के First Advance Estimates में 7.4% थी), <b>nominal growth = 8.6%</b>। Q2 FY26: 8.4%, Q3 FY26: 7.8% — G20 में सबसे तेज़। IMF (2026): India की nominal GDP ≈ <b>$4.15 trillion</b> — विश्व की <b>4th largest economy</b> (USA, China, Germany के बाद); per capita ≈ $2,813.</div>
+    <div class="exam">🎯 <b>UPPSC Examiner's Angle:</b> (i) GDP vs GNP किसमें NFIA जुड़ता है, (ii) नया base year 2022-23 — current affairs से direct question संभव, (iii) "घरेलू सीमा" में embassies, ships, aircrafts का treatment, (iv) Assertion-Reason: India में GDP &gt; GNP क्यों। 2021 paper में "factors of economic growth" पूछा था।</div>
+  </div>
+
+  <div class="card">
+    <h3>🔹 Economic Growth vs Economic Development</h3>
+    <div class="def"><b>Growth</b> = output/income में मात्रात्मक (quantitative) वृद्धि। <b>Development</b> = Growth + जीवन-स्तर, शिक्षा, स्वास्थ्य, समानता में गुणात्मक (qualitative) सुधार।</div>
+    <table>
+      <tr><th>आधार</th><th>Economic Growth 📈</th><th>Economic Development 🌱</th></tr>
+      <tr><td>प्रकृति</td><td>Quantitative, unidimensional</td><td>Qualitative, multidimensional</td></tr>
+      <tr><td>मापन</td><td>GDP / GNP / Per capita income</td><td>HDI, MPI, PQLI, Gini</td></tr>
+      <tr><td>दायरा</td><td>Narrow concept</td><td>Wider — growth इसका subset</td></tr>
+      <tr><td>संभव?</td><td>Development के बिना growth संभव (jobless growth)</td><td>बिना growth के sustained development कठिन</td></tr>
+    </table>
+    <p><b>Sustainable Development</b> (Brundtland Report 1987, "Our Common Future"): वर्तमान की ज़रूरतें पूरी करना, भविष्य की पीढ़ियों की क्षमता से समझौता किए बिना। UPPCS 2024 में A-R format में पूछा गया: "Per capita income में वृद्धि development की पर्याप्त माप नहीं है" — TRUE.</p>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> UPPSC को growth vs development vs sustainable development की definitions में confusion कराना पसंद है (2019 में definition-matching पूछा)। Amartya Sen का "Capability Approach" और "Development as Freedom" याद रखें।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 2 ================= -->
+<section id="u2">
+  <div class="unit"><span class="no">02</span><h2>National Income Accounting — Methodology in India</h2><span class="icon">🧮</span></div>
+  <div class="card">
+    <h3>🔹 तीन Methods (तीनों से उत्तर समान आना चाहिए)</h3>
+    <ol>
+      <li><b>Production / Value Added Method:</b> ΣGVA सभी sectors का (Agriculture में मुख्यतः यही)। GVA = Output value − Intermediate consumption।</li>
+      <li><b>Income Method:</b> Rent + Wages + Interest + Profit + Mixed income (services में प्रयुक्त)।</li>
+      <li><b>Expenditure Method:</b> <span class="formula">Y = C + I + G + (X − M)</span> PFCE (~61.5% of GDP in FY26 — FY12 के बाद highest) + GFCF (~30%) + GFCE + Net Exports.</li>
+    </ol>
+    <h4>India में कौन estimate करता है?</h4>
+    <ul>
+      <li><b>NSO (National Statistical Office)</b>, MoSPI — 2019 में CSO + NSSO के merger से बना।</li>
+      <li>इतिहास: पहला estimate <b>Dadabhai Naoroji (1868)</b> — "Poverty and Un-British Rule in India"; पहला scientific estimate <b>Dr. V.K.R.V. Rao</b>; आज़ादी के बाद <b>National Income Committee 1949 (अध्यक्ष: P.C. Mahalanobis</b>, सदस्य: D.R. Gadgil, V.K.R.V. Rao)।</li>
+      <li>Estimates calendar: First Advance Estimates (जनवरी) → Second AE (फ़रवरी) → Provisional (मई) → Revised estimates।</li>
+    </ul>
+    <div class="data">📡 <b>Latest:</b> नई series (base 2022-23) में FY26 real GDP ≈ ₹322.6 लाख करोड़ (constant) / nominal ≈ ₹345.5 लाख करोड़ ($3.91 trillion)। Services सबसे बड़ा driver (~9% growth); Agriculture ~3.1%। Budget 2026-27 में nominal GDP growth 10% projected।</div>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> Dadabhai Naoroji / VKRV Rao / Mahalanobis Committee — UPPSC का favourite static area। साथ ही "GDP deflator = (Nominal GDP ÷ Real GDP) × 100" — inflation की widest measure।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 3 ================= -->
+<section id="u3">
+  <div class="unit"><span class="no">03</span><h2>Indian Economic History — Colonial काल से 1991 LPG तक</h2><span class="icon">🏛️</span></div>
+  <div class="card">
+    <h3>🔹 Pre-Independence Economy</h3>
+    <ul>
+      <li><b>De-industrialisation:</b> हस्तशिल्प का विनाश; भारत raw-material supplier + finished goods का market बना।</li>
+      <li><b>Drain of Wealth theory:</b> Dadabhai Naoroji; R.C. Dutt — "Economic History of India"।</li>
+      <li>1947 में: साक्षरता ~16%, जीवन प्रत्याशा ~32 वर्ष, कृषि में ~70% workforce, stagnant growth (~0.5%/yr)।</li>
+      <li><b>Bombay Plan (1944):</b> 8 उद्योगपतियों (Tata, Birla आदि) का plan — state-led industrialisation का समर्थन।</li>
+    </ul>
+    <h3 style="margin-top:16px">🔹 Mixed Economy की नींव</h3>
+    <ul>
+      <li><b>Industrial Policy Resolution 1948</b> → mixed economy घोषित; <b>IPR 1956</b> — "economic constitution of India", socialistic pattern (Avadi Congress session 1955), उद्योगों का 3 श्रेणियों में वर्गीकरण।</li>
+      <li>License-Permit Raj, MRTP Act 1969, बैंकों का राष्ट्रीयकरण (1969 — 14 banks, 1980 — 6 banks)।</li>
+    </ul>
+    <h3 style="margin-top:16px">🔹 1991 Crisis और LPG Reforms</h3>
+    <div class="def"><b>L</b>iberalisation (नियंत्रण हटाना) + <b>P</b>rivatisation (निजी क्षेत्र की भूमिका बढ़ाना) + <b>G</b>lobalisation (विश्व अर्थव्यवस्था से एकीकरण)।</div>
+    <ul>
+      <li><b>Trigger:</b> BoP crisis — forex reserves मात्र ~$1.2 billion (2 हफ़्ते के import लायक), Gulf War से oil prices ↑, fiscal deficit ~8.4% of GDP। Gold गिरवी रखना पड़ा।</li>
+      <li><b>New Economic Policy 1991</b> (PM नरसिम्हा राव, FM डॉ. मनमोहन सिंह): industrial licensing समाप्त (18 को छोड़कर, अब केवल 4-5), rupee devaluation (~18-19%), FERA → FEMA (1999), import duties में कटौती, SEBI को statutory powers (1992)।</li>
+      <li>Reforms की दिशा: <b>LPG + stabilisation</b> (short-term BoP/inflation control) + <b>structural reforms</b> (long-term)।</li>
+    </ul>
+    <div class="data">📡 <b>Then vs Now:</b> 1991 forex ~$1.2 bn → आज ~$650-700 bn (top-5 globally)। 1991 GDP ~$270 bn → 2026 में $4.15 trillion (4th largest)। यही LPG की success story है — साथ में inequality की debate भी।</div>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> IPR 1948 vs 1956 के provisions, Avadi session, 1991 के specific measures (devaluation %, licensing), Bombay Plan के सदस्य। UPPSC chronology-matching बहुत पूछता है — nationalisation years (1969/1980) पक्के रखें।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 4 ================= -->
+<section id="u4">
+  <div class="unit"><span class="no">04</span><h2>Five Year Plans — Planning Commission Era (1951–2017)</h2><span class="icon">🗓️</span></div>
+  <div class="card">
+    <h3>🔹 Planning की पृष्ठभूमि</h3>
+    <ul>
+      <li><b>Visvesvaraya Plan (1934)</b> — "Planned Economy for India" (भारत में planning के जनक); <b>FICCI proposal (1934)</b>; <b>Congress का National Planning Committee 1938</b> (अध्यक्ष: नेहरू); <b>Bombay Plan 1944; Gandhian Plan 1944 (S.N. Agarwal); People's Plan 1945 (M.N. Roy); Sarvodaya Plan 1950 (J.P. Narayan)</b>।</li>
+      <li><b>Planning Commission:</b> 15 मार्च <b>1950</b>, कैबिनेट प्रस्ताव से (non-constitutional, non-statutory body); अध्यक्ष — PM; पहले Deputy Chairman — Gulzarilal Nanda।</li>
+      <li><b>NDC (National Development Council):</b> 6 अगस्त 1952 — plans का final approval।</li>
+    </ul>
+    <h3 style="margin-top:14px">🔹 Major Plans — UPPSC-Relevant Features</h3>
+    <table>
+      <tr><th>Plan</th><th>Period · Model</th><th>Focus / याद रखने योग्य</th></tr>
+      <tr><td><b>1st</b></td><td>1951-56 · Harrod-Domar</td><td>कृषि, सिंचाई (भाखड़ा-नांगल); target 2.1%, achieved 3.6% ✅</td></tr>
+      <tr><td><b>2nd</b></td><td>1956-61 · <b>Mahalanobis</b></td><td>Heavy industries; भिलाई (USSR), राउरकेला (Germany), दुर्गापुर (UK) steel plants</td></tr>
+      <tr><td><b>3rd</b></td><td>1961-66 · Gadgil</td><td>"Self-reliant economy"; युद्ध (1962, 1965) + सूखे से विफल ❌</td></tr>
+      <tr><td colspan="2"><b>Plan Holidays 1966-69</b></td><td>3 annual plans; <b>Green Revolution</b> की शुरुआत (1966-67)</td></tr>
+      <tr><td><b>4th</b></td><td>1969-74</td><td>"Growth with stability"; bank nationalisation (1969); Garibi Hatao नारा 1971</td></tr>
+      <tr><td><b>5th</b></td><td>1974-78</td><td><b>गरीबी उन्मूलन + self-reliance</b>; Minimum Needs Programme; 1978 में Janata सरकार ने समाप्त किया</td></tr>
+      <tr><td colspan="2"><b>Rolling Plan 1978-80</b></td><td>concept — Gunnar Myrdal; भारत में लागू — D.T. Lakdawala</td></tr>
+      <tr><td><b>6th</b></td><td>1980-85</td><td>गरीबी उन्मूलन direct attack; IRDP, NREP; NABARD स्थापना (1982)</td></tr>
+      <tr><td><b>7th</b></td><td>1985-90</td><td>"Food, Work & Productivity"; Jawahar Rozgar Yojana (1989)</td></tr>
+      <tr><td><b>8th</b></td><td>1992-97 · Rao-Manmohan</td><td>LPG era का पहला plan; <b>Indicative planning</b>; highest achieved growth उस समय तक (6.8%)</td></tr>
+      <tr><td><b>9th</b></td><td>1997-2002</td><td>"Growth with social justice & equality"</td></tr>
+      <tr><td><b>10th</b></td><td>2002-07</td><td>पहली बार <b>monitorable targets</b>; 8% target, achieved ~7.6%</td></tr>
+      <tr><td><b>11th</b></td><td>2007-12</td><td>"<b>Faster and More Inclusive Growth</b>"</td></tr>
+      <tr><td><b>12th</b></td><td>2012-17 · आख़िरी plan</td><td>"<b>Faster, More Inclusive and Sustainable Growth</b>"; target 8% (पहले 9% से घटाया)</td></tr>
+    </table>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> Plan-model matching (Harrod-Domar/Mahalanobis/Gadgil), plan-slogan matching, steel plants और देश, Plan Holiday और Rolling Plan के वर्ष। UPPSC ने schemes की chronology 2024 में पूछी — IRDP→JRY→PMRY→REGP type sequences बनाकर revise करें।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 5 ================= -->
+<section id="u5">
+  <div class="unit"><span class="no">05</span><h2>NITI Aayog — Structure, Functions, Vision 2047</h2><span class="icon">🏢</span></div>
+  <div class="card">
+    <h3>🔹 स्थापना व स्वरूप</h3>
+    <div class="def"><b>NITI Aayog</b> (National Institution for Transforming India) — 1 जनवरी <b>2015</b> को कैबिनेट प्रस्ताव से गठित; Planning Commission का स्थान लिया। यह एक <b>policy think-tank</b> है — funds allocate नहीं करता (वह काम अब वित्त मंत्रालय का है)।</div>
+    <table>
+      <tr><th>संरचना</th><th>विवरण (June 2026)</th></tr>
+      <tr><td>अध्यक्ष</td><td>प्रधानमंत्री (पदेन)</td></tr>
+      <tr><td>Vice-Chairman</td><td>Suman Bery</td></tr>
+      <tr><td>CEO</td><td>B.V.R. Subrahmanyam</td></tr>
+      <tr><td>Governing Council</td><td>सभी राज्यों के CM + UTs के LG/Administrators</td></tr>
+      <tr><td>Regional Councils</td><td>विशिष्ट क्षेत्रीय मुद्दों के लिए (ad-hoc)</td></tr>
+      <tr><td>पहले Vice-Chairman</td><td>Arvind Panagariya</td></tr>
+    </table>
+    <h4>दो Hubs</h4>
+    <ul>
+      <li><b>Team India Hub</b> — राज्यों के साथ interface → <b>Cooperative Federalism</b></li>
+      <li><b>Knowledge & Innovation Hub</b> — think-tank भूमिका</li>
+    </ul>
+    <h4>Planning Commission vs NITI Aayog</h4>
+    <table>
+      <tr><th>Planning Commission</th><th>NITI Aayog</th></tr>
+      <tr><td>Top-down planning</td><td>Bottom-up approach</td></tr>
+      <tr><td>Funds allocate करता था</td><td>केवल advisory / think-tank</td></tr>
+      <tr><td>राज्यों की सीमित भागीदारी</td><td>Cooperative + <b>Competitive federalism</b> (indices: SDG Index, Export Preparedness Index आदि)</td></tr>
+    </table>
+    <h4>प्रमुख Initiatives</h4>
+    <ul>
+      <li>3-tier documents: <b>15-year Vision, 7-year Strategy, 3-year Action Agenda</b> (FYP के स्थान पर)</li>
+      <li><b>Aspirational Districts Programme</b> (2018; UP के 8 जिले), Atal Innovation Mission, National MPI, SDG India Index, Aspirational Blocks Programme (2023)</li>
+    </ul>
+    <div class="data">📡 <b>Viksit Bharat @ 2047:</b> आज़ादी के 100 वर्ष (2047) तक भारत को developed economy बनाने का vision — target ~$30 trillion economy, high-income status, per capita income ~$18,000+। NITI Aayog "Vision India@2047" का nodal institution है। FY26 की 7.6% growth और nominal GDP $4+ trillion इसी trajectory के मील-पत्थर के रूप में पेश किए जाते हैं।</div>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> (i) NITI न constitutional है न statutory — सिर्फ़ executive resolution, (ii) 2019 prelims में "poverty line कौन तय करता है — Planning Commission (अब NITI Aayog)" पूछा गया, (iii) Governing Council की संरचना, (iv) Vice-Chairman/CEO के नाम current affairs के लिए।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 6 ================= -->
+<section id="u6">
+  <div class="unit"><span class="no">06</span><h2>Poverty — Measurement, Committees, Alleviation Schemes</h2><span class="icon">🍚</span></div>
+  <div class="card">
+    <h3>🔹 Concept & Types</h3>
+    <div class="def"><b>Absolute poverty</b> — न्यूनतम basic needs (poverty line से नीचे)। <b>Relative poverty</b> — दूसरों की तुलना में वंचना (income distribution आधारित)। UPPSC 2023 में पूछा: Absolute, Relative, Subjective — तीनों poverty के मान्य प्रकार हैं।</div>
+    <h4>Poverty Line Committees (chronology पक्की करें)</h4>
+    <table>
+      <tr><th>Committee</th><th>Basis</th></tr>
+      <tr><td>Working Group (1962)</td><td>पहली official poverty line</td></tr>
+      <tr><td>V.M. Dandekar & N. Rath (1971)</td><td>Calorie आधारित (2250 cal/day)</td></tr>
+      <tr><td>Y.K. Alagh (1979)</td><td>Rural 2400 / Urban 2100 calories</td></tr>
+      <tr><td>Lakdawala (1993)</td><td>State-specific poverty lines; CPI-IW/CPI-AL</td></tr>
+      <tr><td><b>Tendulkar (2009)</b></td><td>Calorie छोड़कर <b>MRP consumption</b>; 2011-12: ₹27.2 rural / ₹33.3 urban प्रतिदिन → poverty 21.9% (2011-12)</td></tr>
+      <tr><td><b>Rangarajan (2014)</b></td><td>₹32 rural / ₹47 urban; poverty 29.5% — रिपोर्ट <b>स्वीकार नहीं</b> हुई</td></tr>
+    </table>
+    <p><b>Data sources:</b> NSSO/NSO का Household Consumption Expenditure Survey (HCES 2022-23 व 2023-24 — दशक बाद आया); <b>SECC 2011</b> — Socio-Economic Caste Census (rural deprivation-based ranking, schemes की targeting के लिए, जैसे PMAY-G)।</p>
+    <div class="data">📡 <b>Latest Data (must-remember):</b><br>
+    ① <b>World Bank (2025):</b> नई extreme poverty line <b>$3.00/day (2021 PPP)</b> — पुरानी $2.15 से revised। India में extreme poverty <b>27.1% (2011-12) → 5.3% (2022-23)</b>; पुरानी $2.15 line पर तो मात्र 2.3%। ~17.1 करोड़ लोग extreme poverty से बाहर। Lower-middle-income line ($4.20/day) पर 23.9%।<br>
+    ② <b>NITI Aayog National MPI:</b> 12 indicators (Global MPI के 10 + <b>maternal health, bank account</b>), 3 dimensions (Health-Education-Standard of Living, समान weight)। Headcount <b>29.17% (2013-14) → 11.28% (2022-23)</b>; <b>24.82 करोड़</b> लोग multidimensional poverty से बाहर — इनमें सर्वाधिक <b>उत्तर प्रदेश (~5.94 करोड़)</b>।<br>
+    ③ <b>Global MPI 2025 (UNDP-OPHI, "Overlapping Hardships"):</b> भारत में MPI poverty 55.1% (2005-06) → 16.4% (2019-21); विश्व में 1.1 अरब लोग acute MPI poverty में।<br>
+    ④ <b>केरल</b> — 1 नवंबर 2025 को extreme poverty-free घोषित होने वाला पहला राज्य।</div>
+    <h4>प्रमुख Poverty Alleviation Schemes</h4>
+    <ul>
+      <li><b>MGNREGA 2005</b> (नीचे Unit 8 में detail), <b>NRLM/DAY 2011</b> (SHG-based; अब Lakhpati Didi), <b>PMAY-G 2016 / PMAY-U 2015</b>, <b>PM Ujjwala 2016</b>, <b>PMGKAY</b> (80+ करोड़ को free foodgrain, 2028 तक extended), <b>PM-KISAN 2019</b> (₹6,000/वर्ष), <b>Ayushman Bharat PM-JAY 2018</b> (₹5 लाख health cover)।</li>
+    </ul>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> Tendulkar vs Rangarajan के आँकड़े, MPI के 12 indicators (UPPSC matching निकालता है), $3/day नई line (hot current affairs), scheme-year matching (2024 में PMAY-G/JJM/SBM/Ujjwala की matching आई थी)। SECC 2011 की भूमिका भी नोट करें।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 7 ================= -->
+<section id="u7">
+  <div class="unit"><span class="no">07</span><h2>Inequality — Gini Coefficient & Human Development Index</h2><span class="icon">⚖️</span></div>
+  <div class="card">
+    <h3>🔹 Gini Coefficient</h3>
+    <div class="def"><b>Lorenz Curve</b> पर आधारित असमानता का माप: <b>0 = पूर्ण समानता, 1 = पूर्ण असमानता</b>। Curve जितना 45° line (line of equality) से दूर, असमानता उतनी अधिक।</div>
+    <div class="data">📡 World Bank के consumption-based आँकड़ों पर India का Gini ~25.5 (2022-23) — दुनिया के सबसे "equal" देशों में दिखता है; पर income/wealth आधारित अनुमान कहीं ऊँचे (wealth inequality तीव्र — top 1% के पास ~40% wealth, WIL अनुमान)। Exam में source के साथ figure लिखें।</div>
+    <h3 style="margin-top:14px">🔹 Human Development Index (HDI)</h3>
+    <div class="def">UNDP द्वारा 1990 से प्रकाशित; जनक — <b>Mahbub ul Haq</b> (पाकिस्तानी अर्थशास्त्री) व <b>Amartya Sen</b> का capability approach। 3 dimensions का <b>geometric mean</b>: ① दीर्घ-स्वस्थ जीवन (life expectancy), ② ज्ञान (mean + expected years of schooling), ③ जीवन-स्तर (GNI per capita, PPP$)।</div>
+    <div class="data">📡 <b>HDR 2025 ("A Matter of Choice: People and Possibilities in the Age of AI"):</b><br>
+    • India rank <b>130/193</b> (2023 data), value <b>0.685</b> — 133 से सुधार; <b>Medium HD category</b> (0.700 के high-HD threshold के क़रीब)।<br>
+    • Components: Life expectancy <b>72 वर्ष</b>, expected schooling ~13 वर्ष, mean schooling ~6.9 वर्ष, GNI per capita ~$9,047 (PPP)।<br>
+    • Inequality से India की HDI में <b>30.7% loss</b> (IHDI) — region में सर्वाधिक में से।<br>
+    • Top: <b>Iceland (0.972)</b>; Last: South Sudan। पड़ोसी: China व Sri Lanka ऊपर, <b>Bangladesh बराबर (130)</b>, Nepal (145), Pakistan (168) नीचे।</div>
+    <p><b>संबंधित UNDP indices:</b> IHDI, <b>GII</b> (Gender Inequality Index — India ~102वें के आसपास, सुधरता हुआ), GDI, MPI। याद रखें — HDR (UNDP), World Economic Outlook (IMF), World Investment Report (UNCTAD), Emissions Gap (UNEP) — यह matching UPPCS 2024 में आई थी।</p>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> 2024 में सीधा पूछा — HDI के indicators में environment शामिल नहीं (income, education, life expectancy ही)। Rank 130 + value 0.685 + report title + geometric mean — चारों पक्के करें।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 8 ================= -->
+<section id="u8">
+  <div class="unit"><span class="no">08</span><h2>Unemployment — Types, Measurement, MGNREGA</h2><span class="icon">👷</span></div>
+  <div class="card">
+    <h3>🔹 Types of Unemployment</h3>
+    <table>
+      <tr><th>प्रकार</th><th>अर्थ + Indian example</th></tr>
+      <tr><td><b>Structural</b></td><td>Skills व jobs का mismatch — भारत की मुख्य समस्या</td></tr>
+      <tr><td><b>Disguised (प्रच्छन्न)</b></td><td>Marginal productivity ≈ 0 — भारतीय कृषि में व्यापक (एक खेत में 5 की जगह 8 लोग)</td></tr>
+      <tr><td><b>Seasonal</b></td><td>कृषि/पर्यटन में off-season बेरोज़गारी</td></tr>
+      <tr><td><b>Frictional</b></td><td>नौकरी बदलने के बीच की अस्थायी अवधि</td></tr>
+      <tr><td><b>Cyclical</b></td><td>मंदी (recession) से — विकसित देशों की विशेषता</td></tr>
+      <tr><td><b>Educated / Underemployment</b></td><td>योग्यता से कम स्तर का काम</td></tr>
+    </table>
+    <h4>Measurement — PLFS (NSO, 2017-18 से; NSSO के EUS की जगह)</h4>
+    <ul>
+      <li><b>Usual Status (UPSS):</b> 365 दिन का reference period</li>
+      <li><b>Current Weekly Status (CWS):</b> 7 दिन का reference</li>
+      <li>Key ratios: <b>LFPR</b> (काम करने वाले + खोजने वाले ÷ जनसंख्या), <b>WPR</b> (employed ÷ population), <b>UR</b> (unemployed ÷ labour force)</li>
+      <li>⭐ <b>जनवरी 2025 से PLFS monthly bulletins</b> भी आते हैं (बड़ा methodological reform)।</li>
+    </ul>
+    <div class="data">📡 <b>Latest:</b> PLFS 2024-25 (Usual Status, 15+): UR = <b>3.2%</b> (rural 2.5%, urban 5.1%); LFPR ~61%; Female LFPR ~42% (2017-18 के 23% से तीव्र वृद्धि)। Monthly CWS (April 2026): UR ~5.1%, urban 6.6%, rural 4.6%; WPR 52.2%। FY26 में annual UR हल्का बढ़कर ~5.3% (CWS) — पहली post-pandemic वृद्धि। Moody's 2026 projection ~7% (अलग methodology — exam में source बताएं)।</div>
+    <h3 style="margin-top:14px">🔹 MGNREGA, 2005</h3>
+    <ul>
+      <li>विधिक <b>guarantee — 100 दिन</b> unskilled manual work प्रति ग्रामीण परिवार (legal right, demand-driven)। 2 फ़रवरी 2006 से लागू (आनंदपुर, बंदलापल्ली, AP से); 1 अप्रैल 2008 से पूरे देश में।</li>
+      <li>⅓ लाभार्थी महिलाएँ अनिवार्य (वास्तव में ~55-59% participation); 15 दिन में काम न मिलने पर <b>बेरोज़गारी भत्ता (राज्य देता है)</b>; 5 km से दूर काम पर 10% अतिरिक्त मज़दूरी; Gram Panchayat कम-से-कम 50% works execute करती है; Social Audit का प्रावधान।</li>
+      <li>Wages — Section 6(1) के तहत केंद्र अधिसूचित करता है, राज्यवार अलग; भुगतान 15 दिन में, DBT से।</li>
+    </ul>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> MGNREGA के exact provisions (100 दिन परिवार को — व्यक्ति को नहीं; भत्ता राज्य देता है) पर UPPSC trap लगाता है। PLFS के UPSS vs CWS का अंतर, female LFPR की वृद्धि, और monthly PLFS (2025 reform) — तीनों prelims-worthy।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 9 ================= -->
+<section id="u9">
+  <div class="unit"><span class="no">09</span><h2>Inflation — Types, CPI/WPI, RBI की भूमिका</h2><span class="icon">💹</span></div>
+  <div class="card">
+    <h3>🔹 Types — definitions exact रखें</h3>
+    <table>
+      <tr><th>प्रकार</th><th>अर्थ</th></tr>
+      <tr><td><b>Demand-Pull</b></td><td>"Too much money chasing too few goods" — माँग आपूर्ति से अधिक</td></tr>
+      <tr><td><b>Cost-Push</b></td><td>Input costs (wages, fuel) बढ़ने से</td></tr>
+      <tr><td><b>Bottleneck / Structural</b></td><td>Supply की अड़चनों व अकुशल वितरण से (UPPSC 2021 में A-R पूछा ✅)</td></tr>
+      <tr><td><b>Creeping / Walking / Running / Galloping / Hyper</b></td><td>गति के आधार पर (~3% / 3-7% / 10-20% / 20%+ / असीमित)</td></tr>
+      <tr><td><b>Stagflation</b></td><td>High inflation + stagnation + unemployment एक साथ</td></tr>
+      <tr><td><b>Core inflation</b></td><td>Headline − food − fuel (volatile items हटाकर)</td></tr>
+      <tr><td><b>Deflation / Disinflation</b></td><td>क़ीमतें गिरना (rate &lt; 0) / inflation की दर का घटना</td></tr>
+    </table>
+    <h4>Measurement</h4>
+    <ul>
+      <li><b>CPI (Combined)</b> — NSO/MoSPI; ⭐ <b>नया base year 2024=100</b> (जनवरी 2026 से; पुराना 2012) — HCES पर आधारित नए weights, food का weight घटा। <b>Headline inflation = CPI-Combined</b> (UPPSC 2021 में पूछा ✅)।</li>
+      <li><b>WPI</b> — Office of Economic Adviser, DPIIT (वाणिज्य मंत्रालय); base 2011-12; <b>services शामिल नहीं</b>।</li>
+      <li>अन्य: CPI-IW (Labour Bureau), GDP deflator (widest), CFPI (food)।</li>
+    </ul>
+    <h4>RBI की भूमिका — Inflation Targeting</h4>
+    <ul>
+      <li><b>Urjit Patel Committee (2014)</b> की सिफ़ारिश → RBI Act में संशोधन (2016) → <b>Flexible Inflation Targeting: 4% ± 2%</b> (CPI-Combined), Govt + RBI मिलकर हर 5 वर्ष में तय करते हैं (वर्तमान अवधि 2026 तक)।</li>
+      <li><b>MPC:</b> 6 सदस्य (3 RBI — Governor अध्यक्ष casting vote के साथ + 3 सरकार-नामित), repo rate तय करती है। लगातार 3 तिमाही target miss = failure → RBI को सरकार को कारण बताना होता है।</li>
+      <li>Tools: Repo, Reverse repo/SDF, MSF, CRR, SLR, OMO।</li>
+    </ul>
+    <div class="data">📡 <b>Latest:</b> CPI inflation <b>March 2026 = 3.40%</b>, April 2026 = 3.48% (नई 2024=100 series) — RBI के 4% target से नीचे। 2025 ऐतिहासिक रूप से benign वर्ष रहा — <b>October 2025 में मात्र ~0.25% (historic low)</b>, वार्षिक औसत ~2.1-2.2%। Food inflation April 2026 ~4.2%। WPI low single digits में।</div>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> (i) Headline = CPI-Combined, (ii) WPI में services नहीं, (iii) MPC की संरचना व 4±2%, (iv) नया CPI base 2024 — fresh current affairs, (v) bottleneck inflation की definition (repeat होने योग्य)। Phillips curve (inflation-unemployment trade-off) भी छू लें।</div>
+  </div>
+</section>
+
+<!-- ================= UNIT 10 ================= -->
+<section id="u10">
+  <div class="unit"><span class="no">10</span><h2>UP Special — State Economy Data (UPPSC का Home Ground)</h2><span class="icon">🕌</span></div>
+  <div class="card">
+    <h3>🔹 UP Economic Survey 2025-26 (राज्य का पहला Economic Survey!)</h3>
+    <div class="data">📡 <b>Top facts (बहुत probable क्षेत्र):</b><br>
+    • GSDP: ₹13.30 लाख करोड़ (2016-17) → <b>₹30.25 लाख करोड़ (2024-25)</b> → projected <b>₹36 लाख करोड़ (2025-26)</b>; CAGR <b>10.8%</b>; राष्ट्रीय अर्थव्यवस्था में योगदान ~9.1% — भारत की <b>दूसरी सबसे बड़ी राज्य-अर्थव्यवस्था</b> (महाराष्ट्र के बाद)।<br>
+    • लक्ष्य: <b>$1 trillion economy</b> (≈ ₹83 लाख करोड़) — "Triple S" model (Safety, Stability, Speed); निवेश pipeline ₹50+ लाख करोड़।<br>
+    • Per capita income: <b>₹1,09,844 (2024-25)</b> → ₹1.2 लाख target (FY26) — फिर भी राष्ट्रीय औसत के ~आधे पर।<br>
+    • Fiscal: Budget ₹8.33 लाख करोड़ (FY26), own tax revenue ₹2.09 लाख करोड़, fiscal deficit ~3% of GSDP, <b>debt-to-GSDP 28%</b> (राष्ट्रीय औसत से कम), revenue surplus ~2.6%।<br>
+    • Rankings: <b>Export Preparedness Index 2024 में 4th — landlocked राज्यों में 1st</b>; e-Prosecution में 1st; Ayushman cards (5.46 करोड़) व Jan Dhan accounts (10.22 करोड़) में देश में सर्वाधिक।<br>
+    • Infra: 22 expressways (भारत का expressway hub), सबसे बड़ा rail network, 24 airports का लक्ष्य (5 international; Jewar greenfield cargo hub)।<br>
+    • कृषि: खाद्यान्न, गन्ना, आलू, दूध में देश में प्रथम; सिंचित क्षेत्र 2.76 करोड़ हेक्टेयर।</div>
+    <p><b>Poverty/HDI angle for UP:</b> NITI MPI में 2013-14 → 2022-23 के बीच सबसे ज़्यादा लोग poverty से बाहर निकालने वाला राज्य UP (~5.94 करोड़); फिर भी MPI headcount राष्ट्रीय औसत से ऊँचा। UP में 8 Aspirational Districts (चित्रकूट, चंदौली, सोनभद्र, फतेहपुर, बहराइच, बलरामपुर, श्रावस्ती, सिद्धार्थनगर)।</p>
+    <div class="exam">🎯 <b>Examiner's Angle:</b> UPPSC हर वर्ष UP economy से 3-5 प्रश्न पूछता है। पहला UP Economic Survey अपने आप में question है; $1 trillion target, GSDP figure, per capita income, EPI rank — सब number-specific याद रखें।</div>
+  </div>
+</section>
+
+<!-- ================= MCQ SECTION ================= -->
+<section id="mcq">
+  <div class="unit"><span class="no">🎯</span><h2>20 UPPSC-Style Application-Based MCQs</h2><span class="icon">✍️</span></div>
+
+  <div class="mcq"><span class="qno">Q1.</span><p class="q">एक जापानी कंपनी की भारत स्थित factory का उत्पादन तथा एक भारतीय इंजीनियर की दुबई में अर्जित आय — क्रमशः किसमें शामिल होंगे?</p>
+    <ul class="opts"><li>(a) दोनों भारत के GDP में</li><li>(b) GDP में; GNP में</li><li>(c) GNP में; GDP में</li><li>(d) दोनों GNP में</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (b)</b> — GDP territory-based है (जापानी factory भारत में ⇒ भारत का GDP); GNP nationality-based है (भारतीय की विदेशी आय NFIA के ज़रिए GNP में)।</div></div>
+
+  <div class="mcq"><span class="qno">Q2.</span><p class="q">2026 में जारी नई GDP series के संदर्भ में सही कथन चुनिए:<br>1. नया base year 2022-23 है।  2. FY 2025-26 की real GDP growth ~7.6% आंकी गई।  3. Base year पहले 2011-12 था।</p>
+    <ul class="opts"><li>(a) केवल 1 व 2</li><li>(b) केवल 2 व 3</li><li>(c) केवल 1 व 3</li><li>(d) 1, 2 व 3</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (d)</b> — MoSPI ने base year 2011-12 → 2022-23 किया; revised series में FY26 growth 7.6% (nominal 8.6%)।</div></div>
+
+  <div class="mcq"><span class="qno">Q3.</span><p class="q">यदि किसी वर्ष Nominal GDP 8% बढ़ी और GDP deflator 3% बढ़ा, तो Real GDP growth लगभग होगी:</p>
+    <ul class="opts"><li>(a) 11%</li><li>(b) 8%</li><li>(c) 5%</li><li>(d) 3%</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (c)</b> — Real growth ≈ Nominal growth − Inflation (deflator) = 8 − 3 = 5%।</div></div>
+
+  <div class="mcq"><span class="qno">Q4.</span><p class="q">Assertion (A): भारत में सामान्यतः GDP, GNP से बड़ा होता है।<br>Reason (R): भारत का Net Factor Income from Abroad (NFIA) प्रायः ऋणात्मक रहता है।</p>
+    <ul class="opts"><li>(a) A और R दोनों सही; R, A की सही व्याख्या है</li><li>(b) A और R दोनों सही; R, A की सही व्याख्या नहीं</li><li>(c) A सही, R गलत</li><li>(d) A गलत, R सही</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (a)</b> — GNP = GDP + NFIA; NFIA negative ⇒ GNP &lt; GDP। R सीधे A को explain करता है।</div></div>
+
+  <div class="mcq"><span class="qno">Q5.</span><p class="q">द्वितीय पंचवर्षीय योजना के अंतर्गत स्थापित steel plants का सही (Plant – सहयोगी देश) मिलान चुनिए:<br>1. भिलाई–USSR  2. राउरकेला–UK  3. दुर्गापुर–जर्मनी</p>
+    <ul class="opts"><li>(a) केवल 1</li><li>(b) 1 व 2</li><li>(c) 2 व 3</li><li>(d) 1, 2 व 3</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (a)</b> — सही मिलान: भिलाई–USSR ✅, राउरकेला–<b>जर्मनी</b>, दुर्गापुर–<b>UK</b>। 2 व 3 आपस में उलटे हैं — UPPSC का classic trap।</div></div>
+
+  <div class="mcq"><span class="qno">Q6.</span><p class="q">निम्न को कालक्रम में व्यवस्थित कीजिए:<br>1. Industrial Policy Resolution 1956  2. बैंकों का प्रथम राष्ट्रीयकरण  3. Bombay Plan  4. MRTP Act</p>
+    <ul class="opts"><li>(a) 3, 1, 2, 4</li><li>(b) 3, 1, 4, 2</li><li>(c) 1, 3, 2, 4</li><li>(d) 3, 2, 1, 4</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (a)</b> — Bombay Plan 1944 → IPR 1956 → Nationalisation 1969 (जुलाई) → MRTP 1969 (दिसंबर, लागू 1970)। बारीक अंतर: nationalisation पहले हुआ।</div></div>
+
+  <div class="mcq"><span class="qno">Q7.</span><p class="q">1991 के आर्थिक सुधारों के तत्काल कारणों में शामिल था/थे:<br>1. विदेशी मुद्रा भंडार ~$1.2 billion रह जाना  2. खाड़ी युद्ध से तेल क़ीमतों में वृद्धि  3. ऊँचा राजकोषीय घाटा</p>
+    <ul class="opts"><li>(a) केवल 1</li><li>(b) केवल 1 व 2</li><li>(c) केवल 2 व 3</li><li>(d) 1, 2 व 3</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (d)</b> — तीनों BoP crisis के triggers थे; fiscal deficit ~8.4% of GDP था, सोना गिरवी रखना पड़ा।</div></div>
+
+  <div class="mcq"><span class="qno">Q8.</span><p class="q">NITI Aayog के विषय में सही कथन:<br>1. यह एक संवैधानिक निकाय है।  2. Governing Council में सभी राज्यों के CM शामिल हैं।  3. यह राज्यों को योजनागत funds आवंटित करता है।</p>
+    <ul class="opts"><li>(a) केवल 2</li><li>(b) 1 व 2</li><li>(c) 2 व 3</li><li>(d) केवल 3</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (a)</b> — NITI न constitutional है न statutory (cabinet resolution, 1 जनवरी 2015); funds allocation नहीं करता (think-tank)। Governing Council में CMs + LGs ✅।</div></div>
+
+  <div class="mcq"><span class="qno">Q9.</span><p class="q">पंचवर्षीय योजना – Model/विशेषता का गलत युग्म चुनिए:</p>
+    <ul class="opts"><li>(a) प्रथम योजना – Harrod-Domar model</li><li>(b) द्वितीय योजना – Mahalanobis model</li><li>(c) आठवीं योजना – Indicative planning</li><li>(d) ग्यारहवीं योजना – "Faster, More Inclusive and Sustainable Growth"</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (d)</b> — 11वीं (2007-12) का theme "Faster and More Inclusive Growth"; "…and Sustainable" 12वीं योजना (2012-17) का है।</div></div>
+
+  <div class="mcq"><span class="qno">Q10.</span><p class="q">World Bank (2025) द्वारा संशोधित अंतर्राष्ट्रीय निर्धनता रेखाओं के अनुसार सही युग्म:<br>1. Extreme poverty line – $3.00/day (2021 PPP)  2. India में extreme poverty (2022-23) – 5.3%  3. पुरानी line – $2.15/day</p>
+    <ul class="opts"><li>(a) केवल 1 व 3</li><li>(b) केवल 2</li><li>(c) 1, 2 व 3</li><li>(d) केवल 1</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (c)</b> — नई line $3.00 (2021 PPP, पुरानी $2.15); India: 27.1% (2011-12) → 5.3% (2022-23); ~17.1 करोड़ बाहर निकले।</div></div>
+
+  <div class="mcq"><span class="qno">Q11.</span><p class="q">NITI Aayog के National MPI में Global MPI से अतिरिक्त कौन-से 2 indicators जोड़े गए हैं?</p>
+    <ul class="opts"><li>(a) पोषण और स्वच्छता</li><li>(b) मातृ स्वास्थ्य और बैंक खाता</li><li>(c) बिजली और आवास</li><li>(d) स्कूल उपस्थिति और संपत्ति</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (b)</b> — National MPI = 12 indicators (Global के 10 + maternal health + bank account); 3 समान-भारित dimensions। Headcount 29.17% (2013-14) → 11.28% (2022-23)।</div></div>
+
+  <div class="mcq"><span class="qno">Q12.</span><p class="q">Tendulkar समिति के संदर्भ में सही कथन है:</p>
+    <ul class="opts"><li>(a) इसने calorie-आधारित मापन की संस्तुति की</li><li>(b) इसकी रिपोर्ट सरकार ने अस्वीकार कर दी</li><li>(c) इसने MRP-आधारित उपभोग व्यय अपनाया; 2011-12 में poverty 21.9% आंकी</li><li>(d) इसने poverty line ₹47 (urban) सुझाई</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (c)</b> — Tendulkar (2009) ने calorie norm छोड़ा; 21.9% (2011-12)। ₹47/₹32 और अस्वीकृति — Rangarajan (2014) से संबंधित।</div></div>
+
+  <div class="mcq"><span class="qno">Q13.</span><p class="q">HDR 2025 के अनुसार भारत के बारे में सही कथन:<br>1. Rank 130/193, value 0.685  2. भारत "High human development" श्रेणी में है  3. रिपोर्ट का शीर्षक AI पर केंद्रित है  4. असमानता से भारत की HDI में ~30.7% हानि होती है</p>
+    <ul class="opts"><li>(a) 1, 3 व 4</li><li>(b) 1, 2 व 3</li><li>(c) केवल 1 व 4</li><li>(d) सभी चारों</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (a)</b> — भारत अभी <b>Medium</b> HD श्रेणी में है (0.700 threshold से नीचे) ⇒ कथन 2 गलत। शीर्षक: "A Matter of Choice: People and Possibilities in the Age of AI"।</div></div>
+
+  <div class="mcq"><span class="qno">Q14.</span><p class="q">HDI की गणना में प्रयुक्त नहीं होता:</p>
+    <ul class="opts"><li>(a) जन्म के समय जीवन प्रत्याशा</li><li>(b) विद्यालयी शिक्षा के अपेक्षित वर्ष</li><li>(c) पर्यावरण की स्थिति</li><li>(d) GNI per capita (PPP)</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (c)</b> — UPPCS 2024 का verified pattern; HDI = health + education + income का geometric mean। Environment शामिल नहीं।</div></div>
+
+  <div class="mcq"><span class="qno">Q15.</span><p class="q">एक किसान परिवार के 8 सदस्य उस खेत पर कार्यरत हैं जहाँ 5 ही पर्याप्त हैं; 3 के हटने से उत्पादन नहीं घटेगा। यह उदाहरण है:</p>
+    <ul class="opts"><li>(a) संरचनात्मक बेरोज़गारी</li><li>(b) प्रच्छन्न (disguised) बेरोज़गारी</li><li>(c) चक्रीय बेरोज़गारी</li><li>(d) घर्षणात्मक बेरोज़गारी</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (b)</b> — Marginal productivity शून्य ⇒ disguised unemployment; भारतीय कृषि की पहचान।</div></div>
+
+  <div class="mcq"><span class="qno">Q16.</span><p class="q">MGNREGA के विषय में सही कथन:<br>1. 100 दिन रोज़गार की गारंटी प्रति व्यक्ति है।  2. बेरोज़गारी भत्ते का व्यय राज्य सरकार वहन करती है।  3. एक-तिहाई लाभार्थी महिलाएँ होनी चाहिए।  4. 15 दिनों में रोज़गार न मिलने पर भत्ता देय है।</p>
+    <ul class="opts"><li>(a) 1, 2 व 3</li><li>(b) 2, 3 व 4</li><li>(c) 1, 3 व 4</li><li>(d) सभी चारों</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (b)</b> — गारंटी प्रति <b>परिवार</b> (household) है, प्रति व्यक्ति नहीं ⇒ कथन 1 गलत। शेष तीनों सही।</div></div>
+
+  <div class="mcq"><span class="qno">Q17.</span><p class="q">PLFS 2024-25 (Usual Status, 15+) के अनुसार लगभग सही समुच्चय चुनिए — (UR all-India, UR urban, Female LFPR की दिशा):</p>
+    <ul class="opts"><li>(a) 3.2%; 5.1%; तीव्र वृद्धि</li><li>(b) 8.8%; 12%; गिरावट</li><li>(c) 6.1%; 9%; स्थिर</li><li>(d) 3.2%; 2.5%; गिरावट</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (a)</b> — UR 3.2% (rural 2.5%, urban 5.1%); female LFPR ~23% (2017-18) से बढ़कर ~42% — rural महिलाओं की भागीदारी से। 2025 से monthly PLFS भी।</div></div>
+
+  <div class="mcq"><span class="qno">Q18.</span><p class="q">भारत में "Headline inflation" मापी जाती है:</p>
+    <ul class="opts"><li>(a) WPI से</li><li>(b) CPI-Industrial Workers से</li><li>(c) Combined CPI से</li><li>(d) GDP deflator से</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (c)</b> — UPPSC 2021 का verified question। RBI का 4±2% target भी CPI-Combined पर; ⭐ जनवरी 2026 से CPI का नया base year <b>2024=100</b>।</div></div>
+
+  <div class="mcq"><span class="qno">Q19.</span><p class="q">Monetary Policy Committee (MPC) के विषय में गलत कथन चुनिए:</p>
+    <ul class="opts"><li>(a) इसमें 6 सदस्य होते हैं</li><li>(b) RBI Governor इसके पदेन अध्यक्ष हैं, टाई पर casting vote के साथ</li><li>(c) Inflation target सरकार और RBI मिलकर 5 वर्ष के लिए तय करते हैं</li><li>(d) लगातार 2 तिमाही target चूकना विफलता माना जाता है</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (d)</b> — विफलता की परिभाषा: लगातार <b>3 तिमाही</b> inflation 2-6% band से बाहर रहना। शेष तीनों कथन सही (Urjit Patel समिति → RBI Act संशोधन 2016)।</div></div>
+
+  <div class="mcq"><span class="qno">Q20.</span><p class="q">UP Economic Survey 2025-26 (राज्य का प्रथम) के अनुसार सही कथन:<br>1. GSDP FY26 में ~₹36 लाख करोड़ projected  2. Per capita income ₹1,09,844 (2024-25)  3. UP, Export Preparedness Index 2024 में landlocked राज्यों में प्रथम  4. Debt-to-GSDP अनुपात ~28%</p>
+    <ul class="opts"><li>(a) 1, 2 व 4</li><li>(b) 1, 3 व 4</li><li>(c) 2, 3 व 4</li><li>(d) सभी चारों</li></ul>
+    <button class="reveal">Answer देखें</button>
+    <div class="ans"><b>उत्तर: (d)</b> — चारों सही; साथ में: CAGR 10.8%, budget ₹8.33 लाख करोड़, $1 trillion लक्ष्य, "Triple S" model (Safety-Stability-Speed)।</div></div>
+
+  <div class="card" style="border-left:5px solid var(--saffron)">
+    <h3>📌 Revision Trigger Sheet (1-minute recall)</h3>
+    <p>GDP base 2022-23 (नया) · FY26 growth 7.6% / nominal 8.6% · $4.15 tn, 4th largest · HDI 130/0.685/Medium/Iceland top · Poverty $3/day → 5.3% · MPI 11.28%, +2 indicators · केरल पहला extreme-poverty-free राज्य · CPI base 2024=100, March'26 = 3.40% · MPC 4±2%, 3-quarter rule · PLFS UR 3.2% (UPSS), monthly bulletins 2025 से · MGNREGA 100 दिन/परिवार, भत्ता राज्य · UP: ₹36 लाख Cr GSDP, $1 tn target, EPI 4th।</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">🇮🇳 UPPSC 2026 · Indian Economy Basics & Planning Toolkit · Data verified June 2026 (MoSPI, PIB, UNDP HDR 2025, World Bank PEB 2025, NITI Aayog, UP Economic Survey 2025-26) · आँकड़े परीक्षा से पहले एक बार पुनः verify करें — base-year revisions चल रहे हैं।</div>
+</footer>
+
+<script>
+document.querySelectorAll('.reveal').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var ans=btn.nextElementSibling;
+    ans.classList.toggle('open');
+    btn.textContent=ans.classList.contains('open')?'Answer छिपाएँ':'Answer देखें';
+  });
+});
+</script>
+</body>
+</html>
