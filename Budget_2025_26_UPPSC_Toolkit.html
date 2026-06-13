@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Union Budget 2025-26 | UPPSC 2026 Toolkit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+  :root {
+    --saffron:    #E8521A;
+    --saffron-lt: #FFF3ED;
+    --green:      #1A7A4A;
+    --green-lt:   #EDF7F1;
+    --blue:       #1A55A0;
+    --blue-lt:    #EEF4FF;
+    --gold:       #C8901A;
+    --gold-lt:    #FFF8E6;
+    --ink:        #1A1A2E;
+    --body:       #3D3D55;
+    --muted:      #7A7A9A;
+    --border:     #E0E0EE;
+    --bg:         #F8F8FC;
+    --white:      #FFFFFF;
+    --danger:     #D42B2B;
+    --danger-lt:  #FFF0F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+    background: var(--bg);
+    color: var(--body);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0F2C5A 0%, #1A55A0 50%, #0F2C5A 100%);
+    color: white;
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,82,26,0.85);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .hero h1 span { color: #FFD166; }
+  .hero p {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 10px 14px;
+    min-width: 110px;
+  }
+  .hero-stat .val { font-size: 17px; font-weight: 800; color: #FFD166; }
+  .hero-stat .lbl { font-size: 10px; opacity: 0.75; margin-top: 2px; }
+
+  /* ── NAV TABS ── */
+  .tabs-wrap {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-wrap::-webkit-scrollbar { display: none; }
+  .tabs {
+    display: flex;
+    gap: 0;
+    padding: 0 16px;
+    white-space: nowrap;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 13px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active { color: var(--saffron); border-bottom-color: var(--saffron); }
+  .tab-btn:hover:not(.active) { color: var(--ink); }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 20px 16px; max-width: 900px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon { font-size: 22px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 12px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+  }
+  .stat-card.orange { border-left-color: var(--saffron); }
+  .stat-card.green  { border-left-color: var(--green); }
+  .stat-card.gold   { border-left-color: var(--gold); }
+  .stat-card.red    { border-left-color: var(--danger); }
+  .stat-card .val {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .stat-card .lbl {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight {
+    background: var(--gold-lt);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .highlight.blue { background: var(--blue-lt); border-left-color: var(--blue); }
+  .highlight.green { background: var(--green-lt); border-left-color: var(--green); }
+  .highlight.red { background: var(--danger-lt); border-left-color: var(--danger); }
+  .highlight.saffron { background: var(--saffron-lt); border-left-color: var(--saffron); }
+
+  /* ── SECTOR CARDS ── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sector-card {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid var(--border);
+  }
+  .sector-icon { font-size: 24px; margin-bottom: 8px; }
+  .sector-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .sector-amount { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+  .sector-amount.blue { color: var(--blue); }
+  .sector-amount.green { color: var(--green); }
+  .sector-amount.saffron { color: var(--saffron); }
+  .sector-amount.gold { color: var(--gold); }
+  .sector-amount.red { color: var(--danger); }
+  .sector-points { font-size: 11px; color: var(--body); }
+  .sector-points li { margin-bottom: 3px; margin-left: 12px; }
+
+  /* ── TAX TABLE ── */
+  .tax-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+  .tax-table th {
+    background: var(--blue);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .tax-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tax-table tr:nth-child(even) td { background: var(--bg); }
+  .tax-table tr:last-child td { background: var(--green-lt); font-weight: 600; }
+  .zero-tag {
+    background: var(--green);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+  }
+
+  /* ── SCHEMES ── */
+  .scheme-list { list-style: none; }
+  .scheme-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .scheme-item:last-child { border-bottom: none; }
+  .scheme-emoji { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .scheme-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .scheme-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .scheme-tag {
+    display: inline-block;
+    background: var(--blue-lt);
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 8px;
+    margin-top: 3px;
+  }
+  .scheme-tag.green { background: var(--green-lt); color: var(--green); }
+  .scheme-tag.orange { background: var(--saffron-lt); color: var(--saffron); }
+
+  /* ── UP SECTION ── */
+  .up-banner {
+    background: linear-gradient(135deg, #1A7A4A, #0F5C37);
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .up-banner .flag { font-size: 32px; }
+  .up-banner h3 { font-size: 15px; font-weight: 800; }
+  .up-banner p { font-size: 12px; opacity: 0.85; }
+
+  /* ── FISCAL PATH ── */
+  .fiscal-path {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+  }
+  .fp-item {
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 90px;
+  }
+  .fp-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 6px;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .fp-dot.active { background: var(--saffron); box-shadow: 0 0 0 2px var(--saffron); }
+  .fp-dot.future { background: var(--muted); box-shadow: 0 0 0 2px var(--muted); }
+  .fp-year { font-size: 10px; color: var(--muted); font-weight: 600; }
+  .fp-arrow {
+    flex-shrink: 0;
+    color: var(--border);
+    font-size: 18px;
+    padding: 0 2px;
+    margin-bottom: 20px;
+  }
+
+  /* ── MCQ SECTION ── */
+  .mcq-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+  }
+  .mcq-q {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .mcq-q .qnum {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 6px;
+  }
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+  .opt {
+    padding: 8px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--bg);
+  }
+  .opt:hover { border-color: var(--blue); background: var(--blue-lt); }
+  .opt.correct { background: var(--green-lt); border-color: var(--green); color: var(--green); font-weight: 600; }
+  .opt.wrong { background: var(--danger-lt); border-color: var(--danger); color: var(--danger); }
+  .opt.revealed-correct { background: var(--green-lt); border-color: var(--green); color: var(--green); font-weight: 600; }
+  .show-ans-btn {
+    background: none;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .show-ans-btn:hover { background: var(--blue-lt); }
+  .explanation {
+    display: none;
+    background: var(--gold-lt);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 10px;
+    font-size: 12px;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+  .score-bar {
+    background: var(--blue-lt);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .score-val { font-size: 20px; font-weight: 800; color: var(--blue); }
+
+  /* ── PILL TAGS ── */
+  .pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 2px 2px 2px 0;
+  }
+  .pill-blue  { background: var(--blue-lt);   color: var(--blue); }
+  .pill-green { background: var(--green-lt);  color: var(--green); }
+  .pill-gold  { background: var(--gold-lt);   color: var(--gold); }
+  .pill-red   { background: var(--danger-lt); color: var(--danger); }
+  .pill-saffron { background: var(--saffron-lt); color: var(--saffron); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+
+  /* ── PROGRESS BAR ── */
+  .bar-row { margin-bottom: 8px; }
+  .bar-label { font-size: 12px; color: var(--body); margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .bar-track { background: var(--border); border-radius: 4px; height: 8px; }
+  .bar-fill { height: 8px; border-radius: 4px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 20px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .options { grid-template-columns: 1fr; }
+    .sector-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 4px; }
+    .hero-stat { min-width: 90px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-badge">📚 UPPSC 2026 | SDM Rank Preparation</div>
+  <h1>Union Budget <span>2025-26</span><br>Complete Analysis Toolkit</h1>
+  <p>वित्त मंत्री निर्मला सीतारमण | 1 फरवरी 2025 | 8वाँ लगातार बजट</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val">₹50.65L Cr</div><div class="lbl">Total Expenditure</div></div>
+    <div class="hero-stat"><div class="val">4.4%</div><div class="lbl">Fiscal Deficit/GDP</div></div>
+    <div class="hero-stat"><div class="val">₹11.21L Cr</div><div class="lbl">Capital Expenditure</div></div>
+    <div class="hero-stat"><div class="val">₹12 Lakh</div><div class="lbl">Zero Tax Limit</div></div>
+    <div class="hero-stat"><div class="val">10.1%</div><div class="lbl">Nominal GDP Growth</div></div>
+  </div>
+</div>
+
+<!-- ══ TABS ══ -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('overview')">📊 Overview</button>
+    <button class="tab-btn" onclick="showTab('sectors')">🏭 Sectors</button>
+    <button class="tab-btn" onclick="showTab('tax')">💰 Tax Changes</button>
+    <button class="tab-btn" onclick="showTab('schemes')">📋 New Schemes</button>
+    <button class="tab-btn" onclick="showTab('up')">🟩 UP Special</button>
+    <button class="tab-btn" onclick="showTab('fiscal')">📉 Fiscal Path</button>
+    <button class="tab-btn" onclick="showTab('mcq')">✅ MCQ Practice</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 1: OVERVIEW
+══════════════════════════════════ -->
+<div id="tab-overview" class="section active">
+  <div class="section-title"><span class="icon">📊</span> Budget 2025-26: Overview at a Glance</div>
+
+  <div class="highlight saffron">
+    🎯 <strong>Theme:</strong> "VIKSIT BHARAT" — विकसित भारत 2047 की नींव। 4 इंजन: कृषि, MSME, निवेश, निर्यात।
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card orange">
+      <div class="val">₹50.65 L Cr</div>
+      <div class="lbl">💸 Total Expenditure (7.4% ↑)</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">₹34.96 L Cr</div>
+      <div class="lbl">📥 Total Receipts (ex-borrowings)</div>
+    </div>
+    <div class="stat-card green">
+      <div class="val">₹28.37 L Cr</div>
+      <div class="lbl">🧾 Net Tax Receipts</div>
+    </div>
+    <div class="stat-card gold">
+      <div class="val">₹11.21 L Cr</div>
+      <div class="lbl">🏗️ Capital Expenditure (3.1% of GDP)</div>
+    </div>
+    <div class="stat-card red">
+      <div class="val">4.4% GDP</div>
+      <div class="lbl">📉 Fiscal Deficit (↓ from 4.8%)</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">1.5% GDP</div>
+      <div class="lbl">📊 Revenue Deficit (↓ from 1.9%)</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">₹14.82 L Cr</div>
+      <div class="lbl">📋 Gross Market Borrowings</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="val">56.1% GDP</div>
+      <div class="lbl">🏦 Central Govt Debt/GDP</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📌 बजट के 6 प्रमुख लक्ष्य (Six Goals of Budget 2025)</div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
+      <div class="highlight green" style="margin:0; border-radius:8px;">🌾 Zero Poverty (शून्य गरीबी)</div>
+      <div class="highlight blue" style="margin:0; border-radius:8px;">🎓 Quality Education for All</div>
+      <div class="highlight green" style="margin:0; border-radius:8px;">🏥 Affordable Healthcare</div>
+      <div class="highlight blue" style="margin:0; border-radius:8px;">💼 Full Skilling & Employment</div>
+      <div class="highlight" style="margin:0; border-radius:8px;">👩 Women Workforce Participation</div>
+      <div class="highlight saffron" style="margin:0; border-radius:8px;">🌾 India — Food Basket of World</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📈 Expenditure Breakdown (Main Items)</div>
+    <div class="bar-row">
+      <div class="bar-label"><span>💰 Interest Payments</span><span>25% of Total Expenditure</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:25%; background:var(--danger);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🏗️ Capital Expenditure</span><span>22.1% of Total</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:22%; background:var(--blue);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🛡️ Defence</span><span>13.45% of Union Budget</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:13.5%; background:var(--green);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🎓 Education</span><span>~2.5% of GDP</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:10%; background:var(--gold);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🌾 Agriculture</span><span>~4% of Total</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:8%; background:var(--saffron);"></div></div>
+    </div>
+  </div>
+
+  <div class="highlight blue">
+    💡 <strong>UPPSC Key Fact:</strong> Finance Minister Nirmala Sitharaman ने यह अपना <strong>8वाँ लगातार बजट</strong> पेश किया — यह एक रिकॉर्ड है। GDP Nominal Growth Target: <strong>10.1%</strong> for FY 2025-26.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 2: SECTORS
+══════════════════════════════════ -->
+<div id="tab-sectors" class="section">
+  <div class="section-title"><span class="icon">🏭</span> Major Sector Allocations</div>
+
+  <div class="sector-grid">
+
+    <div class="sector-card">
+      <div class="sector-icon">🌾</div>
+      <div class="sector-name">Agriculture & Rural Development</div>
+      <div class="sector-amount gold">Priority Sector</div>
+      <ul class="sector-points">
+        <li><strong>PM Dhan-Dhaanya Krishi Yojana</strong> — 100 low-productivity districts</li>
+        <li>Mission for Aatmanirbharta in Pulses: Tur, Urad, Masoor</li>
+        <li>Kisan Credit Card limit ↑ to ₹5 lakh</li>
+        <li>PMGSY Phase IV — 25,000 habitations connectivity</li>
+        <li>Jal Jeevan Mission extended to 2028</li>
+        <li>PMAY Rural: ₹54,832 crore</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🎓</div>
+      <div class="sector-name">Education</div>
+      <div class="sector-amount blue">₹1.28 L Crore (+6.65%)</div>
+      <ul class="sector-points">
+        <li>AI Centre of Excellence: ₹500 crore</li>
+        <li>50,000 नए Atal Tinkering Labs</li>
+        <li>Bharatiya Bhasha Pustak Scheme</li>
+        <li>5 National Centres of Excellence for Skilling</li>
+        <li>IIT expansion — 6,500 more seats</li>
+        <li>PM Research Fellowship: 10,000 fellowships</li>
+        <li>BharatNet — broadband to rural schools</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🏥</div>
+      <div class="sector-name">Health</div>
+      <div class="sector-amount green">₹98,311 Crore</div>
+      <ul class="sector-points">
+        <li>10,000 new medical seats next year</li>
+        <li>75,000 seats over 5 years</li>
+        <li>200 Day Care Cancer Centres in 2025-26</li>
+        <li>Gig Workers health cover — 1 crore workers</li>
+        <li>PM Jan Arogya Yojana expansion</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🏗️</div>
+      <div class="sector-name">Infrastructure</div>
+      <div class="sector-amount blue">₹11.21 L Crore (CapEx)</div>
+      <ul class="sector-points">
+        <li>₹1.5 L Cr — 50-year interest-free loans to states</li>
+        <li>Urban Challenge Fund: ₹1 L Crore</li>
+        <li>Maritime Development Fund: ₹25,000 Cr</li>
+        <li>Asset Monetisation Plan 2025-30 (₹10 L Cr)</li>
+        <li>UDAN Scheme — 120 new destinations</li>
+        <li>3 Greenfield Airports (Bihar)</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🛡️</div>
+      <div class="sector-name">Defence</div>
+      <div class="sector-amount red">₹6.81 L Crore (+9.53%)</div>
+      <ul class="sector-points">
+        <li>13.45% of Union Budget (highest ministry)</li>
+        <li>75% capital procurement — domestic manufacturers</li>
+        <li>Project P75(I) submarines</li>
+        <li>AMCA (Advanced Medium Combat Aircraft)</li>
+        <li>6 submarines acquisition plan</li>
+        <li>Make in India focus</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🏢</div>
+      <div class="sector-name">MSMEs</div>
+      <div class="sector-amount saffron">Priority Focus</div>
+      <ul class="sector-points">
+        <li>MUDRA Loan limit: ₹10L → ₹20 Lakh</li>
+        <li>Credit for women/SC/ST entrepreneurs: ₹2 Cr</li>
+        <li>PM SVANidhi — UPI credit card ₹30,000</li>
+        <li>5 lakh new first-time entrepreneurs</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="highlight">
+    🔑 <strong>UPPSC Trick:</strong> बजट 2025-26 के 4 Engine: <strong>A-M-I-E</strong> = Agriculture, MSME, Investment, Exports (निर्यात)। Defence सबसे बड़ा मंत्रालय allocation।
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 3: TAX CHANGES
+══════════════════════════════════ -->
+<div id="tab-tax" class="section">
+  <div class="section-title"><span class="icon">💰</span> Income Tax Changes 2025-26</div>
+
+  <div class="highlight green">
+    🎉 <strong>BIG ANNOUNCEMENT:</strong> Income up to ₹12 Lakh — ZERO TAX (New Regime)! Salaried को ₹75,000 Standard Deduction मिलाकर ₹12.75 Lakh तक Zero Tax। 9 out of 10 salaried taxpayers will pay ZERO TAX।
+  </div>
+
+  <div class="card">
+    <div class="card-title">📊 New Tax Regime Slabs — FY 2025-26 (Default Regime)</div>
+    <table class="tax-table">
+      <thead>
+        <tr><th>Income Range</th><th>Tax Rate</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>₹0 — ₹4 Lakh</td><td>0%</td><td><span class="zero-tag">NIL</span></td></tr>
+        <tr><td>₹4L — ₹8 Lakh</td><td>5%</td><td></td></tr>
+        <tr><td>₹8L — ₹12 Lakh</td><td>10%</td><td></td></tr>
+        <tr><td>₹12L — ₹16 Lakh</td><td>15%</td><td></td></tr>
+        <tr><td>₹16L — ₹20 Lakh</td><td>20%</td><td></td></tr>
+        <tr><td>₹20L — ₹24 Lakh</td><td>25%</td><td></td></tr>
+        <tr><td>Above ₹24 Lakh</td><td>30%</td><td></td></tr>
+        <tr><td colspan="3">Section 87A Rebate: ₹60,000 (income ≤ ₹12L → ZERO TAX) ✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔄 Key Changes vs Previous Year</div>
+    <div style="overflow-x:auto;">
+      <table class="tax-table">
+        <thead><tr><th>Parameter</th><th>Before (FY 2024-25)</th><th>After (FY 2025-26)</th></tr></thead>
+        <tbody>
+          <tr><td>Basic Exemption</td><td>₹2.5 Lakh</td><td>₹4 Lakh ✅</td></tr>
+          <tr><td>Zero Tax Limit</td><td>₹7 Lakh (Sec 87A)</td><td>₹12 Lakh ✅</td></tr>
+          <tr><td>Standard Deduction</td><td>₹50,000</td><td>₹75,000 ✅</td></tr>
+          <tr><td>Section 87A Rebate</td><td>₹25,000</td><td>₹60,000 ✅</td></tr>
+          <tr><td>Effective Zero (Salaried)</td><td>₹7.75 Lakh</td><td>₹12.75 Lakh ✅</td></tr>
+          <tr><td>Max Surcharge (New)</td><td>25%</td><td>25% (unchanged)</td></tr>
+          <tr><td>TDS (Senior Citizens)</td><td>₹50,000 on interest</td><td>₹1 Lakh ✅</td></tr>
+          <tr><td>TDS on Rent</td><td>₹2.4 Lakh/yr</td><td>₹6 Lakh/yr ✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📜 New Income Tax Bill 2025</div>
+    <div class="highlight blue" style="margin-bottom:8px;">
+      New Income Tax Act 2025 presented — to replace Income Tax Act 1961 (60+ years old). 
+      Effective from <strong>1 April 2026</strong>. Retains ~50% of existing provisions. Focus: Simplification.
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+      <span class="pill pill-blue">📖 Simpler Language</span>
+      <span class="pill pill-green">🧮 Fewer Sections</span>
+      <span class="pill pill-gold">🤝 Trust First Policy</span>
+      <span class="pill pill-saffron">💻 Digital First</span>
+    </div>
+  </div>
+
+  <div class="highlight">
+    💡 <strong>UPPSC Mnemonic:</strong> "12-4-75-60" याद करो — ₹12L zero tax, ₹4L basic exemption, ₹75K standard deduction, ₹60K rebate।
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 4: NEW SCHEMES
+══════════════════════════════════ -->
+<div id="tab-schemes" class="section">
+  <div class="section-title"><span class="icon">📋</span> Major New Schemes — Budget 2025-26</div>
+
+  <ul class="scheme-list" style="background:white; border-radius:12px; padding:8px 16px; border:1px solid var(--border);">
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🌾</div>
+      <div>
+        <div class="scheme-name">PM Dhan-Dhaanya Krishi Yojana</div>
+        <div class="scheme-desc">100 low-productivity agricultural districts में crop diversification, irrigation, post-harvest storage। 1.7 Crore farmers को benefit।</div>
+        <span class="scheme-tag">Agriculture</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🫘</div>
+      <div>
+        <div class="scheme-name">Mission for Aatmanirbharta in Pulses</div>
+        <div class="scheme-desc">6-year mission। Focus: Tur, Urad, Masoor। दाल में आत्मनिर्भरता — import dependency कम करना।</div>
+        <span class="scheme-tag">Agriculture</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🏙️</div>
+      <div>
+        <div class="scheme-name">Urban Challenge Fund</div>
+        <div class="scheme-desc">₹1 Lakh Crore fund। Cities as Growth Hubs, Creative Redevelopment of Cities, Water & Sanitation। ₹10,000 Cr allocated for 2025-26।</div>
+        <span class="scheme-tag green">Urban Development</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🚢</div>
+      <div>
+        <div class="scheme-name">Maritime Development Fund</div>
+        <div class="scheme-desc">Corpus: ₹25,000 Crore। Shipbuilding, port infrastructure, maritime economy को boost।</div>
+        <span class="scheme-tag">Infrastructure</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🧬</div>
+      <div>
+        <div class="scheme-name">Gene Bank for Crops Mission</div>
+        <div class="scheme-desc">Gene bank for 1 million crop varieties की सुरक्षा। Food security & biodiversity।</div>
+        <span class="scheme-tag">Agriculture</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🤖</div>
+      <div>
+        <div class="scheme-name">Centre of Excellence in AI (Education)</div>
+        <div class="scheme-desc">₹500 Crore outlay। AI-driven learning solutions। "AI for India" initiative।</div>
+        <span class="scheme-tag green">Education</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🚗</div>
+      <div>
+        <div class="scheme-name">Asset Monetisation Plan 2025-30</div>
+        <div class="scheme-desc">2nd plan — ₹10 Lakh Crore plough back into new projects। Building on 2021-26 success।</div>
+        <span class="scheme-tag orange">Infrastructure</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">💊</div>
+      <div>
+        <div class="scheme-name">Day Care Cancer Centres</div>
+        <div class="scheme-desc">All district hospitals में Cancer Centres। 200 centres in 2025-26। 3 years में complete।</div>
+        <span class="scheme-tag green">Health</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">👷</div>
+      <div>
+        <div class="scheme-name">Gig Workers Social Security Scheme</div>
+        <div class="scheme-desc">Identity cards, e-Shram registration, PM Jan Arogya Yojana under healthcare। 1 Crore gig workers।</div>
+        <span class="scheme-tag">Labour</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🏠</div>
+      <div>
+        <div class="scheme-name">Stressed Housing Project Fund</div>
+        <div class="scheme-desc">₹15,000 Crore — 1 lakh housing units in stressed (stuck) projects complete करने के लिए।</div>
+        <span class="scheme-tag green">Urban Housing</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">📚</div>
+      <div>
+        <div class="scheme-name">Bharatiya Bhasha Pustak Scheme</div>
+        <div class="scheme-desc">Digital Indian language books for school and higher education। Multilingual education push।</div>
+        <span class="scheme-tag green">Education</span>
+      </div>
+    </li>
+
+    <li class="scheme-item">
+      <div class="scheme-emoji">🌊</div>
+      <div>
+        <div class="scheme-name">Jal Jeevan Mission (Extended)</div>
+        <div class="scheme-desc">2028 तक extended with enhanced outlay। 15 Crore households (80% rural) को tap water मिल चुका। 100% coverage target।</div>
+        <span class="scheme-tag">Rural Development</span>
+      </div>
+    </li>
+
+  </ul>
+
+  <div class="highlight" style="margin-top:12px;">
+    🧠 <strong>UPPSC Trick:</strong> नई schemes याद करें: <strong>PM-D² = PM Dhan-Dhaanya + Maritime Fund + Urban Challenge Fund + AI Centre + Cancer Centres</strong>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 5: UP SPECIAL
+══════════════════════════════════ -->
+<div id="tab-up" class="section">
+  <div class="section-title"><span class="icon">🟩</span> Uttar Pradesh — Budget 2025-26</div>
+
+  <div class="up-banner">
+    <div class="flag">🏛️</div>
+    <div>
+      <h3>UP State Budget 2025-26: ₹8,08,736 Crore</h3>
+      <p>Finance Minister Suresh Kumar Khanna | UP History का सबसे बड़ा Budget | 9.8% increase over 2024-25</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📊 UP Budget Sectoral Allocation</div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🏗️ Infrastructure</span><span>22%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:22%; background:var(--blue);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🎓 Education</span><span>13%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:13%; background:var(--gold);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🌾 Agriculture & Allied</span><span>11%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:11%; background:var(--green);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🏥 Health</span><span>6%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:6%; background:var(--saffron);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🛡️ Social Security</span><span>4%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:4%; background:var(--muted);"></div></div>
+    </div>
+  </div>
+
+  <div class="sector-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
+
+    <div class="sector-card">
+      <div class="sector-icon">🛣️</div>
+      <div class="sector-name">4 New Expressways</div>
+      <div class="sector-amount blue">₹900 Crore</div>
+      <ul class="sector-points">
+        <li>Agra-Lucknow → Ganga Expressway</li>
+        <li>Vindhya Expressway (Prayagraj-Sonbhadra)</li>
+        <li>Ganga Expressway Extension (Meerut-Haridwar)</li>
+        <li>Bundelkhand-Rewa Expressway</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🤖</div>
+      <div class="sector-name">AI City, Lucknow</div>
+      <div class="sector-amount saffron">₹5 Crore Initial</div>
+      <ul class="sector-points">
+        <li>AI-driven research & development hub</li>
+        <li>Cybersecurity Research Park (separate)</li>
+        <li>UP को tech innovation centre बनाना</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🏭</div>
+      <div class="sector-name">Defence Industrial Corridor</div>
+      <div class="sector-amount red">₹461 Crore</div>
+      <ul class="sector-points">
+        <li>Bundelkhand-Rewa Expressway along</li>
+        <li>Expected investment: ₹9,500 Crore</li>
+        <li>UPDIC (UP Defence Industrial Corridor)</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🏫</div>
+      <div class="sector-name">Smart Schools</div>
+      <div class="sector-amount blue">₹300 Crore</div>
+      <ul class="sector-points">
+        <li>Primary schools → Smart Schools</li>
+        <li>ICT Labs & Smart Classrooms</li>
+        <li>Digital learning modernization</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🛕</div>
+      <div class="sector-name">Tourism — Ayodhya Focus</div>
+      <div class="sector-amount gold">₹400 Crore+</div>
+      <ul class="sector-points">
+        <li>CM Tourist Places Development Scheme</li>
+        <li>Ayodhya specifically: ₹150 Crore</li>
+        <li>Religious tourism infrastructure</li>
+      </ul>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon">🛵</div>
+      <div class="sector-name">Rani Laxmibai Scooty Yojana</div>
+      <div class="sector-amount saffron">₹400 Crore</div>
+      <ul class="sector-points">
+        <li>Meritorious girl students को Scooty</li>
+        <li>College-going girls के लिए</li>
+        <li>Women empowerment scheme</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <div class="card-title">🌐 Union Budget से UP को क्या मिला?</div>
+    <ul class="scheme-list">
+      <li class="scheme-item">
+        <div class="scheme-emoji">🏘️</div>
+        <div>
+          <div class="scheme-name">PMAY Rural — ₹54,832 Crore (National)</div>
+          <div class="scheme-desc">UP बड़ा लाभार्थी — अधिकतम rural housing UP में।</div>
+        </div>
+      </li>
+      <li class="scheme-item">
+        <div class="scheme-emoji">💧</div>
+        <div>
+          <div class="scheme-name">Jal Jeevan Mission Extension (2028)</div>
+          <div class="scheme-desc">UP के remaining districts में 100% tap water coverage push।</div>
+        </div>
+      </li>
+      <li class="scheme-item">
+        <div class="scheme-emoji">🛤️</div>
+        <div>
+          <div class="scheme-name">PMGSY Phase IV</div>
+          <div class="scheme-desc">25,000 rural habitations — UP में thousands of villages को all-weather road connectivity।</div>
+        </div>
+      </li>
+      <li class="scheme-item">
+        <div class="scheme-emoji">🎯</div>
+        <div>
+          <div class="scheme-name">₹1.5 L Cr Interest-Free Loans to States</div>
+          <div class="scheme-desc">UP को capital expenditure के लिए significant share — infrastructure building।</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="highlight saffron">
+    🌟 <strong>UP Special:</strong> Zero Poverty Abhiyan, AI City Lucknow, UPDIC Defence Corridor, 4 New Expressways, Ayodhya Tourism — ये UPPSC 2026 में most likely questions हैं!
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 6: FISCAL PATH
+══════════════════════════════════ -->
+<div id="tab-fiscal" class="section">
+  <div class="section-title"><span class="icon">📉</span> Fiscal Consolidation Roadmap</div>
+
+  <div class="highlight green">
+    🎯 <strong>FRBM Act Target:</strong> Central Govt debt को 50% of GDP तक लाना by March 2031। Currently 56.1% GDP।
+  </div>
+
+  <div class="card">
+    <div class="card-title">📊 Fiscal Deficit Trajectory (% of GDP)</div>
+    <div class="fiscal-path">
+      <div class="fp-item">
+        <div class="fp-dot">5.9</div>
+        <div class="fp-year">FY22</div>
+      </div>
+      <div class="fp-arrow">→</div>
+      <div class="fp-item">
+        <div class="fp-dot">5.9</div>
+        <div class="fp-year">FY23</div>
+      </div>
+      <div class="fp-arrow">→</div>
+      <div class="fp-item">
+        <div class="fp-dot">5.6</div>
+        <div class="fp-year">FY24</div>
+      </div>
+      <div class="fp-arrow">→</div>
+      <div class="fp-item">
+        <div class="fp-dot">4.8</div>
+        <div class="fp-year">FY25 (RE)</div>
+      </div>
+      <div class="fp-arrow">→</div>
+      <div class="fp-item">
+        <div class="fp-dot active">4.4</div>
+        <div class="fp-year">FY26 ⭐</div>
+      </div>
+      <div class="fp-arrow">→</div>
+      <div class="fp-item">
+        <div class="fp-dot future">4.3</div>
+        <div class="fp-year">FY27 (Target)</div>
+      </div>
+      <div class="fp-arrow">→</div>
+      <div class="fp-item">
+        <div class="fp-dot future">~4.0</div>
+        <div class="fp-year">FY28 (Est)</div>
+      </div>
+    </div>
+    <p style="font-size:11px; color:var(--muted);">⭐ = Budget 2025-26 (Current Year)</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📋 Key Fiscal Indicators Comparison</div>
+    <div style="overflow-x:auto;">
+      <table class="tax-table">
+        <thead><tr><th>Indicator</th><th>FY 2024-25 (RE)</th><th>FY 2025-26 (BE)</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>Fiscal Deficit % GDP</td><td>4.8%</td><td>4.4%</td><td>↓ 0.4%</td></tr>
+          <tr><td>Revenue Deficit % GDP</td><td>1.9%</td><td>1.5%</td><td>↓ 0.4%</td></tr>
+          <tr><td>Total Expenditure</td><td>₹47.16 L Cr</td><td>₹50.65 L Cr</td><td>↑ 7.4%</td></tr>
+          <tr><td>Capital Expenditure</td><td>₹10.18 L Cr</td><td>₹11.21 L Cr</td><td>↑ ~10%</td></tr>
+          <tr><td>Total Receipts (ex-borr)</td><td>₹31.47 L Cr</td><td>₹34.96 L Cr</td><td>↑ 11.1%</td></tr>
+          <tr><td>Net Tax Receipts</td><td>₹25.57 L Cr</td><td>₹28.37 L Cr</td><td>↑ 11%</td></tr>
+          <tr><td>Debt/GDP Ratio</td><td>~57%</td><td>56.1%</td><td>↓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🏦 Financing the Fiscal Deficit</div>
+    <div class="highlight blue" style="margin-bottom:8px;">
+      Gross Market Borrowings: <strong>₹14.82 Lakh Crore</strong><br>
+      Net Market Borrowings (G-Sec): <strong>₹11.54 Lakh Crore</strong>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="val">₹15,68,936 Cr</div>
+        <div class="lbl">Fiscal Deficit (absolute)</div>
+      </div>
+      <div class="stat-card green">
+        <div class="val">10.1%</div>
+        <div class="lbl">Nominal GDP Growth target</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="val">March 2031</div>
+        <div class="lbl">Target: Debt ≤ 50% GDP</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    💡 <strong>FRBM Act 2003:</strong> Government को progressively revenue deficit और fiscal deficit कम करना होता है। हर budget में 3-year rolling targets देना mandatory है।
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 7: MCQ
+══════════════════════════════════ -->
+<div id="tab-mcq" class="section">
+  <div class="section-title"><span class="icon">✅</span> Budget 2025-26 MCQ Practice</div>
+
+  <div class="score-bar">
+    <div>
+      <div style="font-size:12px; color:var(--muted);">Your Score</div>
+      <div class="score-val" id="score-display">0 / 10</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:11px; color:var(--muted);">SDM Rank Prep 🎯</div>
+      <button onclick="resetAll()" style="margin-top:4px; background:var(--saffron-lt); color:var(--saffron); border:1px solid var(--saffron); border-radius:6px; padding:4px 12px; font-size:11px; font-weight:600; cursor:pointer;">🔄 Reset</button>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="mcq-card" id="q1">
+    <div class="mcq-q"><span class="qnum">Q1</span> Union Budget 2025-26 में Total Expenditure कितनी है?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q1','A')">A) ₹45.03 Lakh Crore</div>
+      <div class="opt" onclick="answer(this,'q1','B')">B) ₹50.65 Lakh Crore</div>
+      <div class="opt" onclick="answer(this,'q1','C')">C) ₹47.16 Lakh Crore</div>
+      <div class="opt" onclick="answer(this,'q1','D')">D) ₹52.10 Lakh Crore</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q1')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q1">✅ <strong>Answer: B) ₹50.65 Lakh Crore</strong><br>Budget 2025-26 में total expenditure ₹50.65 Lakh Crore है, जो FY25 revised estimate से 7.4% अधिक है। Capital Expenditure ₹11.21 Lakh Crore (3.1% of GDP) है।</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="mcq-card" id="q2">
+    <div class="mcq-q"><span class="qnum">Q2</span> Budget 2025-26 में Fiscal Deficit का target क्या है?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q2','A')">A) 5.1% of GDP</div>
+      <div class="opt" onclick="answer(this,'q2','B')">B) 4.8% of GDP</div>
+      <div class="opt" onclick="answer(this,'q2','C')">C) 4.4% of GDP</div>
+      <div class="opt" onclick="answer(this,'q2','D')">D) 3.5% of GDP</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q2')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q2">✅ <strong>Answer: C) 4.4% of GDP</strong><br>FY 2025-26 में fiscal deficit target 4.4% GDP है। FY25 में 4.8% था। Revenue Deficit 1.5% GDP है। Absolute amount ₹15,68,936 Crore है।</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="mcq-card" id="q3">
+    <div class="mcq-q"><span class="qnum">Q3</span> New Tax Regime में zero income tax की सीमा Budget 2025 में क्या निर्धारित की गई?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q3','A')">A) ₹7 Lakh</div>
+      <div class="opt" onclick="answer(this,'q3','B')">B) ₹10 Lakh</div>
+      <div class="opt" onclick="answer(this,'q3','C')">C) ₹12 Lakh</div>
+      <div class="opt" onclick="answer(this,'q3','D')">D) ₹15 Lakh</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q3')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q3">✅ <strong>Answer: C) ₹12 Lakh</strong><br>Budget 2025-26 में Section 87A rebate ₹60,000 बढ़ाकर ₹12 Lakh तक income को zero tax किया गया। Salaried को ₹75,000 standard deduction मिलाकर ₹12.75 Lakh तक zero tax।</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="mcq-card" id="q4">
+    <div class="mcq-q"><span class="qnum">Q4</span> "PM Dhan-Dhaanya Krishi Yojana" कितने जिलों में लागू की जाएगी?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q4','A')">A) 50 districts</div>
+      <div class="opt" onclick="answer(this,'q4','B')">B) 75 districts</div>
+      <div class="opt" onclick="answer(this,'q4','C')">C) 100 districts</div>
+      <div class="opt" onclick="answer(this,'q4','D')">D) 200 districts</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q4')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q4">✅ <strong>Answer: C) 100 districts</strong><br>PM Dhan-Dhaanya Krishi Yojana देश के 100 low agricultural productivity districts में लागू होगी। इससे 1.7 Crore farmers को benefit होगा। Crop diversification, irrigation, post-harvest storage focus।</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="mcq-card" id="q5">
+    <div class="mcq-q"><span class="qnum">Q5</span> Defence Budget 2025-26 में कितना है और यह Union Budget का कितना प्रतिशत है?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q5','A')">A) ₹5.94 L Cr, 11.2%</div>
+      <div class="opt" onclick="answer(this,'q5','B')">B) ₹6.81 L Cr, 13.45%</div>
+      <div class="opt" onclick="answer(this,'q5','C')">C) ₹7.02 L Cr, 15.1%</div>
+      <div class="opt" onclick="answer(this,'q5','D')">D) ₹6.22 L Cr, 12.0%</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q5')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q5">✅ <strong>Answer: B) ₹6.81 L Cr, 13.45%</strong><br>Defence को ₹6,81,210 Crore allocation — Union Budget का 13.45%। यह सभी Ministries में सबसे बड़ा allocation है। FY25 से 9.53% अधिक।</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="mcq-card" id="q6">
+    <div class="mcq-q"><span class="qnum">Q6</span> Maritime Development Fund का corpus कितना है?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q6','A')">A) ₹10,000 Crore</div>
+      <div class="opt" onclick="answer(this,'q6','B')">B) ₹15,000 Crore</div>
+      <div class="opt" onclick="answer(this,'q6','C')">C) ₹25,000 Crore</div>
+      <div class="opt" onclick="answer(this,'q6','D')">D) ₹50,000 Crore</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q6')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q6">✅ <strong>Answer: C) ₹25,000 Crore</strong><br>Maritime Development Fund का corpus ₹25,000 Crore रखा गया है। यह shipbuilding, port infrastructure और India की maritime economy को boost करने के लिए है।</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="mcq-card" id="q7">
+    <div class="mcq-q"><span class="qnum">Q7</span> Budget 2025-26 में Education sector को total कितना allocation मिला?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q7','A')">A) ₹98,000 Crore</div>
+      <div class="opt" onclick="answer(this,'q7','B')">B) ₹1.12 Lakh Crore</div>
+      <div class="opt" onclick="answer(this,'q7','C')">C) ₹1.28 Lakh Crore</div>
+      <div class="opt" onclick="answer(this,'q7','D')">D) ₹1.45 Lakh Crore</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q7')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q7">✅ <strong>Answer: C) ₹1.28 Lakh Crore</strong><br>Education sector को ₹1.28 Lakh Crore (6.65% hike)। School Education: ₹78,572 Cr (+7.62%), Higher Education: ₹50,077 Cr (+5.16%)। AI Centre of Excellence: ₹500 Cr।</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="mcq-card" id="q8">
+    <div class="mcq-q"><span class="qnum">Q8</span> MUDRA Loan की limit Budget 2025-26 में बढ़ाकर कितनी की गई?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q8','A')">A) ₹10 Lakh</div>
+      <div class="opt" onclick="answer(this,'q8','B')">B) ₹15 Lakh</div>
+      <div class="opt" onclick="answer(this,'q8','C')">C) ₹20 Lakh</div>
+      <div class="opt" onclick="answer(this,'q8','D')">D) ₹25 Lakh</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q8')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q8">✅ <strong>Answer: C) ₹20 Lakh</strong><br>MUDRA Loan की limit ₹10 Lakh से बढ़ाकर ₹20 Lakh की गई। यह MSME और self-employed के लिए है। PM SVANidhi scheme में UPI-linked credit card ₹30,000 limit भी दी गई।</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="mcq-card" id="q9">
+    <div class="mcq-q"><span class="qnum">Q9</span> Uttar Pradesh Budget 2025-26 कितने crore का है — UP history का सबसे बड़ा?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q9','A')">A) ₹6,85,000 Crore</div>
+      <div class="opt" onclick="answer(this,'q9','B')">B) ₹7,66,000 Crore</div>
+      <div class="opt" onclick="answer(this,'q9','C')">C) ₹8,08,736 Crore</div>
+      <div class="opt" onclick="answer(this,'q9','D')">D) ₹9,00,000 Crore</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q9')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q9">✅ <strong>Answer: C) ₹8,08,736 Crore</strong><br>UP का Budget 2025-26: ₹8,08,736 Crore — UP history का सबसे बड़ा। FM Suresh Kumar Khanna ने पेश किया। FY24-25 से 9.8% अधिक। Capital Expenditure 20.5%।</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="mcq-card" id="q10">
+    <div class="mcq-q"><span class="qnum">Q10</span> Budget 2025-26 में Urban Challenge Fund कितने रुपये का है और किसके लिए है?</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q10','A')">A) ₹50,000 Cr — Rural Roads के लिए</div>
+      <div class="opt" onclick="answer(this,'q10','B')">B) ₹1 Lakh Crore — Cities as Growth Hubs</div>
+      <div class="opt" onclick="answer(this,'q10','C')">C) ₹75,000 Cr — Metro Projects के लिए</div>
+      <div class="opt" onclick="answer(this,'q10','D')">D) ₹2 Lakh Crore — Smart Cities के लिए</div>
+    </div>
+    <button class="show-ans-btn" onclick="showExplanation('q10')">💡 Explanation देखें</button>
+    <div class="explanation" id="exp-q10">✅ <strong>Answer: B) ₹1 Lakh Crore — Cities as Growth Hubs</strong><br>Urban Challenge Fund: ₹1 Lakh Crore। इसके 3 components: (1) Cities as Growth Hubs, (2) Creative Redevelopment of Cities, (3) Water & Sanitation। 2025-26 में ₹10,000 Crore allocated।</div>
+  </div>
+
+  <div class="highlight green" style="margin-top:8px;">
+    🏆 <strong>SDM Tip:</strong> इन सभी 10 questions के numbers exactly याद करें — UPPSC में exact figure वाले questions ज़रूर आते हैं!
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div style="background:var(--ink); color:rgba(255,255,255,0.6); text-align:center; padding:16px; font-size:11px; margin-top:20px;">
+  📚 UPPSC 2026 Preparation Toolkit | Union Budget 2025-26 Analysis<br>
+  <span style="color:rgba(255,255,255,0.4);">Top 10 Rank | SDM Aspirant | Presented: 1 Feb 2025 by FM Nirmala Sitharaman</span>
+</div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  const correctAnswers = {
+    q1: 'B', q2: 'C', q3: 'C', q4: 'C', q5: 'B',
+    q6: 'C', q7: 'C', q8: 'C', q9: 'C', q10: 'B'
+  };
+  const answered = {};
+  let score = 0;
+
+  function answer(el, qid, chosen) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    const correct = correctAnswers[qid];
+    const opts = el.closest('.mcq-card').querySelectorAll('.opt');
+    opts.forEach(o => {
+      const val = o.getAttribute('onclick').match(/'([A-D])'\)/)[1];
+      if (val === correct) o.classList.add('correct');
+    });
+    if (chosen === correct) {
+      el.classList.add('correct');
+      score++;
+    } else {
+      el.classList.add('wrong');
+    }
+    document.getElementById('score-display').textContent = score + ' / 10';
+    // show explanation
+    document.getElementById('exp-' + qid).style.display = 'block';
+  }
+
+  function showExplanation(qid) {
+    const exp = document.getElementById('exp-' + qid);
+    exp.style.display = exp.style.display === 'block' ? 'none' : 'block';
+    if (!answered[qid]) {
+      // reveal correct answer
+      const correct = correctAnswers[qid];
+      const opts = document.getElementById(qid).querySelectorAll('.opt');
+      opts.forEach(o => {
+        const val = o.getAttribute('onclick').match(/'([A-D])'\)/)[1];
+        if (val === correct) o.classList.add('revealed-correct');
+      });
+    }
+  }
+
+  function resetAll() {
+    Object.keys(answered).forEach(k => delete answered[k]);
+    score = 0;
+    document.getElementById('score-display').textContent = '0 / 10';
+    document.querySelectorAll('.opt').forEach(o => {
+      o.classList.remove('correct', 'wrong', 'revealed-correct');
+    });
+    document.querySelectorAll('.explanation').forEach(e => e.style.display = 'none');
+  }
+</script>
+</body>
+</html>
