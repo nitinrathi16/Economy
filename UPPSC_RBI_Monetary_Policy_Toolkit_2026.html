@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RBI & Monetary Policy — UPPSC 2026 Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15243b;          /* deep navy — RBI seal */
+  --ink-soft:#42526b;
+  --paper:#fbfcfe;
+  --panel:#ffffff;
+  --line:#dde4ee;
+  --navy:#1c3f7c;
+  --saffron:#d97a1f;
+  --saffron-soft:#fdf2e3;
+  --green:#1c7c4f;
+  --green-soft:#e8f5ee;
+  --blue-soft:#eef3fb;
+  --red:#b3372f;
+  --red-soft:#fbecea;
+  --gold:#b8860b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:15.5px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px 80px}
+
+/* ── Masthead ── */
+header{background:linear-gradient(135deg,#13284d 0%,#1c3f7c 70%,#2a539c 100%);color:#fff;padding:46px 0 38px;border-bottom:5px solid var(--saffron)}
+header .wrap{padding-bottom:0}
+.kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#f4c071;font-weight:600}
+h1{font-family:'Spectral',serif;font-size:clamp(30px,4.5vw,44px);font-weight:700;margin:10px 0 6px;line-height:1.15}
+.sub{color:#c8d6ee;max-width:680px;font-size:15px}
+.stamp{display:inline-block;margin-top:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 16px;font-size:12.5px;color:#ffe9c9}
+
+/* ── Live rate dashboard ── */
+.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:12px;margin:-26px auto 40px;max-width:1040px;padding:0 22px;position:relative}
+.rate{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:10px;padding:14px 12px;text-align:center;box-shadow:0 6px 18px rgba(21,36,59,.08)}
+.rate.hot{border-top-color:var(--saffron)}
+.rate .lbl{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.rate .val{font-family:'Spectral',serif;font-size:28px;font-weight:700;color:var(--navy);margin-top:2px}
+.rate.hot .val{color:var(--saffron)}
+.rate .note{font-size:11px;color:var(--ink-soft)}
+
+/* ── Sections ── */
+section{margin-top:54px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:8px;margin-bottom:22px}
+.sec-num{font-family:'Spectral',serif;font-size:15px;font-weight:700;color:var(--saffron);letter-spacing:1px;white-space:nowrap}
+h2{font-family:'Spectral',serif;font-size:26px;font-weight:700}
+h3{font-family:'Spectral',serif;font-size:18.5px;font-weight:600;color:var(--navy);margin:24px 0 10px}
+p{margin-bottom:12px}
+.hi{color:var(--ink-soft);font-size:14px}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--panel);font-size:14.5px}
+th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:13.5px}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--blue-soft)}
+td b{color:var(--navy)}
+
+.pill{display:inline-block;background:var(--saffron-soft);color:#9a5a10;border:1px solid #f0d3ac;border-radius:999px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px 4px 2px 0}
+.pill.g{background:var(--green-soft);color:var(--green);border-color:#bfe3cf}
+.pill.b{background:var(--blue-soft);color:var(--navy);border-color:#c7d6ef}
+
+.tip{border-left:4px solid var(--saffron);background:var(--saffron-soft);border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0;font-size:14.5px}
+.tip b:first-child{color:#9a5a10}
+.trap{border-left:4px solid var(--red);background:var(--red-soft);border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0;font-size:14.5px}
+.trap b:first-child{color:var(--red)}
+.pyq{border-left:4px solid var(--green);background:var(--green-soft);border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0;font-size:14.5px}
+.pyq b:first-child{color:var(--green)}
+
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:6px}
+
+/* ── SVG diagrams ── */
+.figure{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0;text-align:center}
+.figure figcaption{font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+
+/* ── MCQ ── */
+.mcq{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.mcq .q{font-weight:600;margin-bottom:10px}
+.mcq .opts{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:14.5px}
+@media(max-width:640px){.mcq .opts{grid-template-columns:1fr}}
+.mcq details{margin-top:12px}
+.mcq summary{cursor:pointer;font-weight:600;color:var(--navy);font-size:13.5px;list-style:none;display:inline-block;background:var(--blue-soft);border:1px solid #c7d6ef;border-radius:999px;padding:4px 16px}
+.mcq summary::-webkit-details-marker{display:none}
+.mcq .ans{margin-top:10px;background:var(--green-soft);border:1px solid #bfe3cf;border-radius:8px;padding:10px 14px;font-size:14px}
+.mcq .ans b{color:var(--green)}
+
+footer{margin-top:70px;border-top:3px solid var(--ink);padding-top:18px;font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.mantra{font-family:'Spectral',serif;font-style:italic;color:var(--navy)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">UPPSC 2026 · Indian Economy · Topper-Level Module 🏦</div>
+    <h1>RBI & Monetary Policy — सम्पूर्ण Toolkit</h1>
+    <p class="sub">Structure → MPC → Policy Tools → Inflation Targeting → 2025–26 Decisions → UP Banking → 10 UPPSC-pattern MCQs. Data verified via web search, June 2026.</p>
+    <span class="stamp">📅 Rates as on: 13 June 2026 · Next MPC: 3–5 August 2026</span>
+  </div>
+</header>
+
+<!-- LIVE RATE DASHBOARD -->
+<div class="dash">
+  <div class="rate hot"><div class="lbl">Repo Rate</div><div class="val">5.25%</div><div class="note">Policy rate ★</div></div>
+  <div class="rate"><div class="lbl">SDF</div><div class="val">5.00%</div><div class="note">Corridor floor</div></div>
+  <div class="rate"><div class="lbl">MSF</div><div class="val">5.50%</div><div class="note">Corridor ceiling</div></div>
+  <div class="rate"><div class="lbl">Bank Rate</div><div class="val">5.50%</div><div class="note">= MSF</div></div>
+  <div class="rate"><div class="lbl">Rev. Repo (Fixed)</div><div class="val">3.35%</div><div class="note">Dormant since 2022</div></div>
+  <div class="rate hot"><div class="lbl">CRR</div><div class="val">3.00%</div><div class="note">Cut 100 bps (2025)</div></div>
+  <div class="rate"><div class="lbl">SLR</div><div class="val">18.00%</div><div class="note">Unchanged</div></div>
+  <div class="rate"><div class="lbl">Stance</div><div class="val" style="font-size:19px;padding-top:6px">Neutral ⚖️</div><div class="note">Since June 2025</div></div>
+</div>
+
+<div class="wrap">
+
+<!-- ════════ 1. RBI STRUCTURE ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अध्याय 01</span><h2>🏛️ RBI — संरचना एवं इतिहास</h2></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">📜 Foundational Facts (Prelims के लिए पक्का याद)</h3>
+      <table>
+        <tr><td>स्थापना</td><td><b>1 April 1935</b>, RBI Act 1934 के तहत</td></tr>
+        <tr><td>सिफ़ारिश</td><td><b>Hilton Young Commission</b> (Royal Commission on Indian Currency & Finance, 1926)</td></tr>
+        <tr><td>राष्ट्रीयकरण</td><td><b>1 January 1949</b></td></tr>
+        <tr><td>मुख्यालय</td><td>Mumbai (1937 में Calcutta से स्थानांतरित)</td></tr>
+        <tr><td>प्रथम Governor</td><td>Sir Osborne Smith; प्रथम भारतीय — <b>C. D. Deshmukh</b> (1943)</td></tr>
+        <tr><td>Note Issue</td><td>Section 22, RBI Act — <b>Minimum Reserve System (1956)</b>: ₹200 cr (₹115 cr gold)</td></tr>
+        <tr><td>₹1 का नोट</td><td>भारत सरकार (Finance Secretary के हस्ताक्षर) — RBI नहीं ⚠️</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">👥 Current Leadership (verified June 2026)</h3>
+      <table>
+        <tr><td>Governor</td><td><b>Sanjay Malhotra</b> — 26वें Governor, कार्यभार 11 Dec 2024 (3-year term)</td></tr>
+        <tr><td colspan="2"><b>4 Deputy Governors</b> (Section 8, RBI Act):</td></tr>
+        <tr><td>1️⃣</td><td><b>Swaminathan Janakiraman</b> — supervision (commercial-banker slot)</td></tr>
+        <tr><td>2️⃣</td><td><b>Poonam Gupta</b> — Monetary Policy in-charge (MPC member); RBI की <b>चौथी महिला</b> Dy. Governor</td></tr>
+        <tr><td>3️⃣</td><td><b>Shirish Chandra Murmu</b> — Oct 2025 से (M. Rajeshwar Rao के स्थान पर)</td></tr>
+        <tr><td>4️⃣</td><td><b>Rohit Jain</b> — 2026 में नियुक्त (T. Rabi Sankar के स्थान पर)</td></tr>
+      </table>
+      <p class="hi">Central Board: Governor + max 4 Dy. Governors + nominated directors ≈ 21 सदस्य। नियुक्ति — केंद्र सरकार (FSRASC की सिफ़ारिश → ACC)।</p>
+    </div>
+  </div>
+
+  <h3>⚙️ RBI के 7 प्रमुख कार्य</h3>
+  <div class="card">
+    <p>1️⃣ <b>Monetary Authority</b> — मौद्रिक नीति (price stability + growth) &nbsp;·&nbsp; 2️⃣ <b>Issuer of Currency</b> (₹2 से ऊपर के नोट) &nbsp;·&nbsp; 3️⃣ <b>Banker to Government</b> (Ways & Means Advances) &nbsp;·&nbsp; 4️⃣ <b>Banker's Bank & Lender of Last Resort</b> &nbsp;·&nbsp; 5️⃣ <b>Regulator of Banking System</b> (BR Act 1949) &nbsp;·&nbsp; 6️⃣ <b>Forex Manager</b> (FEMA 1999; forex reserves का संरक्षक) &nbsp;·&nbsp; 7️⃣ <b>Developmental Role</b> — financial inclusion, payment systems (UPI का regulator, NPCI के माध्यम से), priority sector norms।</p>
+  </div>
+
+  <div class="trap"><b>⚠️ UPPSC Trap:</b> WPI आँकड़े RBI नहीं — <b>Office of Economic Adviser, वाणिज्य एवं उद्योग मंत्रालय</b> जारी करता है; CPI — <b>NSO (MoSPI)</b>। यह UPPSC 2021 में पूछा गया था। RBI मौद्रिक नीति के लिए <b>CPI (headline)</b> को target करता है, WPI को नहीं।</div>
+
+  <div class="tip"><b>💡 Section 7, RBI Act:</b> केंद्र सरकार "public interest" में RBI को निर्देश दे सकती है (Governor से परामर्श के बाद) — कभी औपचारिक रूप से invoke नहीं हुआ। Autonomy debate के लिए Mains में gold।</div>
+</section>
+
+<!-- ════════ 2. MPC ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अध्याय 02</span><h2>🗳️ Monetary Policy Committee (MPC)</h2></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">📐 Statutory Design</h3>
+      <ul>
+        <li><b>आधार:</b> Section 45ZB, RBI Act 1934 (Finance Act 2016 द्वारा संशोधन) — <b>statutory body, 2016</b> में गठित। सिफ़ारिश: <b>Urjit Patel Committee (2014)</b>।</li>
+        <li><b>6 सदस्य:</b> 3 RBI से + 3 केंद्र सरकार द्वारा नियुक्त (4-year term, पुनर्नियुक्ति नहीं)।</li>
+        <li><b>Quorum:</b> 4 · निर्णय <b>बहुमत</b> से · tie होने पर Governor का <b>casting vote</b>।</li>
+        <li><b>बैठकें:</b> वर्ष में न्यूनतम 4 (व्यवहार में 6 bi-monthly)।</li>
+        <li><b>Mandate:</b> केवल <b>policy repo rate</b> तय करना। CRR/SLR/stance के operational निर्णय RBI के।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">🧑‍⚖️ Current MPC (June 2026)</h3>
+      <table>
+        <tr><th colspan="2">RBI side (ex-officio)</th></tr>
+        <tr><td>Chair</td><td><b>Sanjay Malhotra</b>, Governor</td></tr>
+        <tr><td>Member</td><td><b>Poonam Gupta</b>, Dy. Governor (Monetary Policy)</td></tr>
+        <tr><td>Member</td><td>RBI officer nominated by Central Board (ED, Monetary Policy Dept.)</td></tr>
+        <tr><th colspan="2">External (Govt-appointed, Oct 2024 → 2028)</th></tr>
+        <tr><td colspan="2">Prof. <b>Ram Singh</b> (Director, Delhi School of Economics) · <b>Saugata Bhattacharya</b> (economist) · Dr. <b>Nagesh Kumar</b> (ISID)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="pyq"><b>📗 PYQ-style hook:</b> "MPC में कितने सदस्य होते हैं?" / "MPC किस अधिनियम के तहत?" — banking exams + PCS में बार-बार। उत्तर हमेशा: <b>6 सदस्य, RBI Act 1934 (as amended 2016), Section 45ZB</b>।</div>
+</section>
+
+<!-- ════════ 3. POLICY TOOLS ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अध्याय 03</span><h2>🧰 Monetary Policy Tools — Current Values</h2></div>
+
+  <!-- LAF Corridor SVG -->
+  <figure class="figure">
+    <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" style="max-width:680px;width:100%;height:auto" role="img" aria-label="LAF corridor diagram">
+      <defs>
+        <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#42526b"/></marker>
+      </defs>
+      <!-- axis -->
+      <line x1="60" y1="220" x2="60" y2="20" stroke="#42526b" stroke-width="1.5" marker-end="url(#ar)"/>
+      <text x="30" y="16" font-size="11" fill="#42526b" font-family="Inter">Rate %</text>
+      <!-- MSF ceiling -->
+      <line x1="60" y1="55" x2="660" y2="55" stroke="#b3372f" stroke-width="3"/>
+      <text x="670" y="59" font-size="13" font-weight="700" fill="#b3372f" font-family="Inter" text-anchor="end" dx="-10" dy="-8">MSF = 5.50% (Ceiling 🔺)</text>
+      <text x="70" y="48" font-size="12" fill="#b3372f" font-family="Inter">Banks borrow overnight from RBI (penal, SLR तक dip allowed)</text>
+      <!-- Repo middle -->
+      <line x1="60" y1="125" x2="660" y2="125" stroke="#d97a1f" stroke-width="4"/>
+      <text x="70" y="118" font-size="13" font-weight="700" fill="#d97a1f" font-family="Inter">REPO = 5.25% ★ Policy Rate (anchor)</text>
+      <!-- SDF floor -->
+      <line x1="60" y1="195" x2="660" y2="195" stroke="#1c7c4f" stroke-width="3"/>
+      <text x="70" y="188" font-size="13" font-weight="700" fill="#1c7c4f" font-family="Inter">SDF = 5.00% (Floor 🔻) — banks park surplus, बिना collateral</text>
+      <!-- corridor brace -->
+      <line x1="640" y1="55" x2="640" y2="195" stroke="#42526b" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="652" y="130" font-size="11" fill="#42526b" font-family="Inter" transform="rotate(90 652 130)">Corridor ±25 bps</text>
+    </svg>
+    <figcaption>चित्र: LAF Corridor (June 2026) — SDF floor, Repo anchor, MSF ceiling। Width = 50 bps symmetric.</figcaption>
+  </figure>
+
+  <table>
+    <tr><th>Tool 🔧</th><th>Current Value</th><th>क्या है / Exam Edge</th></tr>
+    <tr><td><b>Repo Rate</b> ★</td><td><b>5.25%</b></td><td>RBI द्वारा banks को G-secs के against अल्पकालिक उधार। ↓Repo = सस्ता credit = growth push। Last change: <b>Dec 2025 (−25 bps)</b>।</td></tr>
+    <tr><td><b>SDF</b> (2022)</td><td><b>5.00%</b></td><td>Standing Deposit Facility — corridor का <b>नया floor</b>; banks बिना collateral surplus park करते हैं। April 2022 से reverse repo को operationally replace किया।</td></tr>
+    <tr><td><b>Reverse Repo</b> (Fixed)</td><td><b>3.35%</b></td><td>RBI banks से उधार लेता है (collateralised)। अब largely <b>dormant</b> — SDF ने जगह ली। Value अभी भी पूछी जाती है!</td></tr>
+    <tr><td><b>MSF</b> (2011)</td><td><b>5.50%</b></td><td>Marginal Standing Facility — overnight penal borrowing; banks <b>SLR में dip</b> कर सकते हैं (up to 2% NDTL)। Corridor ceiling।</td></tr>
+    <tr><td><b>Bank Rate</b></td><td><b>5.50%</b></td><td>दीर्घकालीन lending, <b>बिना collateral</b>; CRR/SLR default पर penal rate। MSF के साथ aligned रहता है।</td></tr>
+    <tr><td><b>CRR</b></td><td><b>3.00%</b></td><td>NDTL का हिस्सा <b>cash में RBI के पास</b>; कोई ब्याज नहीं। June 2025 में <b>100 bps की historic कटौती</b> (4%→3%, staggered) — ~₹2.5 lakh cr liquidity released।</td></tr>
+    <tr><td><b>SLR</b></td><td><b>18.00%</b></td><td>NDTL का हिस्सा <b>स्वयं bank के पास</b> liquid रूप में — cash, gold, G-secs। BR Act 1949, Sec 24। Dec 2025 से अपरिवर्तित।</td></tr>
+    <tr><td><b>OMO</b></td><td>—</td><td>Open Market Operations — G-secs की खुली खरीद (inject)/बिक्री (absorb)। Variants: <b>Operation Twist</b> (simultaneous buy long + sell short), <b>VRR/VRRR auctions</b>।</td></tr>
+    <tr><td><b>MSS</b> (2004)</td><td>—</td><td>Market Stabilisation Scheme — surplus liquidity सोखने हेतु विशेष G-secs; demonetisation (2016) के बाद प्रयुक्त।</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">📉 Quantitative (General) Tools</h3>
+      <p>Repo · SDF · MSF · Bank Rate · CRR · SLR · OMO · MSS — पूरी economy की <b>credit मात्रा</b> को प्रभावित।</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">🎯 Qualitative (Selective) Tools</h3>
+      <p>Margin requirements · Credit rationing · Moral suasion 🗣️ · Direct action — credit की <b>दिशा</b> नियंत्रित।</p>
+    </div>
+  </div>
+
+  <div class="trap"><b>⚠️ Classic Trap:</b> CRR — cash <b>RBI के पास</b>; SLR — assets <b>bank के अपने पास</b>। CRR पर ब्याज नहीं मिलता। MSF में SLR securities pledge हो सकती हैं, repo में नहीं (excess SLR ही)।</div>
+  <div class="tip"><b>💡 Memory Hook:</b> "नीचे से ऊपर — <b>S</b>DF &lt; <b>R</b>epo &lt; <b>M</b>SF" → "<b>S</b>oye <b>R</b>aho <b>M</b>at" 😄 (5.00 → 5.25 → 5.50, सीढ़ी 25-25 bps की)।</div>
+</section>
+
+<!-- ════════ 4. INFLATION TARGETING ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अध्याय 04</span><h2>🎯 Flexible Inflation Targeting (FIT)</h2></div>
+  <div class="card">
+    <ul>
+      <li><b>क़ानूनी आधार:</b> RBI Act 1934 में 2016 संशोधन (Section 45ZA) — target केंद्र सरकार RBI के परामर्श से <b>हर 5 वर्ष</b> में तय करती है।</li>
+      <li><b>Target:</b> <b>CPI (headline) 4%</b>, tolerance band <b>±2%</b> (यानी 2%–6%)। 2021 में 2021–26 हेतु renew; 2026 में अगली समीक्षा — <b>core vs headline</b> targeting की बहस चर्चा में।</li>
+      <li><b>Failure की परिभाषा:</b> लगातार <b>3 तिमाहियों</b> तक inflation band से बाहर → RBI को सरकार को रिपोर्ट देनी होती है (कारण + remedial steps + समयसीमा)। ऐसा <b>2022</b> में पहली बार हुआ।</li>
+      <li><b>आधार समिति:</b> Urjit Patel Committee (2014) — CPI को nominal anchor बनाने की सिफ़ारिश।</li>
+      <li><b>Dec 2025 context:</b> CPI inflation मात्र <b>~2.2%</b> (band के निचले छोर के पास) + H1 growth ~8% — इसी ने Dec 2025 के rate cut का आधार दिया।</li>
+    </ul>
+  </div>
+  <div class="pyq"><b>📗 Mains Angle (GS-III):</b> "FIT ने inflation anchoring में सफलता पाई, पर food-price shocks (headline CPI में ~46% भार) के कारण monetary policy की प्रभावशीलता सीमित रहती है — क्या core inflation बेहतर anchor है?" — 2026 framework review के साथ यह सबसे hot Mains theme है।</div>
+</section>
+
+<!-- ════════ 5. RECENT DECISIONS ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अध्याय 05</span><h2>📰 RBI Decisions 2025–26 — Timeline</h2></div>
+  <table>
+    <tr><th>MPC Meeting 🗓️</th><th>Repo</th><th>निर्णय / महत्व</th></tr>
+    <tr><td><b>Feb 2025</b></td><td>6.50→<b>6.25%</b></td><td>−25 bps — <b>5 वर्षों में पहली कटौती</b>; Governor Malhotra की पहली policy।</td></tr>
+    <tr><td><b>April 2025</b></td><td><b>6.00%</b></td><td>−25 bps; stance neutral → <b>accommodative</b>।</td></tr>
+    <tr><td><b>June 2025</b> 💥</td><td><b>5.50%</b></td><td><b>Jumbo −50 bps</b> + <b>CRR −100 bps (4%→3%, staggered)</b>; stance वापस <b>neutral</b>। एक policy में dual easing — landmark।</td></tr>
+    <tr><td>Aug & Oct 2025</td><td>5.50%</td><td>Hold — incoming data assessment।</td></tr>
+    <tr><td><b>Dec 2025</b></td><td><b>5.25%</b></td><td>−25 bps, <b>unanimous</b> — inflation ~2.2%, H1 growth ~8%। कुल easing cycle: <b>−125 bps (Feb–Dec 2025)</b>।</td></tr>
+    <tr><td>Feb / Apr / <b>June 2026</b></td><td><b>5.25%</b></td><td><b>Hold</b> — neutral stance; global uncertainty व crude prices पर नज़र। अगली बैठक: <b>3–5 Aug 2026</b>।</td></tr>
+  </table>
+  <div class="card">
+    <h3 style="margin-top:0">🪙 साथ में चल रहे बड़े developments</h3>
+    <ul>
+      <li><b>CBDC — Digital Rupee (e₹):</b> Wholesale pilot Nov 2022, Retail pilot Dec 2022 से; programmability व offline features का विस्तार। ⚠️ <b>e₹ (CBDC) ≠ e-RUPI</b> — e-RUPI एक <b>voucher-based payment instrument</b> (NPCI, 2021) है, currency नहीं। UPPSC का favourite confusion!</li>
+      <li><b>Cryptocurrency:</b> भारत में legal tender नहीं; VDA पर 30% tax + 1% TDS (Finance Act 2022)। RBI का रुख cautious — CBDC ही official digital currency।</li>
+      <li><b>Poonam Gupta</b> — Monetary Policy in-charge Dy. Governor (Michael Patra की उत्तराधिकारी); 2025-26 में Dy. Governor bench में बड़ा बदलाव (Murmu, Rohit Jain)।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════ 6. RBI & UP ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अध्याय 06</span><h2>🌾 RBI और उत्तर प्रदेश की Banking</h2></div>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">🏦 Institutional presence</h3>
+      <ul>
+        <li>RBI के regional offices UP में — <b>Lucknow</b> व <b>Kanpur</b> (Kanpur ऐतिहासिक रूप से बड़ा issue office)।</li>
+        <li><b>Lead Bank Scheme (1969)</b> — हर district को एक lead bank; UPPSC 2022 में LBS पूछा गया (financial inclusion measure)। UP में SLBC convenor परंपरागत रूप से <b>Bank of Baroda</b>।</li>
+        <li><b>'One State One RRB' (1 May 2025):</b> UP के सभी RRBs का विलय → <b>Uttar Pradesh Gramin Bank</b>, HQ <b>Lucknow</b>, sponsor — Bank of Baroda। देशभर में RRBs 43→28। 🔥 2026 Prelims hot topic।</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">📲 Financial Inclusion में UP</h3>
+      <ul>
+        <li><b>PM Jan Dhan Yojana (2014):</b> UP देश में <b>सर्वाधिक PMJDY खातों</b> वाला राज्य (~9 crore+) — inclusion की सबसे बड़ी प्रयोगशाला।</li>
+        <li>RRBs + cooperative banks + India Post Payments Bank का घना ग्रामीण network; DBT व UPI penetration तेज़।</li>
+        <li>UPPSC 2024 PYQ: bank nationalisation, RRB गठन, village adoption — तीनों financial inclusion के कदम माने गए (उत्तर: 1, 2 और 3)। PMJDY chronology वाला प्रश्न भी पूछा गया।</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip"><b>💡 UP-special हुक:</b> RRB chronology — गठन 1975 (Narasimham WG; पहला: Prathama Bank, <b>Moradabad, UP</b>!) → capital share 50:35:15 (Centre:Sponsor:State) → 2025 में One State One RRB। UP से शुरू, UP में सबसे बड़ा consolidation।</div>
+</section>
+
+<!-- ════════ 7. MCQs ════════ -->
+<section>
+  <div class="sec-head"><span class="sec-num">अभ्यास</span><h2>📝 10 UPPSC-Pattern MCQs (Current Data सहित)</h2></div>
+
+  <div class="mcq"><div class="q">Q1. जून 2026 की स्थिति में निम्न को सही ढंग से सुमेलित कीजिए:<br>A. Repo Rate — 1. 3.00% &nbsp; B. CRR — 2. 5.25% &nbsp; C. SLR — 3. 5.50% &nbsp; D. MSF — 4. 18.00%</div>
+    <div class="opts"><span>(a) A-2, B-1, C-4, D-3</span><span>(b) A-3, B-1, C-4, D-2</span><span>(c) A-2, B-4, C-1, D-3</span><span>(d) A-1, B-2, C-3, D-4</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(a)</b> — Repo 5.25%, CRR 3.00%, SLR 18.00%, MSF 5.50% (Dec 2025 की कटौती के बाद से स्थिर)।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q2. LAF corridor (2026) के संदर्भ में सही कथन चुनिए:<br>1. SDF corridor का floor है। &nbsp;2. MSF corridor की ceiling है। &nbsp;3. Corridor की चौड़ाई 50 bps है। &nbsp;4. SDF में banks को collateral देना होता है।</div>
+    <div class="opts"><span>(a) केवल 1, 2</span><span>(b) केवल 1, 2, 3</span><span>(c) केवल 2, 3, 4</span><span>(d) सभी</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(b)</b> — SDF (5.00) floor, MSF (5.50) ceiling, width 50 bps। SDF <b>uncollateralised</b> है — यही reverse repo से उसका मुख्य अंतर। कथन 4 गलत।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q3. MPC के विषय में असत्य कथन है:</div>
+    <div class="opts"><span>(a) गठन Section 45ZB, RBI Act 1934 के अंतर्गत</span><span>(b) 6 सदस्य; tie पर Governor का casting vote</span><span>(c) MPC repo rate के साथ CRR भी निर्धारित करती है</span><span>(d) बाहरी सदस्यों का कार्यकाल 4 वर्ष, पुनर्नियुक्ति नहीं</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(c)</b> — MPC का mandate केवल <b>policy repo rate</b>; CRR/SLR/OMO RBI के operational decisions हैं (इसीलिए June 2025 की CRR कटौती Governor की announcement थी, MPC vote नहीं)।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q4. वर्तमान (2026) में RBI में Monetary Policy विभाग की प्रभारी Deputy Governor कौन हैं?</div>
+    <div class="opts"><span>(a) Michael Patra</span><span>(b) Poonam Gupta</span><span>(c) Shirish Chandra Murmu</span><span>(d) Swaminathan Janakiraman</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(b)</b> — Poonam Gupta (2025 से), Michael Patra की उत्तराधिकारी व MPC की ex-officio सदस्य; RBI की चौथी महिला Dy. Governor।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q5. जून 2025 की मौद्रिक नीति में RBI ने:<br>1. Repo rate में 50 bps की कटौती की। &nbsp;2. CRR को 4% से घटाकर 3% किया। &nbsp;3. Stance accommodative से neutral किया।</div>
+    <div class="opts"><span>(a) केवल 1</span><span>(b) केवल 1, 2</span><span>(c) केवल 2, 3</span><span>(d) 1, 2 और 3</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(d)</b> — तीनों सही; एक ही policy में jumbo rate cut + 100 bps CRR cut (staggered) + stance shift। 2025 का सबसे चर्चित policy decision।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q6. Flexible Inflation Targeting के अंतर्गत "failure" तब माना जाता है जब inflation:</div>
+    <div class="opts"><span>(a) किसी एक माह 6% पार करे</span><span>(b) लगातार 2 तिमाही band से बाहर रहे</span><span>(c) लगातार 3 तिमाही band (2–6%) से बाहर रहे</span><span>(d) वित्त वर्ष औसत 4% से अधिक हो</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(c)</b> — लगातार 3 quarters band से बाहर → RBI की सरकार को रिपोर्ट (पहली बार 2022 में)। Target: CPI headline 4% ±2%, 5-वर्षीय review।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q7. e₹ (Digital Rupee) तथा e-RUPI के संबंध में सही कथन:</div>
+    <div class="opts"><span>(a) दोनों RBI द्वारा जारी CBDC हैं</span><span>(b) e₹ CBDC है; e-RUPI NPCI का voucher-based payment instrument</span><span>(c) e-RUPI legal tender है, e₹ नहीं</span><span>(d) दोनों NPCI जारी करता है</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(b)</b> — e₹ = RBI की CBDC (legal tender; pilots 2022 से); e-RUPI = NPCI का prepaid, purpose-specific digital voucher (2021)। नामों की समानता पर classic trap।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q8. 'One State One RRB' (मई 2025) के अंतर्गत उत्तर प्रदेश के समामेलित RRB का नाम व मुख्यालय है:</div>
+    <div class="opts"><span>(a) Aryavart Bank — Kanpur</span><span>(b) Uttar Pradesh Gramin Bank — Lucknow</span><span>(c) Baroda UP Bank — Ayodhya</span><span>(d) Prathama UP Gramin Bank — Moradabad</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(b)</b> — Uttar Pradesh Gramin Bank, HQ Lucknow, sponsor Bank of Baroda; देशभर में RRBs 43→28। याद रखें: देश का पहला RRB — Prathama Bank, Moradabad (UP), 1975।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q9. निम्न में से कौन RBI का कार्य <u>नहीं</u> है?</div>
+    <div class="opts"><span>(a) Lender of Last Resort</span><span>(b) ₹1 का नोट जारी करना</span><span>(c) सरकार का banker</span><span>(d) Forex reserves का प्रबंधन</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(b)</b> — ₹1 का नोट <b>भारत सरकार</b> (Finance Secretary के हस्ताक्षर सहित) जारी करती है; सिक्के भी सरकार ढालती है (Coinage Act 2011), RBI केवल circulate करता है।</div></details>
+  </div>
+
+  <div class="mcq"><div class="q">Q10. कथन (A): जून 2026 तक RBI की reverse repo (fixed rate) व्यवहारतः निष्क्रिय है।<br>कारण (R): अप्रैल 2022 में लाई गई SDF ने बिना collateral के liquidity absorption का floor बनकर reverse repo की operational भूमिका ले ली।</div>
+    <div class="opts"><span>(a) A और R दोनों सही; R, A की सही व्याख्या</span><span>(b) A और R दोनों सही; R सही व्याख्या नहीं</span><span>(c) A सही, R गलत</span><span>(d) A गलत, R सही</span></div>
+    <details><summary>उत्तर देखें ✅</summary><div class="ans"><b>(a)</b> — Reverse repo (3.35%) तकनीकी रूप से अस्तित्व में पर dormant; SDF (5.00%) collateral-free absorption window के रूप में effective floor। UPPSC का प्रिय A-R format।</div></details>
+  </div>
+
+  <div class="tip"><b>🏆 Topper note:</b> 2026 Prelims में सबसे probable hooks — <b>SDF vs reverse repo</b>, <b>CRR 3% historic cut</b>, <b>One State One RRB (UP)</b>, <b>e₹ vs e-RUPI</b>, और <b>नए Dy. Governors</b>। Mains GS-III के लिए FIT review (2026) + monetary–fiscal coordination पर 2 model answers ज़रूर तैयार करें।</div>
+</section>
+
+<footer>
+  <span>📚 UPPSC 2026 Banking Module · Sources: RBI policy statements & verified financial press (June 2026)</span>
+  <span class="mantra">"Rate याद नहीं, corridor याद रखो — बाक़ी सीढ़ी ख़ुद बन जाती है।"</span>
+</footer>
+
+</div>
+</body>
+</html>
