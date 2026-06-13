@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UP Economy & Industries — UPPSC 2026 Toolkit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap');
+
+  :root {
+    --bg: #f7f4ef;
+    --surface: #ffffff;
+    --surface2: #fdf9f4;
+    --border: #e8e0d4;
+    --accent-saffron: #e8804a;
+    --accent-green: #4a8c6e;
+    --accent-blue: #4a6fa8;
+    --accent-purple: #7a5ea8;
+    --accent-teal: #3a8a8a;
+    --accent-red: #c0474a;
+    --text-dark: #2d2416;
+    --text-mid: #5a4e3a;
+    --text-light: #8a7a62;
+    --gold: #c9922a;
+    --tag-bg: #f0ebe0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, #fff8f0 0%, #f0ebe0 50%, #e8f4f0 100%);
+    border-bottom: 2px solid var(--border);
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "🏛️";
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 6rem;
+    opacity: 0.08;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent-saffron);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.25;
+  }
+  .hero h1 span { color: var(--accent-saffron); }
+  .hero-meta {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .meta-pill {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* ── NAV TABS ── */
+  .nav-strip {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .nav-strip::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    padding: 0.85rem 1.1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-light);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .nav-btn:hover { color: var(--accent-saffron); }
+  .nav-btn.active {
+    color: var(--accent-saffron);
+    border-bottom-color: var(--accent-saffron);
+    font-weight: 600;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+  
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .sec-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+  .sec-header h2 { font-size: 1.3rem; font-weight: 700; }
+  .sec-header p { font-size: 0.8rem; color: var(--text-light); margin-top: 0.1rem; }
+
+  /* ── CARDS ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .card.saffron::before { background: var(--accent-saffron); }
+  .card.green::before { background: var(--accent-green); }
+  .card.blue::before { background: var(--accent-blue); }
+  .card.purple::before { background: var(--accent-purple); }
+  .card.teal::before { background: var(--accent-teal); }
+  .card.red::before { background: var(--accent-red); }
+  .card.gold::before { background: var(--gold); }
+  
+  .card-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .card-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .card.saffron .card-value { color: var(--accent-saffron); }
+  .card.green .card-value { color: var(--accent-green); }
+  .card.blue .card-value { color: var(--accent-blue); }
+  .card.purple .card-value { color: var(--accent-purple); }
+  .card.teal .card-value { color: var(--accent-teal); }
+  .card.red .card-value { color: var(--accent-red); }
+  .card.gold .card-value { color: var(--gold); }
+  
+  .card-label { font-size: 0.78rem; color: var(--text-mid); margin-top: 0.3rem; font-weight: 500; }
+  .card-sub { font-size: 0.72rem; color: var(--text-light); margin-top: 0.2rem; }
+
+  /* ── INFO BLOCKS ── */
+  .info-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .info-block h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .info-block ul { list-style: none; }
+  .info-block li {
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 0.84rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .info-block li:last-child { border-bottom: none; }
+  .info-block li::before { content: "▸"; color: var(--accent-saffron); flex-shrink: 0; margin-top: 0.1rem; }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    background: var(--surface);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  .data-table thead { background: #f0ebe0; }
+  .data-table th {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-mid);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .data-table td {
+    padding: 0.65rem 0.9rem;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .data-table tr:hover { background: var(--surface2); }
+  
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .badge-green { background: #e6f4ee; color: var(--accent-green); }
+  .badge-orange { background: #fef0e6; color: var(--accent-saffron); }
+  .badge-blue { background: #e6edf8; color: var(--accent-blue); }
+  .badge-red { background: #fae8e8; color: var(--accent-red); }
+  .badge-purple { background: #f0eaf8; color: var(--accent-purple); }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight {
+    background: linear-gradient(135deg, #fff8f0, #fef4e8);
+    border: 1px solid #f0d8b0;
+    border-left: 4px solid var(--accent-saffron);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+  .highlight strong { color: var(--accent-saffron); }
+  
+  .highlight-green {
+    background: linear-gradient(135deg, #f0f9f4, #e8f5ee);
+    border: 1px solid #b0d8c0;
+    border-left: 4px solid var(--accent-green);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+  .highlight-green strong { color: var(--accent-green); }
+  
+  .highlight-blue {
+    background: linear-gradient(135deg, #f0f4fc, #e8eef8);
+    border: 1px solid #b0c8e8;
+    border-left: 4px solid var(--accent-blue);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+  .highlight-blue strong { color: var(--accent-blue); }
+
+  /* ── EXPRESSWAY CARD ── */
+  .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem;
+    border-top: 4px solid var(--accent-saffron);
+  }
+  .exp-card.green { border-top-color: var(--accent-green); }
+  .exp-card.blue { border-top-color: var(--accent-blue); }
+  .exp-card.purple { border-top-color: var(--accent-purple); }
+  .exp-card.teal { border-top-color: var(--accent-teal); }
+  .exp-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .exp-stat { font-size: 1.4rem; font-weight: 700; color: var(--accent-saffron); }
+  .exp-card.green .exp-stat { color: var(--accent-green); }
+  .exp-card.blue .exp-stat { color: var(--accent-blue); }
+  .exp-card.purple .exp-stat { color: var(--accent-purple); }
+  .exp-card.teal .exp-stat { color: var(--accent-teal); }
+  .exp-detail { font-size: 0.76rem; color: var(--text-mid); margin-top: 0.3rem; }
+  .exp-districts { font-size: 0.72rem; color: var(--text-light); margin-top: 0.4rem; line-height: 1.5; }
+
+  /* ── NODE MAP ── */
+  .node-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+  .node-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem;
+    text-align: center;
+  }
+  .node-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .node-name { font-size: 0.85rem; font-weight: 700; color: var(--text-dark); }
+  .node-inv { font-size: 0.8rem; font-weight: 600; color: var(--accent-saffron); margin-top: 0.2rem; }
+  .node-detail { font-size: 0.68rem; color: var(--text-light); margin-top: 0.2rem; }
+
+  /* ── MCQ ── */
+  .mcq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem;
+    margin-bottom: 0.85rem;
+    transition: all 0.2s;
+  }
+  .mcq-q {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+  }
+  .mcq-q span {
+    display: inline-block;
+    background: var(--accent-saffron);
+    color: white;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 0.72rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+  .mcq-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+  .mcq-opt {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: var(--surface2);
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .mcq-opt:hover { border-color: var(--accent-saffron); background: #fff8f0; }
+  .mcq-opt.correct { background: #e6f4ee; border-color: var(--accent-green); color: var(--accent-green); font-weight: 600; }
+  .mcq-opt.wrong { background: #fae8e8; border-color: var(--accent-red); color: var(--accent-red); }
+  .mcq-opt.reveal { background: #e6f4ee; border-color: var(--accent-green); color: var(--accent-green); font-weight: 600; }
+  
+  .mcq-explain {
+    display: none;
+    margin-top: 0.75rem;
+    background: #f0f9f4;
+    border: 1px solid #b0d8c0;
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.78rem;
+    color: var(--accent-green);
+  }
+  .mcq-explain.show { display: block; }
+  .mcq-score-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+  .mcq-score-fill { height: 100%; background: var(--accent-green); border-radius: 3px; transition: width 0.4s; }
+  
+  #score-display {
+    background: var(--surface);
+    border: 2px solid var(--accent-green);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    display: none;
+  }
+  #score-display h3 { color: var(--accent-green); font-size: 1.4rem; }
+  #score-display p { color: var(--text-mid); font-size: 0.85rem; margin-top: 0.25rem; }
+
+  /* ── BUDGET VISUAL ── */
+  .budget-bar { margin-bottom: 0.75rem; }
+  .budget-label { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.3rem; }
+  .budget-label span:last-child { font-weight: 600; }
+  .budget-track { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+  .budget-fill { height: 100%; border-radius: 5px; transition: width 1s ease; }
+
+  /* ── TWO-COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+
+  /* ── FACT STRIP ── */
+  .fact-strip {
+    background: linear-gradient(90deg, #fff8f0, #f0f9f4);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.83rem;
+  }
+  .fact-strip .emoji { font-size: 1.3rem; flex-shrink: 0; }
+  .fact-strip strong { color: var(--accent-saffron); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cards { grid-template-columns: 1fr 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .node-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .mcq-options { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.4rem; }
+  }
+  
+  /* ── SCROLL TO TOP ── */
+  .scroll-top {
+    position: fixed;
+    bottom: 1.5rem; right: 1.5rem;
+    width: 40px; height: 40px;
+    background: var(--accent-saffron);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(232,128,74,0.4);
+    z-index: 200;
+    transition: transform 0.2s;
+  }
+  .scroll-top:hover { transform: scale(1.1); }
+
+  /* sector color tags */
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 1rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    background: var(--tag-bg);
+    color: var(--text-mid);
+    margin: 0.15rem;
+  }
+  .tag-saffron { background: #fef0e6; color: #c0602a; }
+  .tag-green { background: #e6f4ee; color: #2a7a5a; }
+  .tag-blue { background: #e6edf8; color: #2a4f8a; }
+
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-badge">UPPSC 2026 • SDM Preparation</div>
+  <h1>उत्तर प्रदेश अर्थव्यवस्था<br><span>& उद्योग — Complete Toolkit</span></h1>
+  <div class="hero-meta">
+    <div class="meta-pill">🗓️ Data: 2025-26 Latest</div>
+    <div class="meta-pill">🎯 Top 10 Rank Focus</div>
+    <div class="meta-pill">📊 GDP + Industries + Infra</div>
+    <div class="meta-pill">✅ 20 MCQs Included</div>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<div class="nav-strip">
+  <button class="nav-btn active" onclick="showSection('gdp')">📊 GDP & Economy</button>
+  <button class="nav-btn" onclick="showSection('budget')">💰 Budget 2025-26</button>
+  <button class="nav-btn" onclick="showSection('industries')">🏭 Major Industries</button>
+  <button class="nav-btn" onclick="showSection('defence')">⚔️ Defence Corridor</button>
+  <button class="nav-btn" onclick="showSection('expressways')">🛣️ Expressways</button>
+  <button class="nav-btn" onclick="showSection('invest')">🤝 Invest UP / GIS</button>
+  <button class="nav-btn" onclick="showSection('mcq')">🧠 MCQ Practice</button>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1: GDP & ECONOMY -->
+<!-- ═══════════════════════════════════════ -->
+<div id="gdp" class="section active">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fff0e6;">📊</div>
+    <div>
+      <h2>UP का GDP — आकार, वृद्धि, राष्ट्रीय हिस्सा</h2>
+      <p>GSDP Data 2024-25 | Economic Survey 2025-26 | Latest Rankings</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    🏆 <strong>UP का लक्ष्य:</strong> $1 Trillion (₹83 लाख करोड़) Economy — Medium Term Target | UP ने अपना पहला Economic Survey 2025-26 विधानसभा में पेश किया।
+  </div>
+
+  <div class="cards">
+    <div class="card saffron">
+      <div class="card-emoji">💰</div>
+      <div class="card-value">₹30.25 L Cr</div>
+      <div class="card-label">GSDP 2024-25 (Current Prices)</div>
+      <div class="card-sub">Projected ₹36 L Cr in 2025-26</div>
+    </div>
+    <div class="card green">
+      <div class="card-emoji">📈</div>
+      <div class="card-value">10.8%</div>
+      <div class="card-label">CAGR (2016-17 to 2024-25)</div>
+      <div class="card-sub">From ₹13.30 L Cr to ₹30.25 L Cr</div>
+    </div>
+    <div class="card blue">
+      <div class="card-emoji">🥈</div>
+      <div class="card-value">2nd / 3rd</div>
+      <div class="card-label">National Rank by GSDP</div>
+      <div class="card-sub">Near TN (2nd), ahead of Karnataka</div>
+    </div>
+    <div class="card purple">
+      <div class="card-emoji">🌏</div>
+      <div class="card-value">8.77%</div>
+      <div class="card-label">National GDP Contribution</div>
+      <div class="card-sub">FY 2023-24 Data</div>
+    </div>
+    <div class="card teal">
+      <div class="card-emoji">🚀</div>
+      <div class="card-value">8.99%</div>
+      <div class="card-label">Real GSDP Growth 2024-25</div>
+      <div class="card-sub">4th Highest in India</div>
+    </div>
+    <div class="card gold">
+      <div class="card-emoji">💵</div>
+      <div class="card-value">$352 Bn</div>
+      <div class="card-label">Nominal GDP (USD) 2024</div>
+      <div class="card-sub">≈ Czechia (43rd World Economy)</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>📉 Per Capita Income (चिंताजनक)</h3>
+      <ul>
+        <li>Per Capita Income 2024-25: <strong>₹1.09 लाख</strong></li>
+        <li>राष्ट्रीय औसत का लगभग <strong>आधा</strong></li>
+        <li>Nominal GDP Per Capita: <strong>$1,428</strong> (Nepal के बराबर)</li>
+        <li>Poorest State Rank: <strong>2nd</strong> (Bihar के बाद)</li>
+        <li>NSDP Per Capita: Bihar से 1.57 गुना अधिक</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>🏦 Sectoral GVA Composition (2024-25)</h3>
+      <ul>
+        <li>🌾 Primary (Agriculture): <strong>26.83%</strong></li>
+        <li>🏭 Secondary (Industry): <strong>25.91%</strong></li>
+        <li>🏢 Tertiary (Services): <strong>47.26%</strong></li>
+        <li>GVA per hectare: ₹1.73 लाख (2024-25)</li>
+        <li>Crop Intensity: <strong>193.7%</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>🔑 UP के आर्थिक Key Facts (UPPSC परीक्षा हेतु)</h3>
+    <ul>
+      <li>UP में <strong>17.02%</strong> राष्ट्रीय जनसंख्या, परंतु GDP का केवल <strong>8.77%</strong> योगदान → इसीलिए Per Capita Low</li>
+      <li>UP देश का सर्वाधिक जनसंख्या वाला राज्य — <strong>22 करोड़+</strong></li>
+      <li>Irrigated Area: <strong>2.76 करोड़ हेक्टेयर</strong> (2024-25) — सर्वाधिक irrigated state</li>
+      <li>Registered Industrial Units: <strong>2.95 लाख+</strong></li>
+      <li>UP Largest Railway Network: <strong>16,000 km+</strong> — देश में सर्वाधिक</li>
+      <li>EDFC का <strong>57%</strong> UP से होकर गुजरता है — Dadri पर EDFC-WDFC का Junction</li>
+    </ul>
+  </div>
+
+  <div class="fact-strip">
+    <div class="emoji">🧮</div>
+    <div><strong>National Comparison:</strong> Maharashtra (~₹40 L Cr) > Tamil Nadu (~₹30.3 L Cr) ≈ UP (~₹30.25 L Cr) > Karnataka। UP, TN से केवल ₹46,086 करोड़ पीछे।</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2: BUDGET 2025-26 -->
+<!-- ═══════════════════════════════════════ -->
+<div id="budget" class="section">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e6edf8;">💰</div>
+    <div>
+      <h2>UP Budget 2025-26 — मुख्य बिंदु</h2>
+      <p>Presented by Finance Minister Suresh Khanna on Feb 20, 2025</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card saffron">
+      <div class="card-emoji">📋</div>
+      <div class="card-value">₹8.08 L Cr</div>
+      <div class="card-label">Total Budget Size</div>
+      <div class="card-sub">9 वर्षों में दोगुने से अधिक</div>
+    </div>
+    <div class="card blue">
+      <div class="card-emoji">🏗️</div>
+      <div class="card-value">20.5%</div>
+      <div class="card-label">Capital Expenditure Share</div>
+      <div class="card-sub">Industry, Infra, Mobility</div>
+    </div>
+    <div class="card green">
+      <div class="card-emoji">📊</div>
+      <div class="card-value">3% GSDP</div>
+      <div class="card-label">Fiscal Deficit Target</div>
+      <div class="card-sub">₹91,400 करोड़</div>
+    </div>
+    <div class="card teal">
+      <div class="card-emoji">💹</div>
+      <div class="card-value">2.6% GSDP</div>
+      <div class="card-label">Revenue Surplus</div>
+      <div class="card-sub">₹79,516 करोड़ (Projected)</div>
+    </div>
+    <div class="card purple">
+      <div class="card-emoji">🏦</div>
+      <div class="card-value">28%</div>
+      <div class="card-label">Debt-to-GSDP Ratio</div>
+      <div class="card-sub">Healthy (National Avg से कम)</div>
+    </div>
+    <div class="card gold">
+      <div class="card-emoji">💸</div>
+      <div class="card-value">₹2.09 L Cr</div>
+      <div class="card-label">Own Tax Revenue</div>
+      <div class="card-sub">2.5 गुना वृद्धि (9 वर्षों में)</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>📊 Sectoral Budget Allocation (% of Total)</h3>
+    <div style="padding: 0.5rem 0;">
+      <div class="budget-bar">
+        <div class="budget-label"><span>🏗️ Infrastructure</span><span>22%</span></div>
+        <div class="budget-track"><div class="budget-fill" style="width:22%; background: var(--accent-saffron);"></div></div>
+      </div>
+      <div class="budget-bar">
+        <div class="budget-label"><span>📚 Education</span><span>13%</span></div>
+        <div class="budget-track"><div class="budget-fill" style="width:13%; background: var(--accent-blue);"></div></div>
+      </div>
+      <div class="budget-bar">
+        <div class="budget-label"><span>🌾 Agriculture & Allied</span><span>11%</span></div>
+        <div class="budget-track"><div class="budget-fill" style="width:11%; background: var(--accent-green);"></div></div>
+      </div>
+      <div class="budget-bar">
+        <div class="budget-label"><span>🏥 Medical & Health</span><span>6%</span></div>
+        <div class="budget-track"><div class="budget-fill" style="width:6%; background: var(--accent-teal);"></div></div>
+      </div>
+      <div class="budget-bar">
+        <div class="budget-label"><span>🛡️ Social Security</span><span>4%</span></div>
+        <div class="budget-track"><div class="budget-fill" style="width:4%; background: var(--accent-purple);"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>🌾 Agriculture & Farmers</h3>
+      <ul>
+        <li>CM Kisan Durghatna Kalyan Yojana: <strong>₹1,050 Cr</strong></li>
+        <li>PM Kusum Yojana (Solar Pumps): <strong>₹509 Cr</strong></li>
+        <li>Budget का <strong>11%</strong> कृषि हेतु आवंटित</li>
+        <li>GVA per hectare: ₹1.73 लाख (2024-25 तक)</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>👩 Women Empowerment</h3>
+      <ul>
+        <li>Mukhyamantri Kanya Sumangala Yojana: <strong>₹700 Cr</strong></li>
+        <li>Same-caste marriage aid: <strong>₹55,000</strong></li>
+        <li>Inter-caste marriage aid: <strong>₹61,000</strong></li>
+        <li>Meritorious female students को Scooter</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    🤖 <strong>AI City:</strong> Budget 2025-26 का बड़ा highlight — UP में "Artificial Intelligence City" स्थापना का प्रस्ताव। Technology Research Translation Park in Cybersecurity भी।
+  </div>
+
+  <div class="info-block">
+    <h3>🏙️ Urban Development</h3>
+    <ul>
+      <li>58 Urban Local Bodies (District HQs) को Model Smart Urban Bodies में बदलना</li>
+      <li>प्रति ULB: ₹2.50 Cr | कुल आवंटन: <strong>₹145 Cr</strong></li>
+      <li>Smart Classrooms + ICT Labs in schools</li>
+      <li>Government Polytechnics में Digital Libraries</li>
+    </ul>
+  </div>
+
+  <div class="fact-strip">
+    <div class="emoji">📈</div>
+    <div>UP का Fiscal Health Index: 2014-19 में <strong>37.0</strong> से बढ़कर 2022-23 में <strong>45.9</strong> हो गया — "Front-runner State" श्रेणी में।</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3: MAJOR INDUSTRIES -->
+<!-- ═══════════════════════════════════════ -->
+<div id="industries" class="section">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e6f4ee;">🏭</div>
+    <div>
+      <h2>UP के प्रमुख उद्योग</h2>
+      <p>Sugar · Textile · Leather · IT · Food Processing · Handicrafts</p>
+    </div>
+  </div>
+
+  <!-- SUGAR -->
+  <div class="info-block" style="border-top: 4px solid var(--accent-saffron);">
+    <h3>🍬 चीनी उद्योग (Sugar Industry) — UP No.1 in India</h3>
+    <ul>
+      <li>UP भारत का सर्वाधिक गन्ना उत्पादक राज्य — <strong>145.39 Million Tonnes</strong> गन्ना उत्पादन</li>
+      <li>Sugar Output 2023-24: <strong>101-105 लाख टन</strong> (Maharashtra के बाद दूसरा बड़ा producer)</li>
+      <li>प्रमुख जिले: <span class="tag tag-saffron">Bijnor</span><span class="tag tag-saffron">Lakhimpur Kheri</span><span class="tag tag-saffron">Muzaffarnagar</span><span class="tag tag-saffron">Meerut</span><span class="tag tag-saffron">Saharanpur</span><span class="tag tag-saffron">Sitapur</span></li>
+      <li>Bijnor व Lakhimpur Kheri — प्रत्येक में <strong>9-9 Sugar Mills</strong> (सर्वाधिक)</li>
+      <li>Operational Sugar Mills (2017): <strong>119</strong> (पश्चिम + मध्य UP क्षेत्र में केंद्रित)</li>
+      <li>⭐ UP में गन्ने से Ethanol उत्पादन भी — National Ethanol Mission का हिस्सा</li>
+    </ul>
+  </div>
+
+  <!-- TEXTILE -->
+  <div class="info-block" style="border-top: 4px solid var(--accent-blue);">
+    <h3>🧵 वस्त्र उद्योग (Textile Industry) — UP का सर्वप्रमुख उद्योग</h3>
+    <table class="data-table" style="margin-top:0.75rem;">
+      <thead><tr><th>केंद्र</th><th>विशेषता</th><th>उत्पाद</th></tr></thead>
+      <tbody>
+        <tr><td>🕉️ <strong>Varanasi</strong></td><td>Silk Weaving Hub</td><td>Banarasi Silk Sarees, Brocade</td></tr>
+        <tr><td>🏭 <strong>Kanpur</strong></td><td>"Manchester of India"</td><td>Cotton Textiles, Woollen Mills</td></tr>
+        <tr><td>🌸 <strong>Lucknow</strong></td><td>Chikankari Embroidery</td><td>Chikan, Shadow Work</td></tr>
+        <tr><td>🧶 <strong>Mau</strong></td><td>Powerloom Center</td><td>Sarees, Dress Materials</td></tr>
+        <tr><td>🎨 <strong>Agra</strong></td><td>Zari Work</td><td>Zari Embroidery, Carpets</td></tr>
+        <tr><td>🌟 <strong>Mirzapur</strong></td><td>Carpet Weaving</td><td>Woollen Carpets</td></tr>
+        <tr><td>🧵 <strong>Rampur</strong></td><td>Fine Textile Weaving</td><td>Shawls, Fine Fabric</td></tr>
+      </tbody>
+    </table>
+    <ul style="margin-top:0.75rem;">
+      <li>Textile UP के कुल exports का लगभग <strong>15%</strong> है</li>
+      <li>Handloom cities: Kanpur, Meerut, Ghaziabad, Bareilly, Hardoi, Aligarh, Tanda, Hathras, Badaun, Prayagraj, Mubarakpur</li>
+    </ul>
+  </div>
+
+  <!-- LEATHER -->
+  <div class="info-block" style="border-top: 4px solid var(--accent-teal);">
+    <h3>👞 चर्म उद्योग (Leather Industry)</h3>
+    <ul>
+      <li><strong>Kanpur</strong> — India का सबसे बड़ा Leather Hub; "Leather City of the World"</li>
+      <li><strong>Agra</strong> — Shoes, Footwear exports का बड़ा केंद्र</li>
+      <li>अन्य केंद्र: <span class="tag">Lucknow</span><span class="tag">Meerut</span><span class="tag">Bareilly</span></li>
+      <li>Products: Shoes, Suitcases, Belts, Wallets, Industrial Leather Goods</li>
+      <li>चुनौती: Ganga Pollution (Tanneries से waste) → Kanpur CETP (Common Effluent Treatment Plant)</li>
+    </ul>
+  </div>
+
+  <!-- IT -->
+  <div class="info-block" style="border-top: 4px solid var(--accent-purple);">
+    <h3>💻 IT & Technology Sector</h3>
+    <ul>
+      <li><strong>Noida / Greater Noida</strong> — IT, Electronics, Software का सबसे बड़ा Hub</li>
+      <li>Products: IT Software, Electronics, Hardware, Precious Stones & Jewellery</li>
+      <li><strong>Lucknow</strong> — Developing IT Hub; Gomti Nagar में IT Parks</li>
+      <li>UP IT Policy 2023: Data Centers, AI, IT/ITeS को प्रोत्साहन</li>
+      <li><strong>AI City</strong> का प्रस्ताव — Budget 2025-26</li>
+      <li>DNGIR (Dadri-Noida-Ghaziabad Investment Region): <strong>21,000 हेक्टेयर</strong></li>
+    </ul>
+  </div>
+
+  <!-- OTHER INDUSTRIES TABLE -->
+  <div class="info-block">
+    <h3>🏭 अन्य प्रमुख उद्योग — Quick Reference</h3>
+    <table class="data-table" style="margin-top:0.75rem;">
+      <thead><tr><th>उद्योग</th><th>प्रमुख केंद्र</th><th>विशेष बात</th></tr></thead>
+      <tbody>
+        <tr><td>🔒 Lock Industry</td><td>Aligarh</td><td>देश का 80% Lock यहीं बनता है</td></tr>
+        <tr><td>⚽ Sports Goods</td><td>Meerut</td><td>Bats, Balls, Sports Equipment</td></tr>
+        <tr><td>🪔 Brassware</td><td>Moradabad ("Brass City")</td><td>Art Metalware, Export Hub</td></tr>
+        <tr><td>🌹 Perfume (Ittar)</td><td>Kannauj</td><td>"Perfume Capital of India"</td></tr>
+        <tr><td>🔫 Firearms (Legal)</td><td>Mirzapur, Aligarh</td><td>Licensed Arms Manufacturing</td></tr>
+        <tr><td>🧸 Wooden Toys</td><td>Varanasi</td><td>GI Tagged Traditional Products</td></tr>
+        <tr><td>🏺 Pottery / Terracotta</td><td>Gorakhpur (Terracotta)</td><td>Gorakhpur Terracotta — GI Tag</td></tr>
+        <tr><td>📰 Paper Industry</td><td>Saharanpur, Muzzafarnagar</td><td>Forest-based Industries</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-green">
+    🎯 <strong>UPPSC Important:</strong> Kanpur = "Manchester of India" (Textiles + Leather) | Moradabad = "Brass City" / "Pittal Nagari" | Kannauj = "Perfume Capital" | Aligarh = Locks | Agra = Marble + Leather | Varanasi = Silk
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 4: DEFENCE CORRIDOR -->
+<!-- ═══════════════════════════════════════ -->
+<div id="defence" class="section">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fae8e8;">⚔️</div>
+    <div>
+      <h2>UP Defence Industrial Corridor (UPDIC)</h2>
+      <p>Launched 2018 | Nodal Agency: UPEIDA | 6 Nodes</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    🚀 <strong>Investment Proposals (Sep 2025):</strong> ₹33,896 करोड़ | <strong>Rajnath Singh (Jan 2026):</strong> ₹34,000+ करोड़ invested | Land Allotted: 977.54 हेक्टेयर (62 companies को)
+  </div>
+
+  <div class="cards">
+    <div class="card saffron">
+      <div class="card-emoji">💰</div>
+      <div class="card-value">₹34,000 Cr+</div>
+      <div class="card-label">Total Investment (Jan 2026)</div>
+      <div class="card-sub">Rajnath Singh announced</div>
+    </div>
+    <div class="card green">
+      <div class="card-emoji">🏢</div>
+      <div class="card-value">62</div>
+      <div class="card-label">Companies Allocated Land</div>
+      <div class="card-sub">UPEIDA Report Sep 2025</div>
+    </div>
+    <div class="card blue">
+      <div class="card-emoji">📐</div>
+      <div class="card-value">2,040 Ha</div>
+      <div class="card-label">Total Land Procured</div>
+      <div class="card-sub">977.54 Ha allotted to industries</div>
+    </div>
+    <div class="card purple">
+      <div class="card-emoji">🌐</div>
+      <div class="card-value">6</div>
+      <div class="card-label">Strategic Nodes</div>
+      <div class="card-sub">Across UP</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:0.95rem; margin-bottom:0.75rem; color: var(--text-mid);">🗺️ 6 NODES — विस्तृत जानकारी</h3>
+  <div class="node-grid">
+    <div class="node-card">
+      <div class="node-icon">⚙️</div>
+      <div class="node-name">Kanpur</div>
+      <div class="node-inv">₹12,683 Cr</div>
+      <div class="node-detail">सर्वाधिक Investment | Ammunition, Arms</div>
+    </div>
+    <div class="node-card">
+      <div class="node-icon">⚔️</div>
+      <div class="node-name">Jhansi</div>
+      <div class="node-inv">₹9,139 Cr</div>
+      <div class="node-detail">Bundelkhand Region | Defence Manufacturing</div>
+    </div>
+    <div class="node-card">
+      <div class="node-icon">🚀</div>
+      <div class="node-name">Lucknow</div>
+      <div class="node-inv">₹2,611 Cr+</div>
+      <div class="node-detail">BrahMos Missile (₹9,000 Cr plan) | Titanium Casting | Aerolloy Technologies</div>
+    </div>
+    <div class="node-card">
+      <div class="node-icon">📡</div>
+      <div class="node-name">Aligarh</div>
+      <div class="node-inv">₹3,419 Cr</div>
+      <div class="node-detail">Electronic Warfare | Satellite Tech | Small Arms</div>
+    </div>
+    <div class="node-card">
+      <div class="node-icon">✈️</div>
+      <div class="node-name">Agra</div>
+      <div class="node-inv">₹709 Cr</div>
+      <div class="node-detail">Aerospace Components</div>
+    </div>
+    <div class="node-card">
+      <div class="node-icon">🏔️</div>
+      <div class="node-name">Chitrakoot</div>
+      <div class="node-inv">₹180 Cr</div>
+      <div class="node-detail">Bundelkhand Region | Defence Support</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>🔑 UPDIC — Key Companies & Products</h3>
+    <ul>
+      <li><strong>Aligarh:</strong> Amitec Electronics — Electronic Warfare Systems & Satellite Tech (₹330 Cr) | Werywin Defence — Small Arms (₹65 Cr) | Nitya Creations — Precision Arms Components</li>
+      <li><strong>Lucknow:</strong> Aerolloy Technologies — Titanium Casting Operations (₹320 Cr)</li>
+      <li><strong>Lucknow Node:</strong> BrahMos Missile Manufacturing — ₹9,000 Cr planned investment (PM Modi announced)</li>
+      <li>Defence Expo 2020 (Lucknow) में: MoUs worth <strong>₹50,000 Cr</strong> signed</li>
+      <li>Products: Fighter Aircraft Equipment, Arms, Ammunition, Missiles</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>📅 Timeline</h3>
+      <ul>
+        <li>2018: PM Modi ने Investors' Summit में announce किया</li>
+        <li>Feb 2020: Defence Expo, Lucknow — ₹50,000 Cr MoUs</li>
+        <li>Feb 2023: GIS 2023 में Defence Corridor Session</li>
+        <li>Sep 2025: Investment ₹33,896 Cr reached</li>
+        <li>Jan 2026: Rajnath Singh ने ₹34,000 Cr+ confirm किया</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>⭐ Strategic Importance</h3>
+      <ul>
+        <li>Make in India — Aatmanirbhar Bharat का हिस्सा</li>
+        <li>India का 2nd DIC (Tamil Nadu के साथ)</li>
+        <li>UPEIDA — Nodal Agency</li>
+        <li>BrahMos missile export potential</li>
+        <li>Employment: हजारों लोगों को रोजगार</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-blue">
+    📌 <strong>UPPSC Trick:</strong> Jhansi + Chitrakoot = Bundelkhand के 2 nodes | Kanpur = Highest Investment (₹12,683 Cr) | UPEIDA = Nodal Agency for both Expressways AND Defence Corridor!
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 5: EXPRESSWAYS -->
+<!-- ═══════════════════════════════════════ -->
+<div id="expressways" class="section">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e6f4ee;">🛣️</div>
+    <div>
+      <h2>UP Expressway Network — UPEIDA</h2>
+      <p>India's Largest State Expressway Network | 1,195+ km Operational</p>
+    </div>
+  </div>
+
+  <div class="highlight-green">
+    🏆 <strong>UP में India का सबसे बड़ा State Expressway Network!</strong> UPEIDA (UP Expressways Industrial Development Authority) — Nodal Agency | Total Operational: 1,195+ km
+  </div>
+
+  <div class="exp-grid">
+
+    <!-- Yamuna -->
+    <div class="exp-card">
+      <h3>🛣️ Yamuna Expressway</h3>
+      <div class="exp-stat">165 km</div>
+      <div class="exp-detail">
+        <span class="badge badge-green">✅ Operational</span>
+        <p style="margin-top:0.4rem;">Greater Noida → Agra</p>
+      </div>
+      <div class="exp-districts">
+        <strong>Districts:</strong> Gautam Buddha Nagar, Bulandshahr, Aligarh, Mathura, Agra<br>
+        <strong>Special:</strong> India's longest 6-lane access-controlled expressway when opened | F1 Racing Circuit near Noida
+      </div>
+    </div>
+
+    <!-- Agra-Lucknow -->
+    <div class="exp-card green">
+      <h3>🛣️ Agra-Lucknow Expressway</h3>
+      <div class="exp-stat">302 km</div>
+      <div class="exp-detail">
+        <span class="badge badge-green">✅ Operational</span>
+        <p style="margin-top:0.4rem;">Agra → Lucknow</p>
+      </div>
+      <div class="exp-districts">
+        <strong>Districts:</strong> Agra, Firozabad, Etawah, Aurraiya, Kannauj, Unnao, Lucknow<br>
+        <strong>Special:</strong> India's longest expressway when opened (2016) | 8 lanes
+      </div>
+    </div>
+
+    <!-- Purvanchal -->
+    <div class="exp-card blue">
+      <h3>🛣️ Purvanchal Expressway</h3>
+      <div class="exp-stat">340.8 km</div>
+      <div class="exp-detail">
+        <span class="badge badge-green">✅ Operational (Nov 2021)</span>
+        <p style="margin-top:0.4rem;">Lucknow → Ghazipur</p>
+      </div>
+      <div class="exp-districts">
+        <strong>9 Districts:</strong> Lucknow, Barabanki, Faizabad (Ayodhya), Ambedkar Nagar, Amethi, Sultanpur, Mau, Azamgarh, Ghazipur<br>
+        <strong>Special:</strong> Emergency Airstrip (3.5 km) | PM Modi inaugurated | IAF aircraft landed
+      </div>
+    </div>
+
+    <!-- Bundelkhand -->
+    <div class="exp-card purple">
+      <h3>🛣️ Bundelkhand Expressway</h3>
+      <div class="exp-stat">296 km</div>
+      <div class="exp-detail">
+        <span class="badge badge-green">✅ Operational (Jul 2022)</span>
+        <p style="margin-top:0.4rem;">Etawah → Chitrakoot</p>
+      </div>
+      <div class="exp-districts">
+        <strong>7 Districts:</strong> Etawah, Auraiya, Jalaun, Hamirpur, Mahoba, Banda, Chitrakoot<br>
+        <strong>Special:</strong> Bundelkhand region को connectivity | 4-lane (expandable to 6)
+      </div>
+    </div>
+
+    <!-- Ganga -->
+    <div class="exp-card teal">
+      <h3>🛣️ Ganga Expressway</h3>
+      <div class="exp-stat">594 km</div>
+      <div class="exp-detail">
+        <span class="badge badge-orange">🔄 Phase-1 Opened Apr 2026</span>
+        <p style="margin-top:0.4rem;">Meerut → Prayagraj</p>
+      </div>
+      <div class="exp-districts">
+        <strong>12 Districts:</strong> Meerut, Amroha, Bulandshahr, Badaun, Shahjahanpur, Farrukhabad, Hardoi, Kannauj, Unnao, Rae Bareli, Pratapgarh, Prayagraj<br>
+        <strong>Special:</strong> UPEIDA का सबसे ambitious project | Emergency Airstrip 3.5 km | May 2025 में IAF tests | Builders: IRB + Adani
+      </div>
+    </div>
+
+    <!-- Gorakhpur Link -->
+    <div class="exp-card" style="border-top-color: var(--gold);">
+      <h3>🛣️ Gorakhpur Link Expressway</h3>
+      <div class="exp-stat">91 km</div>
+      <div class="exp-detail">
+        <span class="badge badge-green">✅ Operational (Jun 2025)</span>
+        <p style="margin-top:0.4rem;">Gorakhpur → Azamgarh</p>
+      </div>
+      <div class="exp-districts">
+        <strong>Districts:</strong> Gorakhpur, Azamgarh<br>
+        <strong>Special:</strong> Purvanchal Expressway से जोड़ता है | 4-lane
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-block">
+    <h3>📊 Expressway Quick Comparison Table</h3>
+    <table class="data-table" style="margin-top:0.75rem;">
+      <thead><tr><th>Expressway</th><th>Length</th><th>Status</th><th>Districts</th></tr></thead>
+      <tbody>
+        <tr><td>Yamuna</td><td>165 km</td><td><span class="badge badge-green">Operational</span></td><td>5</td></tr>
+        <tr><td>Agra-Lucknow</td><td>302 km</td><td><span class="badge badge-green">Operational</span></td><td>7</td></tr>
+        <tr><td>Purvanchal</td><td>340.8 km</td><td><span class="badge badge-green">Operational 2021</span></td><td>9</td></tr>
+        <tr><td>Bundelkhand</td><td>296 km</td><td><span class="badge badge-green">Operational 2022</span></td><td>7</td></tr>
+        <tr><td><strong>Ganga</strong></td><td><strong>594 km</strong></td><td><span class="badge badge-orange">Phase-1 Apr 2026</span></td><td><strong>12</strong></td></tr>
+        <tr><td>Gorakhpur Link</td><td>91 km</td><td><span class="badge badge-green">Operational Jun 2025</span></td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>🔮 New Expressways (Approved / Proposed)</h3>
+    <ul>
+      <li><strong>Jhansi Link Expressway:</strong> 100 km — Bundelkhand को direct connectivity</li>
+      <li><strong>Jewar Link Expressway:</strong> Jewar Airport को Yamuna Expressway से connect</li>
+      <li><strong>Vindhya Expressway:</strong> 320 km — Mirzapur, Varanasi, Jaunpur → Prayagraj</li>
+      <li><strong>Lucknow Link Expressway:</strong> 50 km — Purvanchal + Agra Expressway connect</li>
+      <li><strong>Vindhya-Purvanchal Link:</strong> 100 km — Mirzapur to Ghazipur</li>
+    </ul>
+  </div>
+
+  <div class="highlight">
+    ✈️ <strong>Emergency Airstrips:</strong> Purvanchal Expressway (Sultan Pur के पास) + Ganga Expressway (Shahjahanpur) — दोनों पर IAF का successful landing test हो चुका है!
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 6: INVEST UP / GIS -->
+<!-- ═══════════════════════════════════════ -->
+<div id="invest" class="section">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#f0eaf8;">🤝</div>
+    <div>
+      <h2>Invest UP — Global Investors Summit (GIS)</h2>
+      <p>Investment Summits | Industrial Zones | Economic Survey 2025-26</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card saffron">
+      <div class="card-emoji">🤝</div>
+      <div class="card-value">₹33.50 L Cr</div>
+      <div class="card-label">GIS 2023 Investment Proposals</div>
+      <div class="card-sub">₹32.92 L Cr pre-summit roadshows</div>
+    </div>
+    <div class="card green">
+      <div class="card-emoji">📝</div>
+      <div class="card-value">19,058</div>
+      <div class="card-label">MoUs Signed (GIS 2023)</div>
+      <div class="card-sub">3-day Summit, Feb 10-12, 2023</div>
+    </div>
+    <div class="card blue">
+      <div class="card-emoji">👷</div>
+      <div class="card-value">93.8 Lakh</div>
+      <div class="card-label">Employment Potential</div>
+      <div class="card-sub">9.25 Million Jobs projected</div>
+    </div>
+    <div class="card purple">
+      <div class="card-emoji">🌍</div>
+      <div class="card-value">20+ Countries</div>
+      <div class="card-label">Participating Nations</div>
+      <div class="card-sub">USA, UK, Japan, UAE, Germany...</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>📅 GIS History</h3>
+      <ul>
+        <li>पहला GIS: <strong>February 2018</strong> — Defence Corridor announce</li>
+        <li>GIS 2023: Feb 10-12, 2023, Lucknow</li>
+        <li>Inaugurated by: PM Narendra Modi</li>
+        <li>Concluded by: President Draupadi Murmu</li>
+        <li>CM Yogi ने "Mahakumbh of Investment" कहा</li>
+        <li>GIS 2.0 (upcoming): ₹88 लाख करोड़ लक्ष्य!</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>🌏 Regional Investment Distribution</h3>
+      <ul>
+        <li>Western UP: <strong>45%</strong> of total committed investment</li>
+        <li>Eastern UP: <strong>29%</strong> of potential investment</li>
+        <li>Gautam Buddha Nagar (Noida/Greater Noida): Top Hub</li>
+        <li>DNGIR: 21,000 हेक्टेयर — Upcoming industrial zone</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>🏭 Key Investment Sectors (GIS 2023)</h3>
+    <ul>
+      <li>🌞 <strong>Renewable Energy</strong> — Solar, Wind (Gulf investors interested)</li>
+      <li>🏠 <strong>Real Estate & Infrastructure</strong></li>
+      <li>🚗 <strong>EV Manufacturing</strong> — Dedicated EV Policy UP</li>
+      <li>👕 <strong>Textiles & Apparel</strong></li>
+      <li>🌾 <strong>Agro & Food Processing</strong></li>
+      <li>👞 <strong>Leather & Footwear</strong></li>
+      <li>🏥 <strong>Hospital & Medical Education</strong></li>
+      <li>💻 <strong>IT & AI</strong></li>
+      <li>⚔️ <strong>Defence & Aerospace</strong></li>
+    </ul>
+  </div>
+
+  <div class="info-block">
+    <h3>🏙️ Major Industrial Development Zones</h3>
+    <table class="data-table" style="margin-top:0.75rem;">
+      <thead><tr><th>Zone</th><th>Location</th><th>Specialization</th></tr></thead>
+      <tbody>
+        <tr><td>🌟 <strong>Noida / Greater Noida</strong></td><td>Gautam Buddha Nagar</td><td>IT, Electronics, Pharma, Autos</td></tr>
+        <tr><td>🏭 <strong>DNGIR</strong></td><td>Dadri-Noida-Ghaziabad</td><td>21,000 Ha Investment Region</td></tr>
+        <tr><td>🔧 <strong>Kanpur</strong></td><td>Central UP</td><td>Leather, Chemicals, Defence</td></tr>
+        <tr><td>💼 <strong>Lucknow</strong></td><td>State Capital</td><td>IT Parks, Services, Aerospace</td></tr>
+        <tr><td>✈️ <strong>Jewar (NIAL)</strong></td><td>Gautam Buddha Nagar</td><td>International Airport + Aero City</td></tr>
+        <tr><td>📦 <strong>Agra</strong></td><td>Western UP</td><td>Tourism, Marble, Leather</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>💡 UP की 25+ Sectoral Policies</h3>
+    <ul>
+      <li>Defence & Aerospace Manufacturing Policy</li>
+      <li>EV Manufacturing Policy</li>
+      <li>Warehousing & Logistics Policy</li>
+      <li>Electronics Manufacturing Policy</li>
+      <li>Textile Policy</li>
+      <li>MSME Policy</li>
+      <li>Tourism Policy</li>
+      <li>IT Policy (AI, Data Centers)</li>
+      <li><strong>Nivesh Sarathi Portal</strong> — Online MoU signing & monitoring system</li>
+    </ul>
+  </div>
+
+  <div class="highlight-green">
+    🏆 <strong>UP Economic Survey 2025-26 (पहला ever):</strong> $1 Trillion Economy का Roadmap | GSDP ₹30.25 L Cr (2024-25) → ₹36 L Cr (2025-26 projected) → ₹83 L Cr ($1 Trillion) Target
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 7: MCQ PRACTICE -->
+<!-- ═══════════════════════════════════════ -->
+<div id="mcq" class="section">
+<div class="container">
+
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fef0e6;">🧠</div>
+    <div>
+      <h2>MCQ Practice — UP Economy & Industries</h2>
+      <p>UPPSC 2026 Pattern | 20 Questions | Click to Answer</p>
+    </div>
+  </div>
+
+  <div id="score-display">
+    <h3 id="score-text">0 / 20</h3>
+    <p>अपना score देखने के लिए सभी questions attempt करें</p>
+    <div class="mcq-score-bar"><div class="mcq-score-fill" id="score-fill" style="width:0%"></div></div>
+  </div>
+
+  <div id="mcq-container"></div>
+
+</div>
+</div>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ── NAV ──
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── MCQ DATA ──
+const mcqs = [
+  {
+    q: "UP का GSDP 2024-25 में कितना था?",
+    options: ["₹25.50 लाख करोड़", "₹28.00 लाख करोड़", "₹30.25 लाख करोड़", "₹32.00 लाख करोड़"],
+    answer: 2,
+    explain: "UP का GSDP 2024-25 में ₹30.25 लाख करोड़ था, जो 2025-26 में ₹36 लाख करोड़ तक पहुँचने का अनुमान है।"
+  },
+  {
+    q: "UP की GSDP 2016-17 से 2024-25 तक की CAGR क्या है?",
+    options: ["8.5%", "9.2%", "10.8%", "12.5%"],
+    answer: 2,
+    explain: "UP की GSDP CAGR 10.8% रही — ₹13.30 लाख करोड़ (2016-17) से ₹30.25 लाख करोड़ (2024-25) तक।"
+  },
+  {
+    q: "UP के Defence Industrial Corridor की Nodal Agency कौन है?",
+    options: ["UPSIDC", "UPEIDA", "PICUP", "InvestUP"],
+    answer: 1,
+    explain: "UPEIDA (UP Expressways Industrial Development Authority) UP Defence Industrial Corridor की Nodal Agency है।"
+  },
+  {
+    q: "UP Defence Corridor में कुल कितने Nodes हैं?",
+    options: ["4", "5", "6", "8"],
+    answer: 2,
+    explain: "6 Nodes: Agra, Aligarh, Lucknow, Kanpur, Jhansi, और Chitrakoot।"
+  },
+  {
+    q: "UP Defence Corridor के किस Node में सर्वाधिक Investment Proposals हैं?",
+    options: ["Lucknow", "Jhansi", "Kanpur", "Aligarh"],
+    answer: 2,
+    explain: "Kanpur Node में ₹12,683 करोड़ — सर्वाधिक। Jhansi दूसरे स्थान पर (₹9,139 Cr)।"
+  },
+  {
+    q: "गंगा एक्सप्रेसवे की कुल लंबाई कितनी है?",
+    options: ["340 km", "450 km", "520 km", "594 km"],
+    answer: 3,
+    explain: "Ganga Expressway 594 km लंबा है — Meerut से Prayagraj तक। Phase-1 April 2026 में खुला।"
+  },
+  {
+    q: "पूर्वांचल एक्सप्रेसवे किन दो जिलों को जोड़ता है?",
+    options: ["Varanasi to Ghazipur", "Lucknow to Ghazipur", "Lucknow to Gorakhpur", "Ayodhya to Ghazipur"],
+    answer: 1,
+    explain: "Purvanchal Expressway Lucknow (Chand Saray) से Ghazipur (Haydaria) तक 340.8 km लंबा है।"
+  },
+  {
+    q: "बुंदेलखंड एक्सप्रेसवे कितने जिलों से होकर गुजरता है?",
+    options: ["5", "6", "7", "9"],
+    answer: 2,
+    explain: "Bundelkhand Expressway 7 जिलों से: Etawah, Auraiya, Jalaun, Hamirpur, Mahoba, Banda, Chitrakoot।"
+  },
+  {
+    q: "UP GIS 2023 में कुल कितने MoUs हस्ताक्षरित हुए?",
+    options: ["12,500", "15,750", "19,058", "22,000"],
+    answer: 2,
+    explain: "UP Global Investors Summit 2023 में 19,058 MoUs signed हुए, ₹33.50 लाख करोड़ के investment proposals।"
+  },
+  {
+    q: "'Manchester of India' किसे कहा जाता है?",
+    options: ["Varanasi", "Lucknow", "Agra", "Kanpur"],
+    answer: 3,
+    explain: "Kanpur को 'Manchester of India' कहते हैं — Textile और Leather industries के कारण।"
+  },
+  {
+    q: "UP का Budget 2025-26 का कुल आकार क्या है?",
+    options: ["₹5.50 लाख करोड़", "₹6.80 लाख करोड़", "₹8.08 लाख करोड़", "₹9.50 लाख करोड़"],
+    answer: 2,
+    explain: "UP Budget 2025-26 का total size ₹8.08 लाख करोड़ है, जो 9 वर्षों में दोगुने से अधिक हो गया।"
+  },
+  {
+    q: "UP Budget 2025-26 में Infrastructure को कितने % आवंटित है?",
+    options: ["15%", "18%", "22%", "25%"],
+    answer: 2,
+    explain: "Budget 2025-26 में Infrastructure को 22% (सर्वाधिक), Education 13%, Agriculture 11% आवंटित है।"
+  },
+  {
+    q: "Moradabad किस उद्योग के लिए प्रसिद्ध है?",
+    options: ["Leather", "Brass/Brassware", "Sugar", "Silk"],
+    answer: 1,
+    explain: "Moradabad 'Brass City' या 'Pittal Nagari' के नाम से जाना जाता है — Art Metalware और Brassware के लिए।"
+  },
+  {
+    q: "Kannauj किस उत्पाद के लिए 'Perfume Capital of India' है?",
+    options: ["Rose Water", "Attar / Ittar", "Essential Oils", "All of above"],
+    answer: 3,
+    explain: "Kannauj को 'Perfume Capital of India' या 'Attar City' कहते हैं — इत्र (Attar), Rose Water, और Essential Oils सभी बनते हैं।"
+  },
+  {
+    q: "UP में BrahMos Missile Manufacturing किस Node में होगी?",
+    options: ["Kanpur", "Aligarh", "Lucknow", "Jhansi"],
+    answer: 2,
+    explain: "Lucknow Node में ₹9,000 करोड़ के BrahMos Missile Manufacturing की योजना PM Modi ने announce की थी।"
+  },
+  {
+    q: "Ganga Expressway का Emergency Airstrip कितना लंबा है?",
+    options: ["1.5 km", "2.5 km", "3.5 km", "5 km"],
+    answer: 2,
+    explain: "Ganga Expressway पर 3.5 km का Emergency Airstrip है, जिसका IAF aircraft ने May 2025 में successful test किया।"
+  },
+  {
+    q: "UP का National GDP में योगदान (2023-24) कितना % है?",
+    options: ["6.5%", "7.8%", "8.77%", "10%"],
+    answer: 2,
+    explain: "UP का National GDP में 8.77% योगदान है (2023-24), परंतु जनसंख्या 17.02% है।"
+  },
+  {
+    q: "DNGIR क्या है और यह किस जिले में है?",
+    options: ["Defence Node, Kanpur", "Industrial Region, Gautam Buddha Nagar", "IT Park, Lucknow", "Expressway, Agra"],
+    answer: 1,
+    explain: "DNGIR = Dadri-Noida-Ghaziabad Investment Region — Gautam Buddha Nagar में 21,000 हेक्टेयर में फैला Industrial Investment Region।"
+  },
+  {
+    q: "UP Budget 2025-26 में Capital Expenditure Share क्या है?",
+    options: ["14.8%", "17.5%", "20.5%", "25%"],
+    answer: 2,
+    explain: "UP Budget 2025-26 में Capital Expenditure 20.5% है — Infrastructure, Industry, Mobility, Investment Promotion पर focus।"
+  },
+  {
+    q: "Yamuna Expressway किन दो शहरों को जोड़ता है?",
+    options: ["Delhi to Agra", "Greater Noida to Agra", "Noida to Mathura", "Lucknow to Agra"],
+    answer: 1,
+    explain: "Yamuna Expressway 165 km लंबा है — Greater Noida से Agra तक। 5 Districts: Gautam Buddha Nagar, Bulandshahr, Aligarh, Mathura, Agra।"
+  }
+];
+
+// ── BUILD MCQs ──
+let answered = 0;
+let correct = 0;
+
+function buildMCQs() {
+  const container = document.getElementById('mcq-container');
+  mcqs.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'mcq-item';
+    div.id = `mcq-${i}`;
+    div.innerHTML = `
+      <div class="mcq-q"><span>${i+1}</span>${q.q}</div>
+      <div class="mcq-options">
+        ${q.options.map((opt, j) => `
+          <button class="mcq-opt" onclick="checkAnswer(${i}, ${j})">
+            <span style="font-weight:700; margin-right:0.2rem; color: var(--text-light);">${['A','B','C','D'][j]}.</span>${opt}
+          </button>
+        `).join('')}
+      </div>
+      <div class="mcq-explain" id="explain-${i}">✅ ${q.explain}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function checkAnswer(qi, selected) {
+  const item = document.getElementById(`mcq-${qi}`);
+  if (item.dataset.answered) return;
+  item.dataset.answered = '1';
+  answered++;
+  
+  const opts = item.querySelectorAll('.mcq-opt');
+  opts[mcqs[qi].answer].classList.add('reveal');
+  
+  if (selected === mcqs[qi].answer) {
+    opts[selected].classList.add('correct');
+    correct++;
+  } else {
+    opts[selected].classList.add('wrong');
+  }
+  
+  document.getElementById(`explain-${qi}`).classList.add('show');
+  
+  // Update score
+  document.getElementById('score-display').style.display = 'block';
+  document.getElementById('score-text').textContent = `${correct} / ${answered} (${Math.round(correct/answered*100)}%)`;
+  document.getElementById('score-fill').style.width = `${correct/20*100}%`;
+}
+
+buildMCQs();
+</script>
+
+</body>
+</html>
